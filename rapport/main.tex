@@ -107,11 +107,14 @@ Le jeu comporte une map principale découpée en plusieurs villes. Au départ ce
 
 Une ville possède deux états : inhabitée ou colonisée. 
 
-Une ville ne peut être colonisée par des explorateurs.
+Une ville ne peut être colonisée que par des explorateurs.
 
 Chaque ville possède deux notes : défense et fertilité. La note de défense est conditionnée par le nombre de soldats et par les fortifications construites. 
 
 Chaque joueur possède deux ressources : la nourriture et l'or.
+Si une ville est déjà colonisée par l'adversaire, il faut l'attaquer pour la conquérir.
+
+Les combats sont simulés et prennent en compte l'armée qui attaque d'un côté et la note de la ville et l'armée qui défend de l'autre.
 \\
 
 Les bâtiments disponibles sont : \begin{itemize}
@@ -123,6 +126,7 @@ Les bâtiments disponibles sont : \begin{itemize}
 \item Hôtel de ville pour produire les explorateurs
 
 \end{itemize}
+
 
 \subsection{Ressources}
 
