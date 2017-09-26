@@ -12,6 +12,7 @@ namespace state{
 
 Element::Element() : x(0), y(0), idPlayer(0)  {}
 
+
 Element::~Element(){
 
     cout << "destruction d'un Element" <<endl;
