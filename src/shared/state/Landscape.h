@@ -22,7 +22,7 @@ namespace state {
   public:
     bool const isAccessible ();
     TypeID getTypeID ();
-    bool const equals (const Element& other);
+    //bool const equals (const Element& other);
     Landscape ();
     // Setters and Getters
     int getType() const;

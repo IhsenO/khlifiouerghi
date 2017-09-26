@@ -18,7 +18,7 @@ namespace state {
     int accessible;
     // Operations
   public:
-    bool const equals (const Element& other);
+    //bool const equals (const Element& other);
     // Setters and Getters
   };
 

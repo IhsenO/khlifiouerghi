@@ -18,7 +18,8 @@ int main(int argc,char* argv[])
 {
     //Exemple exemple;
     //exemple.setX(53);
-
+    Element e;
+    
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
 
 

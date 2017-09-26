@@ -24,7 +24,7 @@ namespace state {
     Element ();
     virtual ~Element ();
     virtual TypeID getTypeID () const = 0;
-    virtual bool const equals (const Element& other);
+    //virtual bool const equals (const Element& other);
     // Setters and Getters
     int getX() const;
     void setX(int x);

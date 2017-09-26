@@ -18,7 +18,7 @@ namespace state {
     int range;
     // Operations
   public:
-    bool const equals (const Element& other);
+    //bool const equals (const Element& other);
     virtual bool const isMoving () = 0;
     // Setters and Getters
   };

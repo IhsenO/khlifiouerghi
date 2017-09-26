@@ -21,7 +21,7 @@ namespace state {
     // Operations
   public:
     TypeID getTypeID ();
-    bool const equals (const Element& other);
+    //bool const equals (const Element& other);
     bool isFree ();
     bool isBuilding ();
     City ();
