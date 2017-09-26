@@ -2,5 +2,17 @@
 #ifndef __STATE__H
 #define __STATE__H
 
-#include "state/Exemple.h"
+#include "state/TypeID.h"
+#include "state/Element.h"
+#include "state/StaticElement.h"
+#include "state/MobileElement.h"
+#include "state/Landscape.h"
+#include "state/City.h"
+#include "state/Army.h"
+#include "state/Settlers.h"
+#include "state/Construction.h"
+#include "state/Mine.h"
+#include "state/Farm.h"
+#include "state/Barrack.h"
+#include "state/Player.h"
 #endif
