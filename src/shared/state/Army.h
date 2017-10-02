@@ -4,7 +4,6 @@
 
 
 namespace state {
-  class Element;
   class MobileElement;
 }
 
@@ -17,13 +16,15 @@ namespace state {
   class Army : public state::MobileElement {
     // Attributes
   protected:
-    int soldiers     = 0;
+    int soldiers;
     // Operations
   public:
-    TypeID getTypeID ();
-    //bool const equals (const Element& other);
     Army ();
-    bool const isMoving ();
+    TypeID getTypeID () const;
+    bool  isMoving () const;
+    bool isInteractive () const;
+    bool isInCity () const;
+    bool isStatic () const;
     // Setters and Getters
     int getSoldiers() const;
     void setSoldiers(int soldiers);

@@ -4,7 +4,6 @@
 
 
 namespace state {
-  class Element;
   class MobileElement;
 }
 
@@ -17,10 +16,13 @@ namespace state {
   class Settlers : public state::MobileElement {
     // Operations
   public:
-    TypeID getTypeID ();
-    //bool const equals (const Element& other);
     Settlers ();
-    bool const isMoving ();
+    virtual ~Settlers ();
+    TypeID getTypeID () const;
+    bool  isMoving () const;
+    bool isInteractive () const;
+    bool isInCity () const;
+    bool isStatic () const;
     // Setters and Getters
   };
 

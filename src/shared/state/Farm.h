@@ -15,8 +15,8 @@ namespace state {
   class Farm : public state::Construction {
     // Operations
   public:
-    bool isProducing ();
     Farm ();
+    bool isProducing () const;
     // Setters and Getters
   };
 

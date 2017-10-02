@@ -15,8 +15,8 @@ namespace state {
   class Barrack : public state::Construction {
     // Operations
   public:
-    bool isProducing ();
     Barrack ();
+    bool isProducing () const;
     // Setters and Getters
   };
 

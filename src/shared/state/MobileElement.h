@@ -14,13 +14,15 @@ namespace state {
   /// class MobileElement - 
   class MobileElement : public state::Element {
     // Attributes
-  public:
+  protected:
     int range;
     // Operations
   public:
-    //bool const equals (const Element& other);
-    virtual bool const isMoving () = 0;
+    virtual bool isMoving () const = 0;
+    MobileElement (int range = 0);
     // Setters and Getters
+    int getRange() const;
+    void setRange(int range);
   };
 
 };

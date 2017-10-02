@@ -16,9 +16,12 @@ using namespace state;
 
 int main(int argc,char* argv[]) 
 {
-    //Exemple exemple;
-    //exemple.setX(53);
-    Element e;
+    
+    Player p;
+    
+    Settlers s;
+   
+    
     
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
 

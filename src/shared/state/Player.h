@@ -9,18 +9,28 @@ namespace state {
   /// class Player - 
   class Player {
     // Attributes
-  public:
-    bool playing     = false;
-    int id;
-  private:
+  protected:
     std::string name;
-    int gold     = 0;
-    int food     = 0;
+    int gold;
+    int food;
+    bool playing;
+    int id;
     // Operations
   public:
     Player ();
-    bool const isPlaying ();
+    virtual ~Player ();
+    bool isPlaying () const;
     // Setters and Getters
+    const std::string& getName() const;
+    void setName(const std::string& name);
+    int getGold() const;
+    void setGold(int gold);
+    int getFood() const;
+    void setFood(int food);
+    bool getPlaying() const;
+    void setPlaying(bool playing);
+    int getId() const;
+    void setId(int id);
   };
 
 };

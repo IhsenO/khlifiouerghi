@@ -3,10 +3,6 @@
 #define STATE__ELEMENT__H
 
 
-namespace state {
-  class Element;
-}
-
 #include "TypeID.h"
 
 namespace state {
@@ -16,15 +12,16 @@ namespace state {
     // Associations
     // Attributes
   protected:
-    int x     = 0;
-    int y     = 0;
-    int idPlayer     = 0;
+    int x;
+    int y;
+    int idPlayer;
     // Operations
   public:
     Element ();
     virtual ~Element ();
     virtual TypeID getTypeID () const = 0;
-    //virtual bool const equals (const Element& other);
+    virtual bool isInteractive () const = 0;
+    virtual bool isStatic () const = 0;
     // Setters and Getters
     int getX() const;
     void setX(int x);

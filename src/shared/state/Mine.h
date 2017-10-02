@@ -18,8 +18,8 @@ namespace state {
      ;
     // Operations
   public:
-    bool isProducing ();
     Mine ();
+    bool isProducing () const;
     // Setters and Getters
   };
 

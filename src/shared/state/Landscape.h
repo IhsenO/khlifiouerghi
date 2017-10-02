@@ -4,7 +4,6 @@
 
 
 namespace state {
-  class Element;
   class StaticElement;
 }
 
@@ -20,10 +19,11 @@ namespace state {
     int type;
     // Operations
   public:
-    bool const isAccessible ();
-    TypeID getTypeID ();
-    //bool const equals (const Element& other);
     Landscape ();
+    bool  isAccessible () const;
+    TypeID getTypeID () const;
+    bool isInteractive () const;
+    bool isStatic () const;
     // Setters and Getters
     int getType() const;
     void setType(int type);

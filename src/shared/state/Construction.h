@@ -13,12 +13,12 @@ namespace state {
     int ressourcesToBuild;
     std::vector<int> list;
   private:
-    int level     = 1;
+    int level;
     int productionByTurn;
     // Operations
   public:
     Construction ();
-    virtual bool isProducing () = 0;
+    virtual bool isProducing () const = 0;
     // Setters and Getters
   };
 

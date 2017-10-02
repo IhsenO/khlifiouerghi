@@ -13,12 +13,9 @@ namespace state {
 
   /// class StaticElement - 
   class StaticElement : public state::Element {
-    // Attributes
-  public:
-    int accessible;
     // Operations
   public:
-    //bool const equals (const Element& other);
+    virtual bool isAccessible () const = 0;
     // Setters and Getters
   };
 
