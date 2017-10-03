@@ -9,17 +9,24 @@ namespace state {
   /// class Construction - 
   class Construction {
     // Attributes
-  public:
-    int ressourcesToBuild;
-    std::vector<int> list;
-  private:
+  protected:
     int level;
     int productionByTurn;
+    int ressourcesToBuild;
+    std::vector<int> list;
     // Operations
   public:
     Construction ();
     virtual bool isProducing () const = 0;
     // Setters and Getters
+    int getLevel() const;
+    void setLevel(int level);
+    int getProductionByTurn() const;
+    void setProductionByTurn(int productionByTurn);
+    int getRessourcesToBuild() const;
+    void setRessourcesToBuild(int ressourcesToBuild);
+    const std::vector<int>& getList() const;
+    void setList(const std::vector<int>& list);
   };
 
 };

@@ -27,6 +27,12 @@ int main(int argc,char* argv[])
     
     City c;
     
+    Mine m;
+    
+    Farm f;
+    
+    Barrack b;
+    
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
 
 

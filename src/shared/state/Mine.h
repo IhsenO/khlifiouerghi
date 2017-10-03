@@ -13,9 +13,6 @@ namespace state {
 
   /// class Mine - 
   class Mine : public state::Construction {
-    // Attributes
-  public:
-     ;
     // Operations
   public:
     Mine ();
