@@ -2,6 +2,8 @@
 #ifndef STATE__CITY__H
 #define STATE__CITY__H
 
+#include <vector>
+#include <memory>
 
 namespace state {
   class StaticElement;
@@ -20,7 +22,7 @@ namespace state {
     // Attributes
   protected:
     int defense;
-    int listAjouter;
+    std::vector<std::unique_ptr<Construction>> listConst;
     // Operations
   public:
     City ();
@@ -33,8 +35,8 @@ namespace state {
     // Setters and Getters
     int getDefense() const;
     void setDefense(int defense);
-    int getListAjouter() const;
-    void setListAjouter(int listAjouter);
+    const std::vector<std::unique_ptr<Construction>>& getListConst() const;
+    void setListConst(const std::vector<std::unique_ptr<Construction>>& listConst);
   };
 
 };
