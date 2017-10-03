@@ -25,6 +25,8 @@ int main(int argc,char* argv[])
     
     Landscape l;
     
+    City c;
+    
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
 
 
