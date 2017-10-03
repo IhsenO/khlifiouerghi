@@ -26,7 +26,17 @@ namespace state{
     void Monde::set(int x, int y, int layer, Element* e) {
         layers[layer]->set(x,y,e);
     }
+    int Monde::getWidth() const {
+        return this->width;
+    }    
+    int Monde::getHeight() const {
+        return this->height;
+    }
 
+    Element* Monde::get(int x, int y, int layer) const {
+        //std::cout << "getMonde" << std::endl;
+        return layers[layer]->get(x, y);
+    }
 
 
 

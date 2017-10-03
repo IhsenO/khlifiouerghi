@@ -17,7 +17,7 @@ namespace state{
     int Landscape::getType() const { return type; }
     
     TypeID Landscape::getTypeID() const {
-
+        return LANDSCAPE;
     }
     
     bool Landscape::isAccessible() const {

@@ -15,7 +15,7 @@ namespace state{
     }
     
     TypeID City::getTypeID() const{
-        
+        return CITY;
     }
     
     bool City::isFree() const{ }

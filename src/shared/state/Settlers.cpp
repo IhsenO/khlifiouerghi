@@ -22,7 +22,7 @@ namespace state{
     //void Settlers::setRange(int range){ this->range = range;}
     
     TypeID Settlers::getTypeID() const{
-
+        return SETTLERS;
     }
    
 

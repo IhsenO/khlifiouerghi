@@ -28,8 +28,10 @@ namespace state {
     Monde (int width, int height, int depth);
     virtual ~Monde ();
     void set (int x, int y, int layer, Element* e);
-    Element* get (int y, int x, int layer) const;
+    Element* get (int x, int y, int layer) const;
     std::vector<Layer* > getLayers () const;
+    int getWidth () const;
+    int getHeight () const;
     // Setters and Getters
   };
 

@@ -18,7 +18,7 @@ namespace state{
     int Army::getSoldiers() const { return soldiers; }
 
 
-    TypeID Army::getTypeID() const {  }
+    TypeID Army::getTypeID() const { return ARMY; }
 
 
     bool Army::isInCity() const { }

@@ -15,7 +15,7 @@ namespace state{
         std::cout << "Layer " << tab.size() << std::endl;
     }
     Element* Layer::get(int x, int y) const {
-
+        return tab[y*width + x];
     }
     void Layer::set(int x, int y, Element* e) {
         tab[y*width + x] = e;
