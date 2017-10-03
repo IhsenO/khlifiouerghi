@@ -15,4 +15,6 @@
 #include "state/Farm.h"
 #include "state/Barrack.h"
 #include "state/Player.h"
+#include "state/Layer.h"
+#include "state/Monde.h"
 #endif
