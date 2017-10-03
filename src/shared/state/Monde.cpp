@@ -5,18 +5,29 @@
  */
 
 #include "Monde.h"
+#include <iostream>
 
 namespace state{
-    Monde::Monde(int width, int height, int depth) : width(width), height(height), nbLayers(depth) {
-        layers = new Layer[depth];
-        //for(int i = 0; i < nbLayers; i++){
-        //    layers[i] = std::unique_ptr<Layer>(new Layer(width, height));
-        //}
+    Monde::Monde(int width, int height, int depth) : width(width), height(height), nbLayers(depth), layers(depth) {
+        for(int i = 0; i < depth; i++){
+            //layers[i] = std::unique_ptr<Layer>(new Layer(width, height));
+            layers[i] = new Layer(width, height);
+        }
+        std::cout << "Monde " << layers.size() << std::endl;
     }
     
     Monde::~Monde() {
-        delete[] layers;
     }
+    
+    std::vector<Layer*> Monde::getLayers() const {
+        return this->layers;
+    }
+       
+    void Monde::set(int x, int y, int layer, Element* e) {
+        layers[layer]->set(x,y,e);
+    }
+
+
 
 
 }

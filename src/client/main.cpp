@@ -17,24 +17,15 @@ using namespace state;
 int main(int argc,char* argv[]) 
 {
     
-    Player p;
-    
-    Settlers s;
+    Monde monde(10,10,3);
    
-    Army a;
-    
-    Landscape l;
-    
-    City c;
-    
-    Mine m;
-    
-    Farm f;
-    
-    Barrack b;
+    vector<Layer*> a = monde.getLayers();
+        
+    //for(Element* i = 0; i<a[0].size(); i++){
+    //    i = new Landscape();
+    //}
     
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
-
 
     return 0;
 }

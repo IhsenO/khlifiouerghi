@@ -3,7 +3,6 @@
 #define STATE__LAYER__H
 
 #include <vector>
-#include <memory>
 
 namespace state {
   class Element;
@@ -15,7 +14,9 @@ namespace state {
   class Layer {
     // Attributes
   private:
-    std::vector<std::unique_ptr<Element> > tab;
+    std::vector<Element*> tab;
+    int width;
+    int height;
     // Operations
   public:
     Layer (int width, int height);

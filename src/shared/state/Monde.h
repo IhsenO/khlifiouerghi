@@ -2,6 +2,7 @@
 #ifndef STATE__MONDE__H
 #define STATE__MONDE__H
 
+#include <vector>
 
 namespace state {
   class Layer;
@@ -21,13 +22,14 @@ namespace state {
     int height;
     int width;
     int nbLayers;
-    Layer* layers;
+    std::vector<Layer* > layers;
     // Operations
   public:
     Monde (int width, int height, int depth);
     virtual ~Monde ();
     void set (int x, int y, int layer, Element* e);
     Element* get (int y, int x, int layer) const;
+    std::vector<Layer* > getLayers () const;
     // Setters and Getters
   };
 
