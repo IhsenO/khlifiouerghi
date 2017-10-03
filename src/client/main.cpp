@@ -21,7 +21,7 @@ int main(int argc,char* argv[])
     
     Settlers s;
    
-    
+    Army a;
     
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
 
