@@ -23,6 +23,8 @@ int main(int argc,char* argv[])
    
     Army a;
     
+    Landscape l;
+    
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
 
 
