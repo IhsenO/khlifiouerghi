@@ -11,7 +11,7 @@ namespace state{
     
         cout << "Debut des tests sur les états :" << endl;
         
-        cout << "Créons déjà un joueur, appleons le Moha !" << endl;
+        cout << "Créons déjà un joueur, appelons le Moha !" << endl;
         Player p("Moha");
         cout << "Verifie qu'un joueur prénomé Moha a été créé...";
         if(p.getName() == "Moha") cout << "OK Moha est là !" << endl;
@@ -49,7 +49,7 @@ namespace state{
         c.addConstruction(new Mine());
         c.addConstruction(new Farm());
         c.addConstruction(new Barrack());
-        cout << "Verifions qu'on a bien 3 batimants dans la ville et qu'on ne peut plus en rajouter...";
+        cout << "Verifions qu'on a bien 3 batiments dans la ville et qu'on ne peut plus en rajouter...";
         if(c.isFullOfConstructions()) cout << "OK jolie ville !" << endl;
         else cout << "Oups ERREUR " << endl;
         
@@ -63,7 +63,6 @@ namespace state{
         else cout << "Erreur ! " << endl;
         cout << "Largeur : " << m.getWidth() << " et Hauteur : " << m.getHeight() << endl;
         
-        cout << "Tout ça c'est bien beau mais il faudrai mettre quelque chose dans notre monde !" << endl;
         cout << "Mettons du paysage !" << endl;
         for(int i = 0; i< m.getWidth() ; i++)
             for(int j = 0; j < m.getHeight(); j++){
@@ -85,7 +84,7 @@ namespace state{
         
         Monde m2(10,10,2);
         
-        cout << "Verification de la hauteur et la largeur..." << endl;
+        cout << "Verification de la hauteur et la largeur...";
         if(m2.getWidth() == 10 && m2.getHeight() == 10) cout << "Ok nickel !"<< endl;
         else cout << "Erreur ! " << endl;
         cout << "Largeur de " << m2.getWidth() << ", Hauteur de " << m2.getHeight() << " et Nombre de layers " << m2.getLayers().size()<<endl;
@@ -119,7 +118,7 @@ namespace state{
         m2.set(4,3,1,new Army());
         
         cout << "Verifions qu'elles sont au bon endroit...";
-        if(m2.get(3,3,1)->getTypeID() == 3 && m2.get(4,3,1)->getTypeID() == 3) cout << "Okay elles sont là, ca va chauffer !" <<endl;
+        if(m2.get(3,3,1)->getTypeID() == 3 && m2.get(4,3,1)->getTypeID() == 3) cout << "Ok elles sont là, ca va chauffer !" <<endl;
         else cout<<"ERREUR !!!"<<endl;
         
         

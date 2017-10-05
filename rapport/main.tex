@@ -154,16 +154,72 @@ Nous avons aussi besoin de sprites représentant les armées, pour cela nous avo
 
 \end{figure}
 
-Bien sur certaines animations du spritesheet ne seront pas utilisés.
+Bien sur certaines animations du spritesheet ne seront pas utilisées.
 
 
 
-%
-%\begin{landscape}
-%\begin{figure}[p]
-%\includegraphics[width=0.9\paperheight]{module.pdf}
-%\caption{\label{uml:module}Diagramme des classes pour la modularisation.} 
-%\end{figure}
-%\end{landscape}
+\clearpage
+\section{Description et conception des états}
+
+\subsection{Description des états}
+
+Notre jeu sera constitué d'une map principale sur laquelle se déroule tout le jeu. Au départ, nous prévoyons que le joueur ne connaisse qu'une partie de celle-ci, l'idée étant de s'aventurer sur la map pour pouvoir la découvrir. Ceci implique ainsi de ne connaître ni les positions des villes, ni la position initiale du joueur adversaire au départ.
+Il y aura des éléments fixes et mobiles, ceux ci auront une position, et appartiendront à un des joueurs.
+
+\subsubsection{États à éléments fixes}
+
+
+\textbf{Cases "City" : } chaque ville possède un nombre de cases déterminé sur lesquelles elle va se construire.
+\\
+Nous avons aussi une classe Construction (pour bâtiment). Une City possède un tableau de constructions. Trois classes héritent de Construction : Mine (pour l'extraction de l'or), Farm (pouur la production de nourriture) et Barrack (pour la création de soldats). Cette City peut être en état de construction ou non, elle peut être libre ou non. 
+\\
+%/\begin{tabular}{llll}
+ %/      Nous avons aussi une classe Construction (pour bâtiment) qui hérite de la classe City, et qui hérite elle-même de trois nouvelles classes :&
+%/       Mine : pour l'extraction d'or\\
+  %/    Farm : pour la fabrication de nourriture\\
+    %/  Barrack (caserne) : pour la création de soldats
+     
+%/\end{tabular}/%
+%/\begin{tabular}{lllll}
+ %/   & Nous avons aussi une classe Construction (pour bâtiment) qui hérite de la classe City, et qui hérite elle-même de trois nouvelles classes : &  \\
+  %/ 2.1 & 2.2 & 2.3 \\
+   %/2.1 & 2.2 & 2.3 \\
+   %/2.1 & 2.2 & 2.3
+%/\end{tabular}
+
+\textbf{Cases "Landscape" :} cases en dehors des villes dans lesquelles peuvent se déplacer les explorateurs et les soldats. Dans la classe correspondante, chaque Landscape peut être accessible ou non pour les éléments mobiles.
+\\
+\subsubsection{États à éléments mobiles}
+
+\textbf{Élément "Army" :} Unité de combat pour la défense d'une ville et pour la conquête armée de territoire. Elle peut attaquer une ville déjà conquise ou les éléments adversaires hors des villes : \begin{itemize}
+
+\item si elle rencontre un groupe de soldat : simulation du combat
+
+\item si elle rencontre des explorateurs, elle les tue.
+\\
+\end{itemize}
+Elles peuvent être en garnison dans une ville ou bien en déplacement sur la carte.
+
+\textbf{Élément "Settlers" :} Unité d'exploration et d'expansion. Permet de découvrir la map, et des colonies dans les villes inhabitées. Cette unité précieuse dans l'expansion est complètement impuissante contre les soldats et meure si elle se fait attaquer.
+
+\subsubsection{États général}
+
+L'état général est défini par les époques, ainsi que le joueur qui est en train de jouer.
+
+
+\subsection{Conception Logicielle}
+
+Le diagrame UML est donné ds la prochaine figure, les principales classes sont Element et ses heritières.
+Ensuite la classe Player, et enfin la classe monde, contenant une grille d'éléments.
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=1\textwidth]{images/UML.png}
+  \caption{Diagramme UML des états}
+ \end{center}
+
+\end{figure}
+
+
 
 \end{document}
