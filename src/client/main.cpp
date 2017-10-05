@@ -11,24 +11,24 @@ void testSFML() {
 
 #include "state.h"
 
+#include "state/Tests.h"
+
 using namespace std;
 using namespace state;
 
 int main(int argc,char* argv[]) 
 {
     
+    testsUnitaires();
+    /*
     Monde monde(10,10,3);
-   
-    //vector<Layer*> a = monde.getLayers();
-    
-    
-    
+       
     for(int i = 0; i< monde.getWidth() ; i++)
         for(int j = 0; j < monde.getHeight(); j++){
             monde.set(i,j,0,new Landscape());
     }
     
-    monde.set(0,3,0,new City());
+    monde.set(0,3,0,new Army());
     
     for(int i = 0; i< monde.getWidth() ; i++)
         for(int j = 0; j < monde.getHeight(); j++){
@@ -39,6 +39,6 @@ int main(int argc,char* argv[])
     cout << monde.get(0,3,0)->getTypeID() << endl;
     
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
-
+    */
     return 0;
 }

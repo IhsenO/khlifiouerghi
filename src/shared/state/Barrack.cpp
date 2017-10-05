@@ -11,7 +11,7 @@ namespace state{
     
     Barrack::Barrack(){
         this->productionByTurn = 100;
-        std::cout << "Créationd'une Barrack" << std::endl;
+        //std::cout << "Créationd'une Barrack" << std::endl;
     }
     
     bool Barrack::isProducing() const{

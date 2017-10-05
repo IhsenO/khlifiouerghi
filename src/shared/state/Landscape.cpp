@@ -11,7 +11,7 @@
 namespace state{
     
     Landscape::Landscape() {
-        std::cout << "Creation d'un Landscape" << std::endl;
+        //std::cout << "Creation d'un Landscape" << std::endl;
     }
 
     int Landscape::getType() const { return type; }

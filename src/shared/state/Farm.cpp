@@ -11,7 +11,7 @@ namespace state{
     
     Farm::Farm(){
         this->productionByTurn = 500;
-        std::cout << "Créationd'une Farm" << std::endl;
+        //std::cout << "Créationd'une Farm" << std::endl;
     }
     
     bool Farm::isProducing() const{

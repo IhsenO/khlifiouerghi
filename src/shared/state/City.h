@@ -3,11 +3,10 @@
 #define STATE__CITY__H
 
 #include <vector>
-#include <memory>
 
 namespace state {
-  class StaticElement;
   class Construction;
+  class StaticElement;
 }
 
 #include "TypeID.h"
@@ -22,7 +21,7 @@ namespace state {
     // Attributes
   protected:
     int defense;
-    std::vector<std::unique_ptr<Construction>> listConst;
+    std::vector<Construction*> listConst;
     // Operations
   public:
     City ();
@@ -32,11 +31,13 @@ namespace state {
     bool isAccessible () const;
     bool isInteractive () const;
     bool isStatic () const;
+    void addConstruction (Construction* construction);
+    bool isFullOfConstructions () const;
     // Setters and Getters
     int getDefense() const;
     void setDefense(int defense);
-    const std::vector<std::unique_ptr<Construction>>& getListConst() const;
-    void setListConst(const std::vector<std::unique_ptr<Construction>>& listConst);
+    const std::vector<Construction*>& getListConst() const;
+    void setListConst(const std::vector<Construction*>& listConst);
   };
 
 };

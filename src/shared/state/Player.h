@@ -18,6 +18,7 @@ namespace state {
     // Operations
   public:
     Player ();
+    Player (std::string nom);
     virtual ~Player ();
     bool isPlaying () const;
     // Setters and Getters

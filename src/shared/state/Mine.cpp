@@ -11,7 +11,7 @@ namespace state{
     
     Mine::Mine(){
         this->productionByTurn = 100;
-        std::cout << "Créationd'une Mine" << std::endl;
+        //std::cout << "Créationd'une Mine" << std::endl;
     }
     
     bool Mine::isProducing() const{

@@ -10,7 +10,7 @@
 namespace state{
     
     Construction::Construction() : level(1), ressourcesToBuild(0) {
-        std::cout << "Création d'une Construction" << std::endl;
+        //std::cout << "Création d'une Construction" << std::endl;
     }
     
     

@@ -11,10 +11,10 @@ namespace state{
     
     Settlers::Settlers() {
         this->range = 10;
-        std::cout << "Création d'un Settler" << std::endl;
+        //std::cout << "Création d'un Settler" << std::endl;
     }
     Settlers::~Settlers(){
-        std::cout << "Destruction d'un Settler" << std::endl;
+        //std::cout << "Destruction d'un Settler" << std::endl;
         
     }
   
@@ -31,10 +31,10 @@ namespace state{
     }
 
     bool Settlers::isInteractive() const {
-
+        return true;
     }
 
-    bool Settlers::isStatic() const{}
+    bool Settlers::isStatic() const{ return false; }
 
     bool Settlers::isMoving() const{
 

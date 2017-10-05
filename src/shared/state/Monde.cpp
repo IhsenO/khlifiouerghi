@@ -13,7 +13,7 @@ namespace state{
             //layers[i] = std::unique_ptr<Layer>(new Layer(width, height));
             layers[i] = new Layer(width, height);
         }
-        std::cout << "Monde " << layers.size() << std::endl;
+        //std::cout << "Monde " << layers.size() << std::endl;
     }
     
     Monde::~Monde() {

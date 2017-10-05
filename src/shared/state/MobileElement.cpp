@@ -10,7 +10,7 @@ namespace state{
     
     
     MobileElement::MobileElement(int range){
-        std::cout << "Creation Element Mobile" << std::endl;
+        //std::cout << "Creation Element Mobile" << std::endl;
         this->range = range;
     }
     

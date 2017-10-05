@@ -11,7 +11,7 @@ namespace state{
     
     City::City() {
         this->defense = 1;
-        std::cout << "Création d'une City" << std::endl;
+        //std::cout << "Création d'une City" << std::endl;
     }
     
     TypeID City::getTypeID() const{
@@ -27,4 +27,21 @@ namespace state{
     bool City::isInteractive() const{ return true; }
     
     bool City::isStatic() const{ return true; }
+
+    //void City::setListConst(const std::vector<Construction*>& listConst) { listConst(listConst); }
+    void City::addConstruction(Construction* construction) {
+        this->listConst.push_back(construction);
+    }
+    const std::vector<Construction*>& City::getListConst() const {
+
+    }
+    bool City::isFullOfConstructions() const {
+        if(this->listConst.size()==3) return true;
+        else return false;
+    }
+
+
+
+
+
 }

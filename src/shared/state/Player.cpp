@@ -10,8 +10,13 @@
 namespace state{
     
     Player::Player() : gold(0), food(0), id(-1), playing(false) {
-        std::cout << "Création Player" << std::endl;
+        //std::cout << "Création Player" << std::endl;
     }
+
+    Player::Player(std::string nom) : name(nom) {
+        
+    }
+
     
     bool Player::isPlaying () const {return playing;}
 
@@ -26,7 +31,7 @@ namespace state{
     void Player::setId(int id) { this->id = id;} 
     
     Player::~Player(){
-        std::cout << "Destruction Player" << std::endl;
+        //std::cout << "Destruction Player" << std::endl;
     } 
     
     
