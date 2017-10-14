@@ -9,7 +9,7 @@
 
 namespace state{
     
-    Player::Player() : gold(0), food(0), id(-1), playing(false) {
+    Player::Player() : gold(0), food(0), playing(false), id(-1) {
         //std::cout << "Création Player" << std::endl;
     }
 

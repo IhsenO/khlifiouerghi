@@ -21,7 +21,7 @@ namespace state{
     TypeID Army::getTypeID() const { return ARMY; }
 
 
-    bool Army::isInCity() const { }
+    bool Army::isInCity() const { return inCity; }
 
 
     bool Army::isInteractive() const { return true; }
@@ -29,7 +29,7 @@ namespace state{
     bool Army::isStatic() const { return false; }
 
 
-    bool Army::isMoving() const { }
+    bool Army::isMoving() const { return moving; }
 
 
     void Army::setSoldiers(int soldiers) {

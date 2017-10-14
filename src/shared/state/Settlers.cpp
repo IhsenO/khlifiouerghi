@@ -27,7 +27,7 @@ namespace state{
    
 
     bool Settlers::isInCity() const {
-
+        return inCity;
     }
 
     bool Settlers::isInteractive() const {
@@ -37,7 +37,7 @@ namespace state{
     bool Settlers::isStatic() const{ return false; }
 
     bool Settlers::isMoving() const{
-
+        return moving;
     }
     
 }

@@ -13,10 +13,15 @@ namespace state {
 
   /// class StaticElement - 
   class StaticElement : public state::Element {
+    // Attributes
+  protected:
+    bool accessible;
     // Operations
   public:
     virtual bool isAccessible () const = 0;
     // Setters and Getters
+    bool getAccessible() const;
+    void setAccessible(bool accessible);
   };
 
 };

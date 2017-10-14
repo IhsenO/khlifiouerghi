@@ -16,6 +16,8 @@ namespace state {
     // Attributes
   protected:
     int range;
+    bool moving;
+    bool inCity;
     // Operations
   public:
     virtual bool isMoving () const = 0;
@@ -23,6 +25,10 @@ namespace state {
     // Setters and Getters
     int getRange() const;
     void setRange(int range);
+    bool getMoving() const;
+    void setMoving(bool moving);
+    bool getInCity() const;
+    void setInCity(bool inCity);
   };
 
 };

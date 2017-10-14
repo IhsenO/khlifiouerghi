@@ -8,7 +8,7 @@
 #include <iostream>
 
 namespace state{
-    Monde::Monde(int width, int height, int depth) : width(width), height(height), nbLayers(depth), layers(depth) {
+    Monde::Monde(int width, int height, int depth) : height(height), width(width), nbLayers(depth), layers(depth) {
         for(int i = 0; i < depth; i++){
             //layers[i] = std::unique_ptr<Layer>(new Layer(width, height));
             layers[i] = new Layer(width, height);

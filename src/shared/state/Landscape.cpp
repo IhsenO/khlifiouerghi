@@ -11,7 +11,6 @@
 namespace state{
     
     Landscape::Landscape() {
-        //std::cout << "Creation d'un Landscape" << std::endl;
     }
 
     int Landscape::getType() const { return type; }
@@ -19,10 +18,11 @@ namespace state{
     TypeID Landscape::getTypeID() const {
         return LANDSCAPE;
     }
-    
-    bool Landscape::isAccessible() const {
 
+    bool Landscape::isAccessible() const {
+        return accessible;
     }
+
     
     bool Landscape::isInteractive() const { return false; }
     

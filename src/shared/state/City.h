@@ -22,6 +22,8 @@ namespace state {
   protected:
     int defense;
     std::vector<Construction*> listConst;
+    bool building;
+    bool free;
     // Operations
   public:
     City ();
@@ -38,6 +40,10 @@ namespace state {
     void setDefense(int defense);
     const std::vector<Construction*>& getListConst() const;
     void setListConst(const std::vector<Construction*>& listConst);
+    bool getBuilding() const;
+    void setBuilding(bool building);
+    bool getFree() const;
+    void setFree(bool free);
   };
 
 };

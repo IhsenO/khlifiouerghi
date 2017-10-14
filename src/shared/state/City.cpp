@@ -18,9 +18,9 @@ namespace state{
         return CITY;
     }
     
-    bool City::isFree() const{ }
+    bool City::isFree() const{ return free; }
     
-    bool City::isBuilding() const{}
+    bool City::isBuilding() const{ return building; }
     
     bool City::isAccessible() const{ return false; }
     
@@ -32,9 +32,7 @@ namespace state{
     void City::addConstruction(Construction* construction) {
         this->listConst.push_back(construction);
     }
-    const std::vector<Construction*>& City::getListConst() const {
 
-    }
     bool City::isFullOfConstructions() const {
         if(this->listConst.size()==3) return true;
         else return false;
