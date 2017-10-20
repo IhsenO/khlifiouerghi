@@ -17,6 +17,9 @@ namespace state{
     }
     
     Monde::~Monde() {
+        std::cout << "destroy Monde" << std::endl;
+        for(auto e : layers)
+            delete e;
     }
     
     std::vector<Layer*> Monde::getLayers() const {

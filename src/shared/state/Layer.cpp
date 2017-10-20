@@ -21,5 +21,11 @@ namespace state{
         tab[y*width + x] = e;
     }
 
+    Layer::~Layer() {
+        std::cout << "destroy Layer" << std::endl;
+        for(auto l : tab)
+            delete l;
+    }
+
     
 }

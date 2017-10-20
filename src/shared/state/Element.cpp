@@ -13,7 +13,7 @@ namespace state{
         //std::cout << "Construction Element" << std::endl;
     }
     Element::~Element(){        
-        //std::cout << "destruction d'un Element" << std::endl;
+        std::cout << "destruction d'un Element" << std::endl;
     }
     
     int Element::getX() const { return x; }

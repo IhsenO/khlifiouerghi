@@ -19,24 +19,16 @@ using namespace render;
 
 int main(int argc,char* argv[]) 
 {
+    
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Test");
-    
-    const int level[] =
-    {
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    };
-    
+        
     TileMap map;
+    std::vector<int> level = map.loadLayer();
+
+    std::cout << level.size() << std::endl;
+   
+    
     if (!map.load("../res/tileset.png", level))
         return -1;
 
@@ -55,6 +47,6 @@ int main(int argc,char* argv[])
     }
     
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
-    
+   
     return 0;
 }

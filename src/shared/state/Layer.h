@@ -22,6 +22,7 @@ namespace state {
     Layer (int width, int height);
     void set (int x, int y, Element* e);
     Element* get (int x, int y) const;
+    virtual ~Layer ();
     // Setters and Getters
   };
 

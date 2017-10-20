@@ -5,18 +5,45 @@
  */
 
 #include "TileMap.h"
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
 namespace render {
 
-    bool TileMap::loadLayer(const std::string layer) {
+    std::vector<int> TileMap::loadLayer() {
+        
+        std::vector<int> vcarte;
+	std::ifstream fichier;
+        fichier.open("../res/Background.csv",std::ios::in);
+        std::string ligne,valeur;
+       
+        int i = 0;
+		
+        while(!fichier.eof()){
+            std::getline(fichier,ligne);
+            std::cout << ligne << std::endl;
+            std::stringstream stream(ligne);
+            std::cout << ligne << std::endl;
 
+		
+            while(getline(stream, valeur,',')){
+			
+                vcarte.push_back(atoi(valeur.c_str()));
+			
+            }
+        }
+        std::cout << "OK" << std::endl;
+        
+        return vcarte;
+        
     }
 
 
-    bool TileMap::load(const std::string& tileset, const int* tiles) {
+    bool TileMap::load(const std::string& tileset, const std::vector<int> tiles) {
         
-        int width = 10;
-        int height = 10;
+        int width = 100;
+        int height = 100;
         int sizeX = 21;
         int sizeY = 9;
         

@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <vector>
 
 namespace sf {
   class Transformable;
@@ -21,9 +22,9 @@ namespace render {
     sf::Texture m_tileset;
     // Operations
   public:
-    bool load (const std::string& tileset, const int* tiles);
+    bool load (const std::string& tileset, const std::vector<int> tiles);
     virtual void draw (sf::RenderTarget& target, sf::RenderStates states) const;
-    bool loadLayer (const std::string& layer);
+    std::vector<int> loadLayer ( );
     // Setters and Getters
   };
 
