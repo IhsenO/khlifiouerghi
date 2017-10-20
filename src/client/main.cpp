@@ -10,35 +10,51 @@ void testSFML() {
 // Fin test SFML
 
 #include "state.h"
-
 #include "state/Tests.h"
+#include "render.h"
 
 using namespace std;
 using namespace state;
+using namespace render;
 
 int main(int argc,char* argv[]) 
 {
-    
-    testsUnitaires();
-    /*
-    Monde monde(10,10,3);
-       
-    for(int i = 0; i< monde.getWidth() ; i++)
-        for(int j = 0; j < monde.getHeight(); j++){
-            monde.set(i,j,0,new Landscape());
-    }
-    
-    monde.set(0,3,0,new Army());
-    
-    for(int i = 0; i< monde.getWidth() ; i++)
-        for(int j = 0; j < monde.getHeight(); j++){
-            if(monde.get(i,j,0)==NULL)  cout << "Oups il y a rien" << endl;
 
-    }
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Test");
     
-    cout << monde.get(0,3,0)->getTypeID() << endl;
+    const int level[] =
+    {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    };
+    
+    TileMap map;
+    if (!map.load("../res/tileset.png", level))
+        return -1;
+
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(map);
+        window.display();
+    }
     
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
-    */
+    
     return 0;
 }
