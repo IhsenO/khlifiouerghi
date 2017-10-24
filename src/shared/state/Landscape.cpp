@@ -13,6 +13,11 @@ namespace state{
     Landscape::Landscape() {
     }
 
+    Landscape::Landscape(int type, bool accessible) : type(type) {
+        this->accessible = accessible;
+    }
+
+
     int Landscape::getType() const { return type; }
     
     TypeID Landscape::getTypeID() const {

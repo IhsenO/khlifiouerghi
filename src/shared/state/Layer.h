@@ -3,6 +3,7 @@
 #define STATE__LAYER__H
 
 #include <vector>
+#include <string>
 
 namespace state {
   class Element;
@@ -23,6 +24,9 @@ namespace state {
     void set (int x, int y, Element* e);
     Element* get (int x, int y) const;
     virtual ~Layer ();
+    void loadLayer (const std::string fileName);
+    void add (Element* e);
+    Layer ();
     // Setters and Getters
   };
 

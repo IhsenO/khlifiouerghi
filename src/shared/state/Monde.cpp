@@ -6,6 +6,9 @@
 
 #include "Monde.h"
 #include <iostream>
+#include <sstream>
+#include <fstream>
+#include "utils.hpp"
 
 namespace state{
     Monde::Monde(int width, int height, int depth) : height(height), width(width), nbLayers(depth), layers(depth) {
@@ -14,6 +17,18 @@ namespace state{
             layers[i] = new Layer(width, height);
         }
         //std::cout << "Monde " << layers.size() << std::endl;
+    }
+
+    Monde::Monde(int depth) : nbLayers(depth), layers(depth) {
+        for(int i = 0; i < depth; i++){
+            //layers[i] = std::unique_ptr<Layer>(new Layer(width, height));
+            layers[i] = new Layer();
+        }
+        
+        //layers[0]->loadLayer("../res/MapLayer0.csv");
+        //layers[1]->loadLayer("../res/MapLayer1.csv");
+        layers[0]->loadLayer("../res/TestLayer0.csv");
+    
     }
     
     Monde::~Monde() {

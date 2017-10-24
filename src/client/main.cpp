@@ -20,7 +20,15 @@ using namespace render;
 int main(int argc,char* argv[]) 
 {
     
-
+    Monde m(1);
+    
+    cout << m.get(0,0,0)->getTypeID() << endl;
+    
+    //m.loadTilesetToElement();
+    
+    //cout << m.tilesetToElement.size() << endl;
+    
+/*
     sf::RenderWindow window(sf::VideoMode(800, 600), "Test");
         
     TileMap map;
@@ -47,6 +55,6 @@ int main(int argc,char* argv[])
     }
     
     cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
-   
+*/   
     return 0;
 }

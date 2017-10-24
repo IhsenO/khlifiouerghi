@@ -22,9 +22,7 @@ namespace render {
 		
         while(!fichier.eof()){
             std::getline(fichier,ligne);
-            std::cout << ligne << std::endl;
             std::stringstream stream(ligne);
-            std::cout << ligne << std::endl;
 
 		
             while(getline(stream, valeur,',')){

@@ -24,6 +24,7 @@ namespace state {
     TypeID getTypeID () const;
     bool isInteractive () const;
     bool isStatic () const;
+    Landscape (int type, bool accessible);
     // Setters and Getters
     int getType() const;
     void setType(int type);

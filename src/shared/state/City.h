@@ -35,6 +35,7 @@ namespace state {
     bool isStatic () const;
     void addConstruction (Construction* construction);
     bool isFullOfConstructions () const;
+    City (int defense, bool free);
     // Setters and Getters
     int getDefense() const;
     void setDefense(int defense);

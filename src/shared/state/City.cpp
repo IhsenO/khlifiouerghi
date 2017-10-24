@@ -13,6 +13,12 @@ namespace state{
         this->defense = 1;
         //std::cout << "Création d'une City" << std::endl;
     }
+
+    City::City(int defense, bool free) : defense(defense), free(free) {
+        
+    }
+
+
     
     TypeID City::getTypeID() const{
         return CITY;

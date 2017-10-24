@@ -32,6 +32,7 @@ namespace state {
     std::vector<Layer* > getLayers () const;
     int getWidth () const;
     int getHeight () const;
+    Monde (int depth);
     // Setters and Getters
   };
 
