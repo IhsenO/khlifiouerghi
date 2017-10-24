@@ -25,9 +25,9 @@ namespace state{
             layers[i] = new Layer();
         }
         
-        //layers[0]->loadLayer("../res/MapLayer0.csv");
+        layers[0]->loadLayer("../res/MapLayer0.csv");
         //layers[1]->loadLayer("../res/MapLayer1.csv");
-        layers[0]->loadLayer("../res/TestLayer0.csv");
+        //layers[0]->loadLayer("../res/TestLayer0.csv");
     
     }
     

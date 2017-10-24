@@ -18,7 +18,7 @@ namespace state{
     }
 
     Layer::Layer() {
-        this->tab = new std::vector<int>;
+        //this->tab = new std::vector<Element*>;
     }
 
  
@@ -37,7 +37,7 @@ namespace state{
 
     void Layer::loadLayer(const std::string fileName) {
         std::vector<int> vcarteInit = loadCSV(fileName);
-        std::cout << vcarteInit.size() << std::endl;
+        //std::cout << vcarteInit.size() << std::endl;
         /*
         static std::unique_ptr<std::vector<int>> tab;
         
@@ -47,7 +47,7 @@ namespace state{
         
         for(unsigned int i = 0; i<vcarteInit.size(); i++){
         
-            std::cout << tileToElem[vcarteInit[i]] << std::endl;
+            //std::cout << tileToElem[vcarteInit[i]] << std::endl;
         
             if(tileToElem[vcarteInit[i]] == 0){
                 this->add(new Landscape(vcarteInit[i], false));
@@ -71,7 +71,6 @@ namespace state{
     
         void Layer::add(Element* e){
             tab.push_back(e);
-            std::cout << tab.size() << std::endl; 
         }
         
     }

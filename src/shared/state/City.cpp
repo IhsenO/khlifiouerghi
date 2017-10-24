@@ -18,6 +18,9 @@ namespace state{
         
     }
 
+    int City::getDefense() const {
+        return this->defense;
+    }
 
     
     TypeID City::getTypeID() const{

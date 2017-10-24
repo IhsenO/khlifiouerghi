@@ -20,10 +20,15 @@ using namespace render;
 int main(int argc,char* argv[]) 
 {
     
-    Monde m(1);
+    Monde *m = new Monde(1);
     
-    cout << m.get(0,0,0)->getTypeID() << endl;
+    // j'essaye de récupérer le type du Landscape :
+   // la ligne dessous ne marche pas
+    //m->get(0,0,0)->getType();
     
+    //std::cout << dynamic_cast<Landscape*>(m->get(0,99,0)->getType()) << std::endl;
+
+    //std::cout << dynamic_cast<City*>(m->get(1,1,0)->getDefense()) << std::endl;
     //m.loadTilesetToElement();
     
     //cout << m.tilesetToElement.size() << endl;
