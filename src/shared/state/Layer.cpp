@@ -20,8 +20,7 @@ namespace state{
     Layer::Layer() {
         //this->tab = new std::vector<Element*>;
     }
-
- 
+    
     Element* Layer::get(int x, int y) const {
         return tab[y*width + x];
     }
@@ -63,6 +62,8 @@ namespace state{
                 this->add(new City(2,true)); 
             else if(tileToElem[vcarteInit[i]] == 5)
                 this->add(new City(3,true));
+            else if(vcarteInit[i]<0)
+                this->add(NULL);
             else
                 std::cout << "Error tile inutilisée" << std::endl;
                

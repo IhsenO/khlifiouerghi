@@ -2,5 +2,10 @@
 #ifndef __RENDER__H
 #define __RENDER__H
 
-#include "render/TileMap.h"
+#include "render/Drawer.h"
+#include "render/TileSet.h"
+#include "render/Tile.h"
+#include "render/RenderLayer.h"
+#include "render/MapLayer.h"
+#include "render/MapSet.h"
 #endif

@@ -22,9 +22,15 @@ int main(int argc,char* argv[])
     
     Monde *m = new Monde(1);
     
+    //Monde m(1);
+    
+    MapLayer(*m->getLayer(0));
+    
+    delete m;
+    
     // j'essaye de récupérer le type du Landscape :
    // la ligne dessous ne marche pas
-    //m->get(0,0,0)->getType();
+    //Landscape *l = (Landscape*)m->get(0,0,0);
     
     //std::cout << dynamic_cast<Landscape*>(m->get(0,99,0)->getType()) << std::endl;
 

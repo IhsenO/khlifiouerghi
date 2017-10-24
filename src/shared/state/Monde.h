@@ -33,6 +33,7 @@ namespace state {
     int getWidth () const;
     int getHeight () const;
     Monde (int depth);
+    Layer* getLayer (const int nb) const;
     // Setters and Getters
   };
 

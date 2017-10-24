@@ -56,6 +56,9 @@ namespace state{
         return layers[layer]->get(x, y);
     }
 
+    Layer* Monde::getLayer(const int nb) const {
+        return layers[nb];
+    }
 
 
 }
