@@ -10,7 +10,7 @@
 namespace render {
 
     MapLayer::MapLayer(const state::Layer& tab) : tab(tab) {
-        
+
     }
 
     void MapLayer::initDrawer() {

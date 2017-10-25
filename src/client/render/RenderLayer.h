@@ -4,8 +4,8 @@
 
 
 namespace render {
-  class Drawer;
   class TileSet;
+  class Drawer;
 }
 
 #include "TileSet.h"
@@ -17,9 +17,10 @@ namespace render {
   class RenderLayer {
     // Associations
     // Attributes
+  public:
+    TileSet* tileSet;
   protected:
     Drawer* surface;
-    TileSet* tileSet;
     // Operations
   public:
     virtual ~RenderLayer ();
@@ -29,8 +30,6 @@ namespace render {
     // Setters and Getters
     const Drawer*& getSurface() const;
     void setSurface(const Drawer*& surface);
-    const TileSet*& getTileSet() const;
-    void setTileSet(const TileSet*& tileSet);
   };
 
 };

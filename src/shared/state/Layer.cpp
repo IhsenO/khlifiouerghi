@@ -47,6 +47,7 @@ namespace state{
         for(unsigned int i = 0; i<vcarteInit.size(); i++){
         
             //std::cout << tileToElem[vcarteInit[i]] << std::endl;
+            std::cout << vcarteInit[i] << std::endl;
         
             if(tileToElem[vcarteInit[i]] == 0){
                 this->add(new Landscape(vcarteInit[i], false));
@@ -57,11 +58,11 @@ namespace state{
             else if(tileToElem[vcarteInit[i]] == 2)
                 this->add(new City(0,true));
             else if(tileToElem[vcarteInit[i]] == 3)
-                this->add(new City(1,true));
+                this->add(new City(1,false));
             else if(tileToElem[vcarteInit[i]] == 4)
-                this->add(new City(2,true)); 
+                this->add(new City(2,false)); 
             else if(tileToElem[vcarteInit[i]] == 5)
-                this->add(new City(3,true));
+                this->add(new City(3,false));
             else if(vcarteInit[i]<0)
                 this->add(NULL);
             else

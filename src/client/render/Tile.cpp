@@ -16,5 +16,13 @@ namespace render{
 
     }
 
+    int Tile::getX() const {
+        return this->x;
+    }
+
+    int Tile::getY() const {
+        return this->y;
+    }
+
     
 }

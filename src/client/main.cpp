@@ -22,11 +22,31 @@ int main(int argc,char* argv[])
     
     Monde *m = new Monde(1);
     
+    
+    
     //Monde m(1);
     
-    MapLayer(*m->getLayer(0));
+    MapLayer map(*m->getLayer(0));
     
-    delete m;
+    map.tileSet = new MapSet();
+    
+    map.tileSet->getTile(*(m->get(0,0,0)));
+    
+    cout << map.tileSet->getTile(*(m->get(0,0,0))).getX() << endl;
+    
+    //Landscape *l = (Landscape*)m->get(0,0,0);
+    //cout << l->getType() << endl;
+
+    //map.test();
+    //MapSet *mapset = (MapSet*)map.tileSet;
+  
+    
+//    MapSet *mapset = (MapSet*)map.tileSet;
+    
+    //mapset->getMap()[0].getX();
+    //mapset->getTile(*(m->get(0,0,0)));
+    
+    //delete m;
     
     // j'essaye de récupérer le type du Landscape :
    // la ligne dessous ne marche pas
