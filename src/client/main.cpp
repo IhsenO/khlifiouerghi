@@ -22,17 +22,16 @@ int main(int argc,char* argv[])
     
     Monde *m = new Monde(1);
     
+    MapLayer map(*m->getLayer(0));
     
+    map.initDrawer();
     
     //Monde m(1);
     
-    MapLayer map(*m->getLayer(0));
-    
-    map.tileSet = new MapSet();
-    
-    map.tileSet->getTile(*(m->get(0,0,0)));
-    
-    cout << map.tileSet->getTile(*(m->get(0,0,0))).getX() << endl;
+    //MapLayer map(*m->getLayer(0));
+    //map.tileSet = new MapSet();    
+    //map.tileSet->getTile(*(m->get(0,0,0)));
+    //cout << map.tileSet->getTile(*(m->get(0,0,0))).getX() << endl;
     
     //Landscape *l = (Landscape*)m->get(0,0,0);
     //cout << l->getType() << endl;

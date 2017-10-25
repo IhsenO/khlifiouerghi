@@ -22,7 +22,7 @@ namespace render{
     
 
     const std::string MapSet::getFile() const {
-        return "../res/TileSet.png";
+        return "../res/tileset.png";
     }
 
     int MapSet::getHeight() const {

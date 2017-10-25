@@ -5,16 +5,18 @@
  */
 
 #include "MapLayer.h"
+#include "MapSet.h"
 #include <iostream>
 
 namespace render {
 
     MapLayer::MapLayer(const state::Layer& tab) : tab(tab) {
-
+        this->tileSet = new MapSet();
+        this->drawer = new Drawer();
     }
 
     void MapLayer::initDrawer() {
-
+        this->drawer->loadTexture(this->tileSet->getFile());
     }
     
     

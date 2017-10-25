@@ -25,7 +25,6 @@ namespace render {
   public:
     MapLayer (const state::Layer& tab);
     void initDrawer ();
-    void test ();
     // Setters and Getters
     const state::Layer& getTab() const;
   };

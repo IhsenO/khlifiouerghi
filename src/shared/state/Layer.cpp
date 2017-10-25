@@ -47,7 +47,7 @@ namespace state{
         for(unsigned int i = 0; i<vcarteInit.size(); i++){
         
             //std::cout << tileToElem[vcarteInit[i]] << std::endl;
-            std::cout << vcarteInit[i] << std::endl;
+            //std::cout << vcarteInit[i] << std::endl;
         
             if(tileToElem[vcarteInit[i]] == 0){
                 this->add(new Landscape(vcarteInit[i], false));

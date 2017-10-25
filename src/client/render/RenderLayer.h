@@ -20,16 +20,14 @@ namespace render {
   public:
     TileSet* tileSet;
   protected:
-    Drawer* surface;
+    Drawer* drawer;
     // Operations
   public:
     virtual ~RenderLayer ();
     virtual void initDrawer () = 0;
     Drawer* getDrawer () const;
-    void setDrawer (Drawer* surface);
+    void setDrawer (Drawer* drawer);
     // Setters and Getters
-    const Drawer*& getSurface() const;
-    void setSurface(const Drawer*& surface);
   };
 
 };
