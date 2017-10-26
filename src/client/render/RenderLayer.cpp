@@ -14,7 +14,7 @@ namespace render{
 
     RenderLayer::~RenderLayer() {
         if(this->drawer != NULL) delete this->drawer;
-        //if(this->tileSet != NULL) delete this->tileSet;
+        if(this->tileSet != NULL) delete this->tileSet;
     }
 
     Drawer* RenderLayer::getDrawer() const {

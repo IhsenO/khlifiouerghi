@@ -21,6 +21,7 @@ namespace render {
     virtual const Tile& getTile (const state::Element& e) const = 0;
     virtual int getWidth () const = 0;
     virtual int getHeight () const = 0;
+    virtual ~TileSet ();
     // Setters and Getters
   };
 
