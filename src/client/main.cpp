@@ -22,13 +22,20 @@ int main(int argc,char* argv[])
 
     sf::RenderWindow window(sf::VideoMode(800, 480), "Rendu");
         
-    Monde *m = new Monde(2);
+    Monde *m = new Monde(3);
+    
+    m->set(2,2,2,new Army());
+    
+    m->set(8,2,2,new Army());
+
     
     MapLayer map1(*m->getLayer(0));
     MapLayer map2(*m->getLayer(1));
+    CharactersLayer chars(*m->getLayer(2));
     
     map1.initDrawer();
     map2.initDrawer();
+    chars.initDrawer();
     
    
     while (window.isOpen())
@@ -42,9 +49,11 @@ int main(int argc,char* argv[])
 
         window.clear();
         map1.initDrawer();
-        map2.initDrawer();        
+        map2.initDrawer();
+        chars.initDrawer();
         window.draw(*map1.getDrawer());
         window.draw(*map2.getDrawer());
+        window.draw(*chars.getDrawer());
         window.display();
     }
     

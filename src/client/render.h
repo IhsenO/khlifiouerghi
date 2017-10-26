@@ -8,4 +8,6 @@
 #include "render/RenderLayer.h"
 #include "render/MapLayer.h"
 #include "render/MapSet.h"
+#include "render/CharactersLayer.h"
+#include "render/CharactersSet.h"
 #endif
