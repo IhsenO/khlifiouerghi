@@ -91,13 +91,13 @@
 
 Le jeu que  nous souhaitons réaliser consiste en une opposition entre 2 joueurs dans la conquête d’une map. Notre jeu s’appuie ainsi sur les archétypes des jeux Total War et Civilization. 
 
-Au départ les deux joueurs se voient confier un nombre égal de ressources et une ville, le reste de la map restant caché pour l'instant. Dès lors, les deux joueurs vont devoir explorer la map, par l'intermédiare d'un type de joueur (nommé explorateur), se développer et conqérir de nouveaux territoires. Des combats peuvent survenir pour la conquête d'une ville, ceux-ci seront simulés et donneront lieu à un vainqueur qui remportera la ville.
+Au départ les deux joueurs se voient confier un nombre égal de ressources et une ville, le reste de la map restant caché pour l'instant. Dès lors, les deux joueurs vont devoir explorer la map, par l'intermédiaire d'un type de joueur (nommé explorateur), se développer et conquérir de nouveaux territoires. Des combats peuvent survenir pour la conquête d'une ville, ceux-ci seront simulés et donneront lieu à un vainqueur qui remportera la ville.
 
 Le jeu se finit lorsque l'un des joueurs conquièrent toute la map.
 \\
 
 Notre jeu mêlera donc gestion/expansion de territoire, gestion de matières premières et gestion de ressources humaines.
-Le jeu comporte une map principale découpée en plusieurs villes. Au départ celles-ci sont inhabitées et chaque joueur peut les coloniser. Concernant les personnages, nous commencerons avec deux types différents : les explorateurs et les soldatss. Les explorateurs servent à colonier des villes pour pouvoir les contrôler. Les soldats servent aux combats et déterminent en bonne partie l'issue de ceux-ci.
+Le jeu comporte une map principale découpée en plusieurs villes. Au départ celles-ci sont inhabitées et chaque joueur peut les coloniser. Concernant les personnages, nous commencerons avec deux types différents : les explorateurs et les soldats. Les explorateurs servent à coloniser des villes pour pouvoir les contrôler. Les soldats servent aux combats et déterminent en bonne partie l'issue de ceux-ci.
 
 
 \subsection{Règles du jeu}
@@ -144,21 +144,40 @@ Pour les ressources nous avons trouvé pour démarrer un tileset minimaliste mai
 
 \end{figure}
 
-Nous avons aussi besoin de sprites représentant les armées, pour cela nous avons trouvé en ligne un éditeur de personnages.
+Nous avons aussi besoin de sprites représentant les armées et les exportateurs, pour cela nous avons trouvé en ligne un éditeur de personnages que nous avons adapté pour l'IA et le joueur.
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=0.7\textwidth]{images/sprite.png}
-  \caption{Sprites pour les personnages}
+  \includegraphics[width=0.7\textwidth]{images/Army_Gold.png}
+  \caption{Armée du joueur}
  \end{center}
+\end{figure}
 
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{images/Settlers_Gold.png}
+  \caption{Explorateurs du joueur}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{images/Army_Silver.png}
+  \caption{Armée de l'IA}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{images/Settlers_Silver.png}
+  \caption{Explorateurs de l'IA}
+ \end{center}
 \end{figure}
 
 Bien sur certaines animations du spritesheet ne seront pas utilisées.
 
-
-
 \clearpage
+
 \section{Description et conception des états}
 
 \subsection{Description des états}
@@ -171,7 +190,7 @@ Il y aura des éléments fixes et mobiles, ceux ci auront une position, et appar
 
 \textbf{Cases "City" : } chaque ville possède un nombre de cases déterminé sur lesquelles elle va se construire.
 \\
-Nous avons aussi une classe Construction (pour bâtiment). Une City possède un tableau de constructions. Trois classes héritent de Construction : Mine (pour l'extraction de l'or), Farm (pouur la production de nourriture) et Barrack (pour la création de soldats). Cette City peut être en état de construction ou non, elle peut être libre ou non. 
+Nous avons aussi une classe Construction (pour bâtiment). Une City possède un tableau de constructions. Trois classes héritent de Construction : Mine (pour l'extraction de l'or), Farm (pour la production de nourriture) et Barrack (pour la création de soldats). Cette City peut être en état de construction ou non, elle peut être libre ou non. 
 \\
 %/\begin{tabular}{llll}
  %/      Nous avons aussi une classe Construction (pour bâtiment) qui hérite de la classe City, et qui hérite elle-même de trois nouvelles classes :&
@@ -214,11 +233,55 @@ Ensuite la classe Player, et enfin la classe monde, contenant une grille d'élé
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=1\textwidth]{images/UML.png}
+  \includegraphics[width=1\textwidth]{images/stateUML.png}
   \caption{Diagramme UML des états}
  \end{center}
 
 \end{figure}
+\clearpage
+\section{Rendu: Stratégie et Conception}
+
+\subsection{Stratégie de rendu d'un état}
+
+Pour réaliser notre rendu nous sommes partis d'un tileset que nous avons édité grâce au logiciel Tiled. Celui-ci permet de dessiner des maps à partir d'un tileset importé. A partir de celui disponible en figure 1, nous l'avons découpé en pixels de 16x16 grâce à Tiled et avons dessiné plusieurs maps pour la suite du projet.
+\\Dans un premier nous sommes partis sur trois maps : \begin{itemize}
+\item Une map "Obstacles"pour les test que nous réaliserons plus tard, assez basique pour l'instant
+\item Une map "Montagne" qui s'appuie principalement sur les éléments de roche du tileset
+\item Une map "Mer" qui s'appuie principalement sur les éléments marins du tileset.
+\end{itemize}
+
+Pour réaliser toutes ces maps, nous choisissons de découper chaque map en plusieurs couches ou "layers" qui regroupent des informations ou éléments différents. Ainsi, notre premier layer correspond à l'arrière plan et se compose exclusivement d'herbe verte, et est donc commun à toutes les maps. Le deuxième layer nous sert à définir la map : suivant la map à éditer on aura tel ou tel paysage, la superposition des deux premiers layers donnera donc "naissance" à une map vierge. Le troisième layer nous servira pour la gestion des éléments mobiles, à savoir les explorateurs et les armées. Enfin nous prévoyons un quatrième layer pour l'interface utilisateur qui regroupera les informations du jeu, les interactions avec les objets du jeu, ... Ce dernier layer sera précisé et conçu par la suite. 
+Une fois ces cartes dessinés on exporte au format CSV chaque layer de la carte. Ainsi à chaque démarrage du jeu, on aura la possibilité d'initialiser les états pour les éléments fixes à partir des fichier CSV correspondant aux layer, et d'un autre fichier CSV contenant une matrice permettant de transformer directement un tile en état. 
+Ensuite durant le jeu, nous réaliserons le rendu directement à partir des états.
+
+\subsection{Conception logicielle}
+
+\textbf{RenderLayer.}
+ Cette classe charnière va nous permettre de concevoir le rendu visuel de notre jeu et s'appuie notamment sur les classes MapLayer et CharacterLayer qui héritent de celle-ci MapLayer contient les deux premières couches d'éléments fixes composant le niveau, et CharactersLayers contient les éléments mobiles de la troisieme couche. Ces deux dernières classes initialisent les vecteurs 2D qui préparent le rendu à afficher. En effet ce sont ces classes qui sont reliés aux états, on peut ainsi créer le rendu à partir des états directement. 
+ \\
+ 
+\textbf{Drawer.}
+Cette classe va charger les textures, elle va aussi initialiser et configurer les vecteurs par l'intermédiaire des méthodes initVertex, setVertexLocation et setVertexTexture. Cette classe fait aussi le lien avec SFML pour afficher les textures à l'écran. On affiche le rendu grâce aux tableaux de vertex, ainsi cette classe comprend le tableau de vertex qui stocke les quads, ainsi que la texture.
+\\
+
+\textbf{Tileset.} 
+Cette classe et ses filles se chargent des tiles, on a créé une classes génériques appelé Tile, permettant de créer une représentation des éléments du tileset, on stocke notamment la taille des éléments du tileset la position dans le tileset. MapSet permet de stocker un vecteur de tile, mais aussi la taille du tileset et le nom du fichier, et CharactersSet fait de même pour les personnages. Mais surtout c'est dans ces classes que se trouve la fonction getTile, qui permet de transformer un Élément en entité graphique que l'on peut afficher. 
+
+
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=1\textwidth]{images/UML_Render.png}
+  \caption{Diagramme UML du rendu}
+ \end{center}
+ \end{figure}
+ 
+%\begin{landscape}
+%\begin{figure}[p]
+%\includegraphics[width=0.9\paperheight]{render.pdf}
+%\caption{\label{uml:render}Diagramme des classes de rendu.} 
+%\end{figure}
+%\end{landscape}
 
 
 

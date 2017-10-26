@@ -37,7 +37,9 @@ int main(int argc,char* argv[])
     map2.initDrawer();
     chars.initDrawer();
     
-   
+    //sf::View view = window.getDefaultView();
+    //view.zoom(0.5f);   
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -48,6 +50,9 @@ int main(int argc,char* argv[])
         }
 
         window.clear();
+        
+        //window.setView(view);
+        
         map1.initDrawer();
         map2.initDrawer();
         chars.initDrawer();
