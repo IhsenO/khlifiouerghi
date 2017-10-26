@@ -13,10 +13,9 @@
 namespace render{
 
     MapSet::MapSet() {
-        for(int j = 0; j < this->getHeight(); j++){
-            for(int i = 0; i < this->getWidth(); i++)
+        for(unsigned int j = 0; j < this->getHeight(); j++){
+            for(unsigned int i = 0; i < this->getWidth(); i++)
                 map.push_back(Tile(i*16,j*16,16,16));
-                //std::cout << map.size() << std::endl;
             }
     }
     

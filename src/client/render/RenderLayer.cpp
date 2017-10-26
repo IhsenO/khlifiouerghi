@@ -13,7 +13,7 @@ namespace render{
     //}
 
     RenderLayer::~RenderLayer() {
-
+        delete this->drawer;
     }
 
     Drawer* RenderLayer::getDrawer() const {
