@@ -16,6 +16,10 @@ namespace render{
 
     }
 
+    Drawer* RenderLayer::getDrawer() const {
+        return this->drawer;
+    }
+    
     
     
 }

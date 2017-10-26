@@ -24,5 +24,13 @@ namespace render{
         return this->y;
     }
 
+    int Tile::getHeight() const {
+        return this->height;
+    }
+
+    int Tile::getWidth() const {
+        return this->width;
+    }
+    
     
 }

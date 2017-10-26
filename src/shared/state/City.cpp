@@ -11,11 +11,10 @@ namespace state{
     
     City::City() {
         this->defense = 1;
-        //std::cout << "Création d'une City" << std::endl;
     }
 
     City::City(int defense, bool free) : defense(defense), free(free) {
-        
+
     }
 
     int City::getDefense() const {

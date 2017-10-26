@@ -19,57 +19,18 @@ using namespace render;
 
 int main(int argc,char* argv[]) 
 {
-    
-    Monde *m = new Monde(1);
-    
-    MapLayer map(*m->getLayer(0));
-    
-    map.initDrawer();
-    
-    //Monde m(1);
-    
-    //MapLayer map(*m->getLayer(0));
-    //map.tileSet = new MapSet();    
-    //map.tileSet->getTile(*(m->get(0,0,0)));
-    //cout << map.tileSet->getTile(*(m->get(0,0,0))).getX() << endl;
-    
-    //Landscape *l = (Landscape*)m->get(0,0,0);
-    //cout << l->getType() << endl;
 
-    //map.test();
-    //MapSet *mapset = (MapSet*)map.tileSet;
-  
-    
-//    MapSet *mapset = (MapSet*)map.tileSet;
-    
-    //mapset->getMap()[0].getX();
-    //mapset->getTile(*(m->get(0,0,0)));
-    
-    //delete m;
-    
-    // j'essaye de récupérer le type du Landscape :
-   // la ligne dessous ne marche pas
-    //Landscape *l = (Landscape*)m->get(0,0,0);
-    
-    //std::cout << dynamic_cast<Landscape*>(m->get(0,99,0)->getType()) << std::endl;
-
-    //std::cout << dynamic_cast<City*>(m->get(1,1,0)->getDefense()) << std::endl;
-    //m.loadTilesetToElement();
-    
-    //cout << m.tilesetToElement.size() << endl;
-    
-/*
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Test");
+    sf::RenderWindow window(sf::VideoMode(800, 480), "Rendu");
         
-    TileMap map;
-    std::vector<int> level = map.loadLayer();
-
-    std::cout << level.size() << std::endl;
-   
+    Monde *m = new Monde(2);
     
-    if (!map.load("../res/tileset.png", level))
-        return -1;
-
+    MapLayer map1(*m->getLayer(0));
+    MapLayer map2(*m->getLayer(1));
+    
+    map1.initDrawer();
+    map2.initDrawer();
+    
+   
     while (window.isOpen())
     {
         sf::Event event;
@@ -80,11 +41,14 @@ int main(int argc,char* argv[])
         }
 
         window.clear();
-        window.draw(map);
+        map1.initDrawer();
+        map2.initDrawer();        
+        window.draw(*map1.getDrawer());
+        window.draw(*map2.getDrawer());
         window.display();
     }
     
-    cout << "Bonjour de la part de Mohamed et Ihsen !" << endl;
-*/   
+    delete m;
+  
     return 0;
 }

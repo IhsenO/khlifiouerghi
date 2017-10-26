@@ -8,6 +8,7 @@
 #include <iostream>
 
 std::vector<int> loadCSV(const std::string fileName){
+
     
     std::vector<int> vcarte;
 	std::ifstream fichier;
@@ -25,6 +26,7 @@ std::vector<int> loadCSV(const std::string fileName){
 			
             }
         }
+        
         
         return vcarte;
 }

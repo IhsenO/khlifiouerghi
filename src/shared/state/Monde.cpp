@@ -13,26 +13,21 @@
 namespace state{
     Monde::Monde(int width, int height, int depth) : height(height), width(width), nbLayers(depth), layers(depth) {
         for(int i = 0; i < depth; i++){
-            //layers[i] = std::unique_ptr<Layer>(new Layer(width, height));
             layers[i] = new Layer(width, height);
         }
-        //std::cout << "Monde " << layers.size() << std::endl;
     }
 
     Monde::Monde(int depth) : nbLayers(depth), layers(depth) {
         for(int i = 0; i < depth; i++){
-            //layers[i] = std::unique_ptr<Layer>(new Layer(width, height));
-            layers[i] = new Layer();
+            layers[i] = new Layer(100,100);
         }
         
-        layers[0]->loadLayer("../res/MapLayer0.csv");
-        //layers[1]->loadLayer("../res/MapLayer1.csv");
-        //layers[0]->loadLayer("../res/TestLayer0.csv");
+        layers[0]->loadLayer("res/MapLayer0.csv");
+        layers[1]->loadLayer("res/MapLayer1.csv");
     
     }
     
     Monde::~Monde() {
-        std::cout << "destroy Monde" << std::endl;
         for(auto e : layers)
             delete e;
     }
@@ -52,7 +47,6 @@ namespace state{
     }
 
     Element* Monde::get(int x, int y, int layer) const {
-        //std::cout << "getMonde" << std::endl;
         return layers[layer]->get(x, y);
     }
 

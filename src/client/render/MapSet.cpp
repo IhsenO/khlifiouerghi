@@ -15,14 +15,14 @@ namespace render{
     MapSet::MapSet() {
         for(int j = 0; j < this->getHeight(); j++){
             for(int i = 0; i < this->getWidth(); i++)
-                map.push_back(Tile(i,j,16,16));
+                map.push_back(Tile(i*16,j*16,16,16));
                 //std::cout << map.size() << std::endl;
             }
     }
     
 
     const std::string MapSet::getFile() const {
-        return "../res/tileset.png";
+        return "res/tileset.png";
     }
 
     int MapSet::getHeight() const {
@@ -34,7 +34,10 @@ namespace render{
     }
 
     const Tile& MapSet::getTile(const state::Element& e) const {
-        if(e.getTypeID() == state::LANDSCAPE){
+        if(&e == NULL){
+            return this->map[188];
+        }
+        else if(e.getTypeID() == state::LANDSCAPE){
             state::Landscape *tmp = (state::Landscape*)&e;
             //std::cout << tmp->getType() << std::endl;
             return this->map[tmp->getType()];
@@ -50,7 +53,17 @@ namespace render{
                 return this->map[80];
             else if(tmp->getDefense() == 3)
                 return this->map[142];
+            else{
+                std::cout << "Probleme dans la transformation d'un état en une tile" << std::endl;
+                return this->map[188];
+            }
+            delete tmp;
         }
+        else{
+            std::cout << "Probleme dans la transformation d'un état en une tile" << std::endl;
+            return this->map[188];
+        }
+        
     }
     
     

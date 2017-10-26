@@ -13,10 +13,20 @@ namespace render {
     MapLayer::MapLayer(const state::Layer& tab) : tab(tab) {
         this->tileSet = new MapSet();
         this->drawer = new Drawer();
+        this->drawer->loadTexture(this->tileSet->getFile());
+        drawer->initVertex();
     }
 
     void MapLayer::initDrawer() {
-        this->drawer->loadTexture(this->tileSet->getFile());
+        
+        
+        
+        for(unsigned int i = 0; i < 100; i++)
+            for(unsigned int j = 0; j < 100; j++){
+                this->drawer->setVertexLocation(((i + j*100) * 4), i ,j);
+                this->drawer->setVertexTexture(((i + j*100) * 4), this->tileSet->getTile(*tab.get(i,j)));
+            }
+        
     }
     
     
