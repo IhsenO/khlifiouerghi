@@ -14,7 +14,7 @@ namespace state {
   protected:
     int x;
     int y;
-    int idPlayer;
+    int idPlayer     = -1;
     // Operations
   public:
     Element ();

@@ -14,7 +14,8 @@ namespace state{
     }
 
     Player::Player(std::string nom) : name(nom) {
-        
+        this->food = 1000;
+        this->gold = 1000;
     }
 
     

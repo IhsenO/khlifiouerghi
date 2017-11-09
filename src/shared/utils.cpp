@@ -19,7 +19,6 @@ std::vector<int> loadCSV(const std::string fileName){
             std::getline(fichier,ligne);
             std::stringstream stream(ligne);
 
-		
             while(getline(stream, valeur,',')){
 			
                 vcarte.push_back(atoi(valeur.c_str()));

@@ -17,4 +17,5 @@
 #include "state/Player.h"
 #include "state/Layer.h"
 #include "state/Monde.h"
+#include "state/State.h"
 #endif
