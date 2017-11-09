@@ -25,7 +25,7 @@ namespace engine{
                 if(state.getMonde().get(j,i,1) != NULL){
                     if(state.getMonde().get(j,i,1)->getTypeID() == CITY){
                         City *c = (City*)state.getMonde().get(j,i,1);
-                        for(int k = 0; k < c->getListConst().size(); k++){
+                        for(unsigned int k = 0; k < c->getListConst().size(); k++){
                             if(c->getListConst()[k]->getConstructionId() == MINE){
                                 int gold = state.getPlayer(state.getIdPlayer())->getGold();
                                 state.getPlayer(state.getIdPlayer())->setGold(gold + c->getListConst()[k]->getProductionByTurn());

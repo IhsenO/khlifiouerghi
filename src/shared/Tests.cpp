@@ -120,6 +120,10 @@ void testsEngine(int i, Engine& engine, State& state){
         std::cout << "Apres Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
         std::cout << state.getPlayer(state.getIdPlayer())->getGold() << std::endl;
     }
+    
+    else if(i == 11){
+        std::cout << "Fin des Tests !"  << std::endl;
+    }
            
     
 }

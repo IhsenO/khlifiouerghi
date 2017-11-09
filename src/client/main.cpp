@@ -26,10 +26,7 @@ int main(int argc,char* argv[])
     
     int i = 0;
         
-    Monde *m = new Monde("MapTestEngine", 3);
-
-    
-    
+    Monde *m = new Monde("MapTestEngine", 3); 
     State state(*m);
     state.addPlayer(new Player("Joueur 1"));
     state.addPlayer(new Player("Joueur 2"));
@@ -39,12 +36,9 @@ int main(int argc,char* argv[])
     state.getMonde().get(4,4,2)->setIdPlayer(1);
     state.getMonde().get(2,2,1)->setIdPlayer(1);
     
-    state.getMonde().get(18,11,1)->setIdPlayer(2);
-    
+    state.getMonde().get(18,11,1)->setIdPlayer(2);   
     Engine e(state);     
-    //m->set(8,2,2,new Army());
-
-       
+ 
     MapLayer map1(*m->getLayer(0));
     MapLayer map2(*m->getLayer(1));
     
@@ -54,7 +48,6 @@ int main(int argc,char* argv[])
     map2.initDrawer();  
     chars.initDrawer();
   
-
     while (window.isOpen())
     {
         sf::Event event;
@@ -62,7 +55,7 @@ int main(int argc,char* argv[])
         {
             if(event.type == sf::Event::Closed)
                 window.close();
-            else if(event.type == sf::Event::KeyReleased){
+            else if(event.type == sf::Event::KeyReleased && i < 12){
                 testsEngine(i, e, state);
                 i++;
             }
