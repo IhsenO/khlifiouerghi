@@ -15,6 +15,9 @@ namespace state{
         for(int i = 0; i < depth; i++){
             layers[i] = new Layer(width, height);
         }
+        
+        layers[0]->loadLayer("res/MapTestEngine0.csv");
+        layers[1]->loadLayer("res/MapTestEngine1.csv");
     }
 
     Monde::Monde(int depth) : nbLayers(depth), layers(depth) {
@@ -26,6 +29,20 @@ namespace state{
         layers[1]->loadLayer("res/MapLayer1.csv");
     
     }
+
+    Monde::Monde(std::string mondeFile, int depth) : nbLayers(depth), layers(depth){
+        std::vector<int> dim = getDimentionsCSV("res/"+mondeFile+"0.csv");
+        this->width = dim[0];
+        this->height = dim[1];
+        
+        for(int i = 0; i < depth; i++){
+            layers[i] = new Layer(width, height);
+        }
+        
+        layers[0]->loadLayer("res/"+mondeFile+"0.csv");
+        layers[1]->loadLayer("res/"+mondeFile+"1.csv");
+    }
+    
     
     Monde::~Monde() {
         for(auto e : layers)

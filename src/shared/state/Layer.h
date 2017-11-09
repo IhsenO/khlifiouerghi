@@ -27,6 +27,8 @@ namespace state {
     void loadLayer (const std::string fileName);
     void add (Element* e);
     Layer ();
+    int getWidth () const;
+    int getHeight () const;
     // Setters and Getters
   };
 

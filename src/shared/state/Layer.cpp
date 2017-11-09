@@ -33,32 +33,31 @@ namespace state{
 
     void Layer::loadLayer(const std::string fileName) {
         std::vector<int> vcarteInit = loadCSV(fileName);
-
         std::vector<int> tileToElem = loadCSV("res/TileToElement.csv");
         
-        for(unsigned int i = 0; i<100; i++)
-            for(unsigned int j = 0; j<100; j++){
+        for(int i = 0; i<height; i++)
+            for(int j = 0; j<width; j++){
 
-                if(vcarteInit[i*100 + j]<0){
+                if(vcarteInit[i*width + j]<0){
                     this->set(j,i,NULL);
                 }
-                else if(tileToElem[vcarteInit[i*100 + j]] == 0){
-                    this->set(j,i,(new Landscape(vcarteInit[i*100 + j], false)));
+                else if(tileToElem[vcarteInit[i*width + j]] == 0){
+                    this->set(j,i,(new Landscape(vcarteInit[i*width + j], false)));
                 }
-                else if(tileToElem[vcarteInit[i*100 + j]] == 1){
-                    this->set(j,i,(new Landscape(vcarteInit[i*100 + j], true)));
+                else if(tileToElem[vcarteInit[i*width + j]] == 1){
+                    this->set(j,i,(new Landscape(vcarteInit[i*width + j], true)));
 
                 }
-                else if(tileToElem[vcarteInit[i*100 + j]] == 2){
+                else if(tileToElem[vcarteInit[i*width + j]] == 2){
                     this->set(j,i,(new City(0,true)));
                 }
-                else if(tileToElem[vcarteInit[i*100 + j]] == 3)
+                else if(tileToElem[vcarteInit[i*width + j]] == 3)
                     this->set(j,i,(new City(1,false)));
-                else if(tileToElem[vcarteInit[i*100 + j]] == 4)
+                else if(tileToElem[vcarteInit[i*width + j]] == 4)
                     this->set(j,i,(new City(2,false))); 
-                else if(tileToElem[vcarteInit[i*100 + j]] == 5)
+                else if(tileToElem[vcarteInit[i*width + j]] == 5)
                     this->set(j,i,(new City(3,false)));
-                else if(tileToElem[vcarteInit[i*100 + j]] == -1){
+                else if(tileToElem[vcarteInit[i*width + j]] == -1){
                     this->set(j,i,NULL);
                 }
                 else
@@ -73,8 +72,14 @@ namespace state{
     void Layer::add(Element* e){
             tab.push_back(e);
     }
-        
-        
+
+    int Layer::getHeight() const {
+        return this->height;
+    }
+
+    int Layer::getWidth() const {
+        return this->width;
+    }
         
     }
 

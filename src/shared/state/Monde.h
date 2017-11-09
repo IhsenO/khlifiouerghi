@@ -3,6 +3,7 @@
 #define STATE__MONDE__H
 
 #include <vector>
+#include <string>
 
 namespace state {
   class Layer;
@@ -34,6 +35,7 @@ namespace state {
     int getHeight () const;
     Monde (int depth);
     Layer* getLayer (const int nb) const;
+    Monde (std::string mondeFile, int depth);
     // Setters and Getters
   };
 

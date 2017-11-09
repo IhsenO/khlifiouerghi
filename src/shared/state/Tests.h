@@ -8,11 +8,13 @@
 #define STATE_TESTS_H
 
 #include "state.h"
+#include "engine.h"
 #include <iostream>
 using namespace std;
 
 namespace state{
     void testsUnitaires();
+    void testsEngine();
 }
 
 #endif /* TESTS_H */

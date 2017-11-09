@@ -21,5 +21,7 @@
 
 std::vector<int> loadCSV(const std::string fileName);
 
+std::vector<int> getDimentionsCSV(const std::string fileName);
+
 #endif /* UTILS_HPP */
 

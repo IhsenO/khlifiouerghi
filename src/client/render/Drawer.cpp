@@ -24,9 +24,9 @@ namespace render{
         target.draw(m_vertices, states);
     }
 
-    void Drawer::initVertex() {
+    void Drawer::initVertex(int width, int height) {
         m_vertices.setPrimitiveType(sf::Quads);
-        m_vertices.resize(100 * 100 * 4);
+        m_vertices.resize(width * height * 4);
     }
 
     void Drawer::setVertexLocation(int i, int x, int y) {

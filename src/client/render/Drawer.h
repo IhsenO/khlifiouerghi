@@ -25,7 +25,7 @@ namespace render {
     // Operations
   public:
     void loadTexture (const std::string fileName);
-    void initVertex ();
+    void initVertex (int width, int height);
     virtual void draw (sf::RenderTarget& target, sf::RenderStates states) const;
     void setVertexLocation (int i, int x, int y);
     void setVertexTexture (int i, const Tile& tex);
