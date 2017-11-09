@@ -8,7 +8,8 @@ namespace engine {
   enum CommandTypeId {
     MOVECHAR     = 1,
     CONSTRUCT     = 2,
-    UPGRADE     = 3
+    UPGRADE     = 3,
+    EOT     = 4
   };
 
 };

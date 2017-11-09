@@ -8,4 +8,5 @@
 #include "engine/MoveCharCommand.h"
 #include "engine/ConstructCommand.h"
 #include "engine/UpgradeCommand.h"
+#include "engine/EndOfTurnCommand.h"
 #endif

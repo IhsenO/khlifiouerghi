@@ -31,5 +31,9 @@ namespace state{
             delete p;
     }
 
+    int State::getIdPlayer() const {
+        return this->idPlayer;
+    }
+    
     
 }

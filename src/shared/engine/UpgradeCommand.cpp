@@ -21,6 +21,7 @@ namespace engine{
     void UpgradeCommand::execute(State& state) {
         if(state.getMonde().get(x, y, 1) != NULL && state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);
+            if(c->getIdPlayer() != state.getIdPlayer()) return;
             c->setDefense(c->getDefense() + 1);
             //if (c != NULL) delete c;
         }      

@@ -8,7 +8,7 @@
 
 
 void testsEngine(int i, Engine& engine, State& state){
-    std::cout << "Epoque : " << i << std::endl;
+    std::cout << "Epoque : " << i + 1 << std::endl;
     if(i == 0){
         std::cout << "Ajout de la commande qui déplace une armée dans un endroit accessible : "<< std::endl;
         MoveCharCommand move(4,4,6,6);
@@ -112,7 +112,14 @@ void testsEngine(int i, Engine& engine, State& state){
             }
         }
     }
-    else {}
+    else if(i == 10) {      
+        std::cout << "Essayons la commande fin de tour, qui doit incrémenter nos ressources selon nos villes et batiments :" << std::endl;
+        std::cout << "Avant Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
+        EndOfTurnCommand end;
+        engine.runCommand(&end);
+        std::cout << "Apres Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
+        std::cout << state.getPlayer(state.getIdPlayer())->getGold() << std::endl;
+    }
            
     
 }

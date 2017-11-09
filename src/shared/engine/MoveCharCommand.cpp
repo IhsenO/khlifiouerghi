@@ -20,6 +20,7 @@ namespace engine{
     void MoveCharCommand::execute(State& state) {
        
         if(state.getMonde().get(xFrom, yFrom, 2) != NULL && (xFrom != xTo && yFrom != yTo)){
+            if(state.getMonde().get(xFrom, yFrom, 2)->getIdPlayer() != state.getIdPlayer()) return;
             if(state.getMonde().get(xTo, yTo, 1) != NULL ){
                 if(state.getMonde().get(xTo, yTo, 1)->getTypeID() == LANDSCAPE){
                    Landscape *l = (Landscape*)state.getMonde().get(xTo, yTo, 1); 

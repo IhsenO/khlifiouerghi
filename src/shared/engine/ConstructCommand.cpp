@@ -20,7 +20,8 @@ namespace engine{
 
     void ConstructCommand::execute(State& state) {
         if(state.getMonde().get(x, y, 1) != NULL && state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
-            City *c = (City*)state.getMonde().get(x, y, 1);            
+            City *c = (City*)state.getMonde().get(x, y, 1);
+            if(c->getIdPlayer() != state.getIdPlayer()) return;            
             if(c->canBuild(this->construction->getConstructionId())){
                 c->addConstruction(this->construction);
             }

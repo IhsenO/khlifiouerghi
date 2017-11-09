@@ -36,6 +36,10 @@ int main(int argc,char* argv[])
 
     
     m->set(4,4,2,new Army());
+    state.getMonde().get(4,4,2)->setIdPlayer(1);
+    state.getMonde().get(2,2,1)->setIdPlayer(1);
+    
+    state.getMonde().get(18,11,1)->setIdPlayer(2);
     
     Engine e(state);     
     //m->set(8,2,2,new Army());
