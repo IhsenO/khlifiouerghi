@@ -6,4 +6,6 @@
 #include "engine/Command.h"
 #include "engine/Engine.h"
 #include "engine/MoveCharCommand.h"
+#include "engine/ConstructCommand.h"
+#include "engine/UpgradeCommand.h"
 #endif

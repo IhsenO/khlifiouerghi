@@ -18,5 +18,9 @@ namespace state{
         if(ressourcesToBuild == 0) return false;
         else return true;
     }
+
+    ConstructionTypeId Mine::getConstructionId() const {
+        return MINE;
+    }
     
 }

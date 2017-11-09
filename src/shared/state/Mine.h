@@ -7,6 +7,7 @@ namespace state {
   class Construction;
 }
 
+#include "ConstructionTypeId.h"
 #include "Construction.h"
 
 namespace state {
@@ -17,6 +18,7 @@ namespace state {
   public:
     Mine ();
     bool isProducing () const;
+    ConstructionTypeId getConstructionId () const;
     // Setters and Getters
   };
 

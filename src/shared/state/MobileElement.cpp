@@ -13,6 +13,10 @@ namespace state{
         //std::cout << "Creation Element Mobile" << std::endl;
         this->range = range;
     }
+
+    int MobileElement::getRange() const {
+        return this->range;
+    }
     
     
 }

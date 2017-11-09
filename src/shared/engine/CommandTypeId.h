@@ -6,7 +6,9 @@
 namespace engine {
 
   enum CommandTypeId {
-    MOVECHAR     = 1
+    MOVECHAR     = 1,
+    CONSTRUCT     = 2,
+    UPGRADE     = 3
   };
 
 };

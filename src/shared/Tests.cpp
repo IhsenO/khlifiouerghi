@@ -4,8 +4,28 @@
  * and open the template in the editor.
  */
 
-#include "Tests.h"
-namespace state{
+#include "Tests.hpp"
+
+
+void testsEngine(int i, Engine& engine){
+    if(i == 0){
+        MoveCharCommand move(4,4,6,6);
+        engine.runCommand(&move);
+    }
+    else if(i == 1){
+        ConstructCommand construct(2,2,new Barrack());
+        engine.runCommand(&construct);
+    }
+    else if(i == 2){
+        UpgradeCommand up(2,2);
+        engine.runCommand(&up);
+        engine.runCommand(&up);
+    }
+    
+}
+
+
+
 
     void testsUnitaires(){
     
@@ -50,7 +70,7 @@ namespace state{
         c.addConstruction(new Farm());
         c.addConstruction(new Barrack());
         cout << "Verifions qu'on a bien 3 batiments dans la ville et qu'on ne peut plus en rajouter...";
-        if(c.isFullOfConstructions()) cout << "OK jolie ville !" << endl;
+        if(c.canBuild(4)) cout << "OK jolie ville !" << endl;
         else cout << "Oups ERREUR " << endl;
         
         
@@ -125,5 +145,5 @@ namespace state{
         
     }
 
-}
+
 

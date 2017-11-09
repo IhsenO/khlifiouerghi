@@ -10,7 +10,7 @@
 namespace state{
 
     Army::Army() {
-        this->range = 5;
+        this->range = 2;
         //std::cout << "Création d'une Army" << std::endl;
     }
 
@@ -35,5 +35,7 @@ namespace state{
     void Army::setSoldiers(int soldiers) {
         this->soldiers = soldiers;
     }
+    
+
 
 }

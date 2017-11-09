@@ -9,7 +9,7 @@ void testSFML() {
 // Fin test SFML
 
 #include "state.h"
-#include "state/Tests.h"
+#include "Tests.hpp"
 #include "render.h"
 #include "engine.h"
 #include "utils.hpp"
@@ -21,7 +21,7 @@ using namespace engine;
 
 int main(int argc,char* argv[]) 
 {
-/*
+
     sf::RenderWindow window(sf::VideoMode(336, 224), "Rendu");
     
     int i = 0;
@@ -41,10 +41,7 @@ int main(int argc,char* argv[])
     //state.getMonde().set(2,3,2,new Army()); 
     
     Engine e(state);
-    
-    MoveCharCommand move(4,4,10,10);
-    e.runCommand(&move);
-    
+       
     //m->set(8,2,2,new Army());
 
        
@@ -72,10 +69,11 @@ int main(int argc,char* argv[])
         {
             if(event.type == sf::Event::Closed)
                 window.close();
-            else if(event.type == sf::Event::KeyReleased)
+            else if(event.type == sf::Event::KeyReleased){
+                testsEngine(i, e);
                 i++;
+            }
         }
-        cout << i << endl;
         window.clear();
         
         //window.setView(view);
@@ -92,8 +90,7 @@ int main(int argc,char* argv[])
     }
     
     delete m;
- */
+ 
     
-    testsUnitaires();
     return 0;
 }

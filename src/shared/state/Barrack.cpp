@@ -18,5 +18,10 @@ namespace state{
         if(ressourcesToBuild == 0) return false;
         else return true;
     }
+
+    ConstructionTypeId Barrack::getConstructionId() const {
+        return BARRACK;
+    }
+
     
 }

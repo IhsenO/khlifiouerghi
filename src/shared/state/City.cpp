@@ -21,6 +21,10 @@ namespace state{
         return this->defense;
     }
 
+    void City::setDefense(int defense) {
+        this->defense = defense;
+    }
+    
     
     TypeID City::getTypeID() const{
         return CITY;
@@ -41,10 +45,16 @@ namespace state{
         this->listConst.push_back(construction);
     }
 
-    bool City::isFullOfConstructions() const {
-        if(this->listConst.size()==3) return true;
-        else return false;
+    bool City::canBuild(int id) const {
+        if(this->listConst.size()==3) return false;
+        for(unsigned int i = 0; i < listConst.size(); i++){
+            if(listConst[i]->getConstructionId() == id)
+                return false;
+        }
+        return true;
     }
+
+
 
 
 

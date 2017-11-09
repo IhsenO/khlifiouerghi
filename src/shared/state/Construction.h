@@ -4,6 +4,8 @@
 
 #include <vector>
 
+#include "ConstructionTypeId.h"
+
 namespace state {
 
   /// class Construction - 
@@ -18,6 +20,7 @@ namespace state {
   public:
     Construction ();
     virtual bool isProducing () const = 0;
+    virtual ConstructionTypeId getConstructionId () const = 0;
     // Setters and Getters
     int getLevel() const;
     void setLevel(int level);

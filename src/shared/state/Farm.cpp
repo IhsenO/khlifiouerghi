@@ -18,5 +18,9 @@ namespace state{
         if(ressourcesToBuild == 0) return false;
         else return true;
     }
-    
+  
+    ConstructionTypeId Farm::getConstructionId () const{
+        return FARM;
+    }
+
 }

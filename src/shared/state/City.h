@@ -34,7 +34,7 @@ namespace state {
     bool isInteractive () const;
     bool isStatic () const;
     void addConstruction (Construction* construction);
-    bool isFullOfConstructions () const;
+    bool canBuild (int id) const;
     City (int defense, bool free);
     // Setters and Getters
     int getDefense() const;

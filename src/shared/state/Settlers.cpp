@@ -10,7 +10,7 @@
 namespace state{
     
     Settlers::Settlers() {
-        this->range = 10;
+        this->range = 5;
         //std::cout << "Création d'un Settler" << std::endl;
     }
     Settlers::~Settlers(){

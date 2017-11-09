@@ -7,6 +7,7 @@
 #include "state/StaticElement.h"
 #include "state/MobileElement.h"
 #include "state/Landscape.h"
+#include "state/ConstructionTypeId.h"
 #include "state/Construction.h"
 #include "state/City.h"
 #include "state/Army.h"
