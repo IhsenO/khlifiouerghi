@@ -22,7 +22,7 @@ namespace engine{
         if(state.getMonde().get(x, y, 1) != NULL && state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);
             c->setDefense(c->getDefense() + 1);
-            delete c;
+            //if (c != NULL) delete c;
         }      
     }
   

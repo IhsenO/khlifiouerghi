@@ -36,6 +36,7 @@ namespace state {
     void addConstruction (Construction* construction);
     bool canBuild (int id) const;
     City (int defense, bool free);
+    ~City ();
     // Setters and Getters
     int getDefense() const;
     void setDefense(int defense);

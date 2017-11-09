@@ -13,6 +13,11 @@ namespace state{
         this->defense = 1;
     }
 
+    City::~City() {
+
+    }
+    
+    
     City::City(int defense, bool free) : defense(defense), free(free) {
 
     }
@@ -54,6 +59,9 @@ namespace state{
         return true;
     }
 
+    const std::vector<Construction*>& City::getListConst() const {
+        return this->listConst;
+    }
 
 
 

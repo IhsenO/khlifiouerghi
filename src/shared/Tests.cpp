@@ -7,20 +7,113 @@
 #include "Tests.hpp"
 
 
-void testsEngine(int i, Engine& engine){
+void testsEngine(int i, Engine& engine, State& state){
+    std::cout << "Epoque : " << i << std::endl;
     if(i == 0){
+        std::cout << "Ajout de la commande qui déplace une armée dans un endroit accessible : "<< std::endl;
         MoveCharCommand move(4,4,6,6);
         engine.runCommand(&move);
+        std::cout << "Vérifie Déplacement... ";
+        if(state.getMonde().get(4,4,2) == NULL && state.getMonde().get(6,6,2) != NULL)
+            if(state.getMonde().get(6,6,2)->getTypeID() == 3) std::cout << "OK" <<std::endl;
     }
     else if(i == 1){
-        ConstructCommand construct(2,2,new Barrack());
-        engine.runCommand(&construct);
+        std::cout << "Ajout de la commande qui déplace une armée dans un endroit accessible : "<< std::endl;
+        MoveCharCommand move(6,6,8,8);
+        engine.runCommand(&move);
+        std::cout << "Vérifie Déplacement... ";
+        if(state.getMonde().get(6,6,2) == NULL && state.getMonde().get(8,8,2) != NULL)
+            if(state.getMonde().get(8,8,2)->getTypeID() == 3) std::cout << "OK" <<std::endl;
+   
     }
     else if(i == 2){
+        std::cout << "Ajout de la commande qui déplace une armée dans un endroit inaccessible : "<< std::endl;
+        MoveCharCommand move(8,8,10,10);
+        engine.runCommand(&move);
+        std::cout << "Vérifie qu'il n'y a pas déplacement... ";
+        if(state.getMonde().get(8,8,2) != NULL) std::cout << "OK" <<std::endl;
+    }
+    else if(i == 3){
+        std::cout << "Ajout de la commande qui déplace une armée dans un endroit au delà de sa portée : "<< std::endl;
+        MoveCharCommand move(8,8,4,4);
+        engine.runCommand(&move);
+        std::cout << "Vérifie qu'il n'y a pas déplacement... ";
+        if(state.getMonde().get(8,8,2) != NULL) std::cout << "OK" <<std::endl;
+    }
+    else if(i == 4){
+        std::cout << "Essayons de construire une Caserne dans la ville :" << std::endl;
+        ConstructCommand construct(2,2,new Barrack());
+        engine.runCommand(&construct);
+        std::cout << "Vérifie la construction... ";
+        if(state.getMonde().get(2,2,1) != NULL){
+            if(state.getMonde().get(2,2,1)->getTypeID() == 2){
+                City *c = (City*)state.getMonde().get(2,2,1);
+                if(c->getListConst().size() == 1) std::cout << "OK" <<std::endl;
+            }
+        }
+    }
+    else if(i == 5){
+        std::cout << "Essayons de construire une Ferme dans la ville :" << std::endl;
+        ConstructCommand construct(2,2,new Farm());
+        engine.runCommand(&construct);
+        std::cout << "Vérifie la construction... ";
+        if(state.getMonde().get(2,2,1) != NULL){
+            if(state.getMonde().get(2,2,1)->getTypeID() == 2){
+                City *c = (City*)state.getMonde().get(2,2,1);
+                if(c->getListConst().size() == 2) std::cout << "OK" <<std::endl;
+            }
+        }
+    }
+    else if(i == 6){
+        std::cout << "Essayons de construire une Mine dans la ville :" << std::endl;
+        ConstructCommand construct(2,2,new Mine());
+        engine.runCommand(&construct);
+        std::cout << "Vérifie la construction... ";
+        if(state.getMonde().get(2,2,1) != NULL){
+            if(state.getMonde().get(2,2,1)->getTypeID() == 2){
+                City *c = (City*)state.getMonde().get(2,2,1);
+                if(c->getListConst().size() == 3) std::cout << "OK" <<std::endl;
+            }
+        }
+    }
+    else if(i == 7){
+        std::cout << "Essayons de rajouter une construction dans une ville pleine :" << std::endl;
+        ConstructCommand construct(2,2,new Mine());
+        engine.runCommand(&construct);
+        std::cout << "Vérifie qu'il n'y a pas de construction... ";
+        if(state.getMonde().get(2,2,1) != NULL){
+            if(state.getMonde().get(2,2,1)->getTypeID() == 2){
+                City *c = (City*)state.getMonde().get(2,2,1);
+                if(!c->canBuild(2)) std::cout << "OK" <<std::endl;
+            }
+        }
+    }
+    else if(i == 8){
+        std::cout << "Essayons d'améliorer une ville :" << std::endl;
         UpgradeCommand up(2,2);
         engine.runCommand(&up);
-        engine.runCommand(&up);
+        std::cout << "Vérifie qu'on a amélioré la ville... ";
+        if(state.getMonde().get(2,2,1) != NULL){
+            if(state.getMonde().get(2,2,1)->getTypeID() == 2){
+                City *c = (City*)state.getMonde().get(2,2,1);
+                if(c->getDefense()==2) std::cout << "OK" <<std::endl;
+            }
+        }
     }
+    else if(i == 9){
+        std::cout << "Essayons d'améliorer une ville encore :" << std::endl;
+        UpgradeCommand up(2,2);
+        engine.runCommand(&up);
+        std::cout << "Vérifie qu'on a encore amélioré la ville... ";
+        if(state.getMonde().get(2,2,1) != NULL){
+            if(state.getMonde().get(2,2,1)->getTypeID() == 2){
+                City *c = (City*)state.getMonde().get(2,2,1);
+                if(c->getDefense()==3) std::cout << "OK" <<std::endl;
+            }
+        }
+    }
+    else {}
+           
     
 }
 

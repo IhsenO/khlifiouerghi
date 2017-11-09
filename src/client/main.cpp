@@ -35,13 +35,9 @@ int main(int argc,char* argv[])
     state.addPlayer(new Player("Joueur 2"));
 
     
-    //Monde m = state.getMonde();
-    
     m->set(4,4,2,new Army());
-    //state.getMonde().set(2,3,2,new Army()); 
     
-    Engine e(state);
-       
+    Engine e(state);     
     //m->set(8,2,2,new Army());
 
        
@@ -50,17 +46,10 @@ int main(int argc,char* argv[])
     
     CharactersLayer chars(*m->getLayer(2));
     
-    
-    
-    map1.initDrawer();
-    
-    map2.initDrawer();
-    
+    map1.initDrawer();   
+    map2.initDrawer();  
     chars.initDrawer();
-    
-    
-    //sf::View view = window.getDefaultView();
-    //view.zoom(0.5f);   
+  
 
     while (window.isOpen())
     {
@@ -70,7 +59,7 @@ int main(int argc,char* argv[])
             if(event.type == sf::Event::Closed)
                 window.close();
             else if(event.type == sf::Event::KeyReleased){
-                testsEngine(i, e);
+                testsEngine(i, e, state);
                 i++;
             }
         }

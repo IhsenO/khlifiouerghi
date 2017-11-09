@@ -19,7 +19,7 @@ namespace engine{
 
     void MoveCharCommand::execute(State& state) {
        
-        if(state.getMonde().get(xFrom, yFrom, 2) != NULL ){
+        if(state.getMonde().get(xFrom, yFrom, 2) != NULL && (xFrom != xTo && yFrom != yTo)){
             if(state.getMonde().get(xTo, yTo, 1) != NULL ){
                 if(state.getMonde().get(xTo, yTo, 1)->getTypeID() == LANDSCAPE){
                    Landscape *l = (Landscape*)state.getMonde().get(xTo, yTo, 1); 
@@ -27,7 +27,6 @@ namespace engine{
                 }
             }
             if(state.getMonde().get(xFrom, yFrom, 2)->getTypeID() == ARMY){
-                std::cout << "Okay" << std::endl;                
                 Army *chars= (Army*)state.getMonde().get(xFrom, yFrom, 2);
                 if(abs(xFrom - xTo) <= chars->getRange()){
                     state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));

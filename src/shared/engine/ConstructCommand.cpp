@@ -24,7 +24,7 @@ namespace engine{
             if(c->canBuild(this->construction->getConstructionId())){
                 c->addConstruction(this->construction);
             }
-            else std::cout << "Can't build" << std::endl;
+            //else std::cout << "Can't build" << std::endl;
         }
         
                 

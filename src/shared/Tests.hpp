@@ -25,7 +25,7 @@ using namespace engine;
 
 void testsUnitaires();
 
-void testsEngine(int i, Engine& engine);   
+void testsEngine(int i, Engine& engine, State& state);   
 
 
 #endif /* TESTS_HPP */
