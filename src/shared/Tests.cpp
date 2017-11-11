@@ -122,6 +122,30 @@ void testsEngine(int i, Engine& engine, State& state){
     }
     
     else if(i == 11){
+        std::cout << "Maintenant on va commencer la bagarre :" << std::endl;
+        std::cout << "On ajoute une Armée adversaire : " << std::endl;
+        state.getMonde().set(8,10,2,new Army());
+        state.getMonde().get(8,10,2)->setIdPlayer(2);
+        std::cout << "L'armée 1 va attaquer la seconde : " << std::endl;
+    }    
+        
+    else if(i == 12){
+        
+        AttackArmyCommand attack(8,8,8,10);
+        engine.runCommand(&attack);    
+    }
+        
+    else if(i == 13){
+        std::cout << "Maintenant on va attaquer une ville, on met une armée en position : " << std::endl;
+        state.getMonde().set(16,11,2,new Army());
+        state.getMonde().get(16,11,2)->setIdPlayer(1);
+                        
+    }
+    else if(i == 14){
+        AttackCityCommand attCity(16,11,18,11);
+        engine.runCommand(&attCity);
+    }
+    else if(i == 15){
         std::cout << "Fin des Tests !"  << std::endl;
     }
            
@@ -249,5 +273,12 @@ void testsEngine(int i, Engine& engine, State& state){
         
     }
 
-
+void menu(){
+    cout << "Usage:  ./bin/client <mode>" << endl;
+    cout << "Modes disponibles: " << endl;
+    cout << "   hello: affiche un simple message dans la console" << endl;
+    cout << "   state: effectue des opérations élémentaires sur l'état" << endl;
+    cout << "   render: affiche un état" << endl;
+    cout << "   engine: teste le moteur de jeu" << endl;
+} 
 

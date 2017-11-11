@@ -27,6 +27,8 @@ void testsUnitaires();
 
 void testsEngine(int i, Engine& engine, State& state);   
 
+void menu();
+
 
 #endif /* TESTS_HPP */
 

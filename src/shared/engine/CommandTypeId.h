@@ -9,7 +9,9 @@ namespace engine {
     MOVECHAR     = 1,
     CONSTRUCT     = 2,
     UPGRADE     = 3,
-    EOT     = 4
+    EOT     = 4,
+    ATTACKARMY     = 5,
+    ATTACKCITY     = 6
   };
 
 };

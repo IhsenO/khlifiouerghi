@@ -9,4 +9,6 @@
 #include "engine/ConstructCommand.h"
 #include "engine/UpgradeCommand.h"
 #include "engine/EndOfTurnCommand.h"
+#include "engine/AttackArmyCommand.h"
+#include "engine/AttackCityCommand.h"
 #endif

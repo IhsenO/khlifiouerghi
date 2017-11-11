@@ -11,6 +11,7 @@ namespace state{
 
     Army::Army() {
         this->range = 2;
+        this->soldiers = 100;
         //std::cout << "Création d'une Army" << std::endl;
     }
 

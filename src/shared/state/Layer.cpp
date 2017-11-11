@@ -49,7 +49,7 @@ namespace state{
 
                 }
                 else if(tileToElem[vcarteInit[i*width + j]] == 2){
-                    this->set(j,i,(new City(0,true)));
+                    this->set(j,i,(new City(1,true)));
                 }
                 else if(tileToElem[vcarteInit[i*width + j]] == 3)
                     this->set(j,i,(new City(1,false)));
