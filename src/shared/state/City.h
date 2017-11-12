@@ -24,6 +24,7 @@ namespace state {
     std::vector<Construction*> listConst;
     bool building;
     bool free;
+    int soldiers;
     // Operations
   public:
     City ();
@@ -46,6 +47,8 @@ namespace state {
     void setBuilding(bool building);
     bool getFree() const;
     void setFree(bool free);
+    int getSoldiers() const;
+    void setSoldiers(int soldiers);
   };
 
 };

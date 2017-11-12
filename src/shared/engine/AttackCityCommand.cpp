@@ -49,7 +49,7 @@ namespace engine{
         }
         srand(time(NULL));
         float a = (float)army->getSoldiers();
-        float b = (float)city->getDefense() * 100;
+        float b = (float)city->getDefense() * 100 + city->getSoldiers();
         //std:: cout << a << " b " << b << std::endl;
         float meanSoldiers = (a+b)/2;
         float difference = (a - b) / meanSoldiers;

@@ -20,6 +20,7 @@ namespace state {
     // Operations
   public:
     Army ();
+    Army (int soldiers, int player);
     TypeID getTypeID () const;
     bool  isMoving () const;
     bool isInteractive () const;

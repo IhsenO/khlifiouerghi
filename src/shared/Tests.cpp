@@ -159,6 +159,16 @@ void testsEngine(int i, Engine& engine, State& state){
         std::cout << "Après la fusion il y a "  << a->getSoldiers() << " soldats !"<< std::endl;
     }
     else if(i == 17){
+        std::cout << "Essaie de faire sortir des soldats d'une ville, on en sortira 50 : " << std::endl;
+        City *c = (City*)state.getMonde().get(2,2,1);
+        std::cout << "La ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+        LeaveCityCommand leave(2,2,4,4,50);
+        engine.runCommand(&leave);
+        std::cout << "Apres la création de l'armée, la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+        Army *a = (Army*)state.getMonde().get(4,4,2);
+        std::cout << "L'Armée possede : " << a->getSoldiers() << " Soldats !" << std::endl;
+    }
+    else if(i == 18){
         std::cout << "Fin des Tests !"  << std::endl;
     }
            

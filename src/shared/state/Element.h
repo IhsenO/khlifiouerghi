@@ -12,8 +12,6 @@ namespace state {
     // Associations
     // Attributes
   protected:
-    int x;
-    int y;
     int idPlayer     = -1;
     // Operations
   public:
@@ -23,10 +21,6 @@ namespace state {
     virtual bool isInteractive () const = 0;
     virtual bool isStatic () const = 0;
     // Setters and Getters
-    int getX() const;
-    void setX(int x);
-    int getY() const;
-    void setY(int y);
     int getIdPlayer() const;
     void setIdPlayer(int idPlayer);
   };

@@ -11,6 +11,7 @@ namespace state{
     
     City::City() {
         this->defense = 1;
+        this->soldiers = 100;
     }
 
     City::~City() {
@@ -19,7 +20,7 @@ namespace state{
     
     
     City::City(int defense, bool free) : defense(defense), free(free) {
-
+        this->soldiers = 100;
     }
 
     int City::getDefense() const {
@@ -63,9 +64,13 @@ namespace state{
         return this->listConst;
     }
 
+    int City::getSoldiers() const {
+        return this->soldiers;
+    }
 
-
-
-
+    void City::setSoldiers(int soldiers) {
+        this->soldiers = soldiers;
+    }
+    
 
 }

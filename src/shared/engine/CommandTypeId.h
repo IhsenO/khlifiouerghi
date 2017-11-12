@@ -12,7 +12,8 @@ namespace engine {
     EOT     = 4,
     ATTACKARMY     = 5,
     ATTACKCITY     = 6,
-    FUSIONARMY     = 7
+    FUSIONARMY     = 7,
+    LEAVECITY     = 8
   };
 
 };

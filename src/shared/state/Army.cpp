@@ -15,6 +15,10 @@ namespace state{
         //std::cout << "Création d'une Army" << std::endl;
     }
 
+    Army::Army(int soldiers, int player) : soldiers(soldiers) {
+        this->range = 2;
+        this->idPlayer = player;
+    }
 
     int Army::getSoldiers() const { return soldiers; }
 

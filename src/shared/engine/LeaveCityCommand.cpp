@@ -1,0 +1,37 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+#include "LeaveCityCommand.h"
+#include "state/City.h"
+#include "state/Army.h"
+
+using namespace state;
+
+namespace engine{
+
+    LeaveCityCommand::LeaveCityCommand(int xFrom, int yFrom, int xTo, int yTo, int soldiers) : xFrom(xFrom), yFrom(yFrom), xTo(xTo), yTo(yTo), soldiers(soldiers) {
+        
+    }
+
+    CommandTypeId LeaveCityCommand::getCommandTypeId() const {
+        return LEAVECITY;
+    }
+
+    void LeaveCityCommand::execute(state::State& state) {
+        if(state.getMonde().get(xFrom, yFrom, 1) == NULL) return;
+        if(state.getIdPlayer() != state.getMonde().get(xFrom, yFrom, 1)->getIdPlayer()) return;
+        if(state.getMonde().get(xFrom, yFrom, 1)->getTypeID() == state::CITY){
+            City *c = (City*)state.getMonde().get(xFrom, yFrom, 1);
+            if(c->getSoldiers() < this->soldiers) return;
+            c->setSoldiers(c->getSoldiers() - this->soldiers);
+            state.getMonde().set(xTo,yTo,2,new Army(this->soldiers, c->getIdPlayer()));
+            
+        } 
+    }
+    
+
+    
+}
