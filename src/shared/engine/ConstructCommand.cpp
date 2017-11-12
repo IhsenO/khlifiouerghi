@@ -19,16 +19,16 @@ namespace engine{
     }
 
     void ConstructCommand::execute(State& state) {
-        if(state.getMonde().get(x, y, 1) != NULL && state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
+        if(state.getMonde().get(x, y, 1) == NULL) return;
+        if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);
             if(c->getIdPlayer() != state.getIdPlayer()) return;            
             if(c->canBuild(this->construction->getConstructionId())){
                 c->addConstruction(this->construction);
+                Player *p = state.getPlayer(c->getIdPlayer());
+                p->setGold(p->getGold() - 250);
             }
-            //else std::cout << "Can't build" << std::endl;
-        }
-        
-                
+        }                
     }
     
     

@@ -146,6 +146,19 @@ void testsEngine(int i, Engine& engine, State& state){
         engine.runCommand(&attCity);
     }
     else if(i == 15){
+        std::cout << "On positionne une armée pour essayer une fuision entre 2 armées du meme camps : " << std::endl;
+        state.getMonde().set(10,10,2,new Army());
+        state.getMonde().get(10,10,2)->setIdPlayer(1);
+        Army *a = (Army*)state.getMonde().get(10,10,2);
+        std::cout << "L'armée cible possède "  << a->getSoldiers() << " soldats !"<< std::endl;
+    }
+    else if(i == 16){
+        ArmyFusionCommand fusion(8,10,10,10);
+        engine.runCommand(&fusion);
+        Army *a = (Army*)state.getMonde().get(10,10,2);
+        std::cout << "Après la fusion il y a "  << a->getSoldiers() << " soldats !"<< std::endl;
+    }
+    else if(i == 17){
         std::cout << "Fin des Tests !"  << std::endl;
     }
            

@@ -11,4 +11,5 @@
 #include "engine/EndOfTurnCommand.h"
 #include "engine/AttackArmyCommand.h"
 #include "engine/AttackCityCommand.h"
+#include "engine/ArmyFusionCommand.h"
 #endif

@@ -11,7 +11,8 @@ namespace engine {
     UPGRADE     = 3,
     EOT     = 4,
     ATTACKARMY     = 5,
-    ATTACKCITY     = 6
+    ATTACKCITY     = 6,
+    FUSIONARMY     = 7
   };
 
 };

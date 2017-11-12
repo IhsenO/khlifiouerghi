@@ -118,7 +118,7 @@ int main(int argc,char* argv[])
         {
             if(event.type == sf::Event::Closed)
                 window.close();
-            else if(event.type == sf::Event::KeyReleased && i < 16){
+            else if(event.type == sf::Event::KeyReleased && i < 26){
                 testsEngine(i, e, state);
                 i++;
             }
