@@ -10,7 +10,7 @@
 namespace state{
     
     Barrack::Barrack(){
-        this->productionByTurn = 100;
+        this->productionByTurn = 50;
         //std::cout << "Créationd'une Barrack" << std::endl;
     }
     
@@ -21,6 +21,14 @@ namespace state{
 
     ConstructionTypeId Barrack::getConstructionId() const {
         return BARRACK;
+    }
+
+    int Barrack::getSoldiersCost() const {
+        return 100;
+    }
+
+    int Barrack::getSoldiersFood() const {
+        return 250;
     }
 
     

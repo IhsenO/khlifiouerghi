@@ -118,7 +118,7 @@ void testsEngine(int i, Engine& engine, State& state){
         EndOfTurnCommand end;
         engine.runCommand(&end);
         std::cout << "Apres Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
-        std::cout << state.getPlayer(state.getIdPlayer())->getGold() << std::endl;
+        
     }
     
     else if(i == 11){
@@ -169,6 +169,34 @@ void testsEngine(int i, Engine& engine, State& state){
         std::cout << "L'Armée possede : " << a->getSoldiers() << " Soldats !" << std::endl;
     }
     else if(i == 18){
+        std::cout << "Essaie de rentrer des soldats dans une ville, on en rentre 25 : " << std::endl;
+        City *c = (City*)state.getMonde().get(2,2,1);
+        std::cout << "Pour l'instant la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+        EnterCityCommand enter(4,4,2,2,25);
+        engine.runCommand(&enter);
+        std::cout << "Apres l'ajout de l'armée, la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+        Army *a = (Army*)state.getMonde().get(4,4,2);
+        std::cout << "L'Armée possede : " << a->getSoldiers() << " Soldats !" << std::endl;
+    }
+    else if(i == 19){
+        std::cout << "Essaie de rentrer des soldats dans une ville, on en rentre 25, soit toute l'armée : " << std::endl;
+        City *c = (City*)state.getMonde().get(2,2,1);
+        std::cout << "Pour l'instant la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+        EnterCityCommand enter(4,4,2,2,25);
+        engine.runCommand(&enter);
+        std::cout << "Apres l'ajout de l'armée, la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+    }
+    else if(i == 20){
+        std::cout << "On va essayer de créer des soldats : "  << std::endl;
+        City *c = (City*)state.getMonde().get(2,2,1);
+        std::cout << "Pour l'instant la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+        std::cout << "Avant Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
+        MakeSoldiersCommand make(2,2);
+        engine.runCommand(&make);
+        std::cout << "Ensuite la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
+        std::cout << "Apres Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
+    }
+    else if(i == 22){
         std::cout << "Fin des Tests !"  << std::endl;
     }
            

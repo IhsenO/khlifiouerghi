@@ -19,6 +19,8 @@ namespace state {
     Barrack ();
     bool isProducing () const;
     ConstructionTypeId getConstructionId () const;
+    int getSoldiersCost () const;
+    int getSoldiersFood () const;
     // Setters and Getters
   };
 

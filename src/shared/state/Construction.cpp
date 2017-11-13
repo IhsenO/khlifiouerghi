@@ -16,6 +16,9 @@ namespace state{
     int Construction::getProductionByTurn() const {
         return this->productionByTurn;
     }
-    
+
+    int Construction::getCost() const {
+        return 250;
+    }
     
 }

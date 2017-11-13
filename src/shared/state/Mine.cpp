@@ -22,5 +22,7 @@ namespace state{
     ConstructionTypeId Mine::getConstructionId() const {
         return MINE;
     }
+
+    
     
 }

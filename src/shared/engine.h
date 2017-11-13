@@ -13,4 +13,7 @@
 #include "engine/AttackCityCommand.h"
 #include "engine/ArmyFusionCommand.h"
 #include "engine/LeaveCityCommand.h"
+#include "engine/SplitArmyCommand.h"
+#include "engine/EnterCityCommand.h"
+#include "engine/MakeSoldiersCommand.h"
 #endif
