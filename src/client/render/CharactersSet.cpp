@@ -11,14 +11,17 @@
 namespace render {
 
     CharactersSet::CharactersSet() {
-        this->characters.push_back(Tile(0*16,2*16,16,16));
-        this->characters.push_back(Tile(2*16,2*16,16,16));
-        this->characters.push_back(Tile(8*16,1*16,16,16));
+        for(int i = 0; i < 7; i++){
+           this->characters.push_back(Tile(i*16,0*16,16,16)); 
+        }
+        //this->characters.push_back(Tile(0*16,2*16,16,16));
+        //this->characters.push_back(Tile(2*16,2*16,16,16));
+        //this->characters.push_back(Tile(8*16,1*16,16,16));
         
     }
 
     const std::string CharactersSet::getFile() const {
-        return "res/sprite.png";
+        return "res/sprite2.png";
     }
 
     int CharactersSet::getHeight() const {
@@ -30,6 +33,7 @@ namespace render {
     }
 
     const Tile& CharactersSet::getTile(const state::Element& e) const {
+        /*
         if(&e == NULL)
             return this->characters[2];
         else if(e.getTypeID() == state::ARMY || e.getTypeID() == state::SETTLERS){
@@ -38,6 +42,26 @@ namespace render {
         }
         else
             return this->characters[2];
+         */
+        if(&e == NULL){
+            return this->characters[5];
+        }
+        else if(e.getTypeID() == state::ARMY){
+            if(e.getIdPlayer() == 1)
+                return this->characters[1];
+            else if(e.getIdPlayer() == 2)
+                return this->characters[2];
+            else
+                return this->characters[0];
+        }
+        else if(e.getTypeID() == state::SETTLERS){
+            if(e.getIdPlayer() == 1)
+                return this->characters[3];
+            else if(e.getIdPlayer() == 2)
+                return this->characters[4];
+            else
+                return this->characters[0];            
+        }
     }
 
     const std::vector<Tile>& CharactersSet::getCharacters() const {
