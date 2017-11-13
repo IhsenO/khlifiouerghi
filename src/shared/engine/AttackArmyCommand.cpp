@@ -9,7 +9,7 @@
 #include <cmath>
 #include <time.h>
 #include <iostream>
-
+#include "UtilsEngine.hpp"
 using namespace state;
 
 namespace engine {
@@ -49,20 +49,7 @@ namespace engine {
         float a = (float)firstArmy->getSoldiers();
         float b = (float)secondArmy->getSoldiers();
         //std:: cout << a << " b " << b << std::endl;
-        float meanSoldiers = (a+b)/2;
-        float difference = (a - b) / meanSoldiers;
-        float probability = 1/(1+exp(-4*difference));
-        float randNumber = rand() % 100;
-        //std:: cout << difference << " proba " << probability << std::endl;
-        //std:: cout << randNumber << " PROBA " << probability*100 << std::endl;
-        if(randNumber <= probability*100){
-            std:: cout << "Victoire" << std::endl;
-            return true;
-        }
-        else{
-            std::cout << "Defaite" << std::endl;
-            return false;
-        }
+        return hasWonBattle(a, b);
     }
 
     CommandTypeId AttackArmyCommand::getCommandTypeId() const {

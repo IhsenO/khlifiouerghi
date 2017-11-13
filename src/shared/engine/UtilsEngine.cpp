@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+#include "UtilsEngine.hpp"
+
+bool canAccess(State& state, int x, int y){
+    
+    if(x < 0 || x > state.getMonde().getWidth() || y < 0 || y > state.getMonde().getHeight()) return false;
+    if(state.getMonde().get(x,y,2) != NULL) return false;
+    if(state.getMonde().get(x,y,1) != NULL){
+        if(state.getMonde().get(x,y,1)->getTypeID() == LANDSCAPE){
+            Landscape *l = (Landscape*)state.getMonde().get(x,y,1);
+            if(l->isAccessible())
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+        
+    }
+    else  
+        return true;
+       
+}
+
+bool hasWonBattle(float a, float b){
+    srand(time(NULL));
+    float meanSoldiers = (a+b)/2;
+    float difference = (a - b) / meanSoldiers;
+    float probability = 1/(1+exp(-4*difference));
+    float randNumber = rand() % 100;
+    //std:: cout << difference << " proba " << probability << std::endl;
+    //std:: cout << randNumber << " PROBA " << probability*100 << std::endl;
+    if(randNumber <= probability*100){
+        std:: cout << "Victoire" << std::endl;
+        return true;
+    }
+    else{
+        std::cout << "Defaite" << std::endl;
+        return false;
+    }   
+}
+
+bool canMoveSimple(State& state,int xFrom, int yFrom, int xTo, int yTo, int range){
+    if(abs(xFrom - xTo) <= range && abs(yFrom - yTo) <= range){
+        if(canAccess(state, xTo, yTo))
+            return true;        
+        else 
+            return false;        
+    }
+    else
+        return false;
+}
+

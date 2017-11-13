@@ -7,6 +7,7 @@
 #include "Tests.hpp"
 
 
+
 void testsEngine(int i, Engine& engine, State& state){
     std::cout << "Epoque : " << i + 1 << std::endl;
     if(i == 0){
@@ -195,6 +196,16 @@ void testsEngine(int i, Engine& engine, State& state){
         engine.runCommand(&make);
         std::cout << "Ensuite la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         std::cout << "Apres Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
+    }
+    else if(i == 21){
+        std::cout << "On va essayer de diviser une armée : " << std::endl;
+        Army *a = (Army*)state.getMonde().get(10,10,2);
+        std::cout << "L'Armée possede : " << a->getSoldiers() << " Soldats avant !" << std::endl;
+        SplitArmyCommand split(10,10,10,12,50);
+        engine.runCommand(&split);
+        std::cout << "L'Armée 1 possede : " << a->getSoldiers() << " Soldats après !" << std::endl;
+        Army *a2 = (Army*)state.getMonde().get(10,12,2);
+        std::cout << "L'Armée 2 possede : " << a2->getSoldiers() << " Soldats après !" << std::endl;
     }
     else if(i == 22){
         std::cout << "Fin des Tests !"  << std::endl;

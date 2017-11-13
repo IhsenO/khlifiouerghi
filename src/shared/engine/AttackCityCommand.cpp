@@ -7,6 +7,7 @@
 #include "AttackCityCommand.h"
 #include "state/City.h"
 #include "state/Army.h"
+#include "UtilsEngine.hpp"
 #include <time.h>
 #include <cmath>
 #include <iostream>
@@ -51,20 +52,7 @@ namespace engine{
         float a = (float)army->getSoldiers();
         float b = (float)city->getDefense() * 100 + city->getSoldiers();
         //std:: cout << a << " b " << b << std::endl;
-        float meanSoldiers = (a+b)/2;
-        float difference = (a - b) / meanSoldiers;
-        float probability = 1/(1+exp(-4*difference));
-        float randNumber = rand() % 100;
-        //std:: cout << difference << " proba " << probability << std::endl;
-        //std:: cout << randNumber << " PROBA " << probability*100 << std::endl;
-        if(randNumber <= probability*100){
-            std:: cout << "Victoire" << std::endl;
-            return true;
-        }
-        else{
-            std::cout << "Defaite" << std::endl;
-            return false;
-        }
+        return hasWonBattle(a, b);
     }
 
     
