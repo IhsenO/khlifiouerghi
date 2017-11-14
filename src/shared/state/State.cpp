@@ -23,7 +23,7 @@ namespace state{
     }
 
     Player* State::getPlayer(int idPlayer) const {
-        return this->players[idPlayer];
+        return this->players[idPlayer - 1];
     }
 
     State::~State() {

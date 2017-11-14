@@ -28,11 +28,13 @@ bool canAccess(State& state, int x, int y){
 }
 
 bool hasWonBattle(float a, float b){
-    srand(time(NULL));
+    //srand(time(NULL));
+    mt19937 mt_rand(time(0));
     float meanSoldiers = (a+b)/2;
     float difference = (a - b) / meanSoldiers;
     float probability = 1/(1+exp(-4*difference));
-    float randNumber = rand() % 100;
+    float randNumber = (float)(mt_rand() % 100);
+    //float randNumber = rand() % 100;
     //std:: cout << difference << " proba " << probability << std::endl;
     //std:: cout << randNumber << " PROBA " << probability*100 << std::endl;
     if(randNumber <= probability*100){
@@ -45,8 +47,15 @@ bool hasWonBattle(float a, float b){
     }   
 }
 
+bool canReachSimple(int xFrom, int yFrom, int xTo, int yTo, int range){
+    if(abs(xFrom - xTo) <= range && abs(yFrom - yTo) <= range)
+        return true;
+    else
+        return false;
+}
+
 bool canMoveSimple(State& state,int xFrom, int yFrom, int xTo, int yTo, int range){
-    if(abs(xFrom - xTo) <= range && abs(yFrom - yTo) <= range){
+    if(canReachSimple(xFrom, yFrom, xTo, yTo, range)){
         if(canAccess(state, xTo, yTo))
             return true;        
         else 

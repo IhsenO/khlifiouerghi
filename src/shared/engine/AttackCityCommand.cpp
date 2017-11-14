@@ -32,10 +32,12 @@ namespace engine{
                 if(state.getMonde().get(xTo,yTo, 1)->getIdPlayer() == state.getMonde().get(xFrom,yFrom, 2)->getIdPlayer()) return;
                 Army *army = (Army*)state.getMonde().get(xFrom,yFrom,2);
                 City *city = (City*)state.getMonde().get(xTo,yTo,1);
-                if(solveCityAttack(army, city)){
+                if(!canReachSimple(xFrom, yFrom, xTo, yTo, army->getRange())) return;
+                if(hasWonBattle((float)army->getSoldiers(), (float)city->getDefense() * 100 + city->getSoldiers())){
                     city->setIdPlayer(army->getIdPlayer());
                     state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
                     state.getMonde().set(xFrom, yFrom, 2, NULL);
+                    city->setSoldiers(0);
                 }
                 else{
                     state.getMonde().set(xFrom, yFrom, 2, NULL);

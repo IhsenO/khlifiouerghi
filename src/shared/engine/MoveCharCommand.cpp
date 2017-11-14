@@ -9,6 +9,7 @@
 #include <iostream>
 #include "state/Army.h"
 #include "state/Settlers.h"
+#include "UtilsEngine.hpp"
 using namespace state;
 
 namespace engine{
@@ -18,7 +19,25 @@ namespace engine{
     }
 
     void MoveCharCommand::execute(State& state) {
-       
+        //std::cout << "mm"  <<std::endl;
+        if(state.getMonde().get(xFrom, yFrom, 2) == NULL) return;
+        if(state.getMonde().get(xFrom, yFrom, 2)->getIdPlayer() != state.getIdPlayer()) return;
+        if(state.getMonde().get(xFrom, yFrom, 2)->getTypeID() == ARMY){
+            Army *chars= (Army*)state.getMonde().get(xFrom, yFrom, 2);
+            if(canMoveSimple(state, xFrom, yFrom, xTo, yTo, chars->getRange())){
+                state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
+                state.getMonde().set(xFrom, yFrom, 2, NULL);
+            }               
+        }
+        else if(state.getMonde().get(xFrom, yFrom, 2)->getTypeID() == SETTLERS){
+            Settlers *chars= (Settlers*)state.getMonde().get(xFrom, yFrom, 2);
+            if(canMoveSimple(state, xFrom, yFrom, xTo, yTo, chars->getRange())){
+                state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
+                state.getMonde().set(xFrom, yFrom, 2, NULL);
+            }               
+        }
+            
+        /*
         if(state.getMonde().get(xFrom, yFrom, 2) != NULL && (xFrom != xTo && yFrom != yTo)){
             if(state.getMonde().get(xFrom, yFrom, 2)->getIdPlayer() != state.getIdPlayer()) return;
             if(state.getMonde().get(xTo, yTo, 1) != NULL ){
@@ -42,6 +61,7 @@ namespace engine{
                 }
             }       
         }
+        */
         
         
     }

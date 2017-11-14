@@ -342,5 +342,6 @@ void menu(){
     cout << "   state: effectue des opérations élémentaires sur l'état" << endl;
     cout << "   render: affiche un état" << endl;
     cout << "   engine: teste le moteur de jeu" << endl;
+    cout << "   random_ai: teste le jeu avec une IA aléatoire" << endl;
 } 
 

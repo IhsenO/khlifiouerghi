@@ -26,7 +26,7 @@ namespace engine{
             if(c->canBuild(this->construction->getConstructionId())){
                 c->addConstruction(this->construction);
                 Player *p = state.getPlayer(c->getIdPlayer());
-                p->setGold(p->getGold() - 250);
+                p->setGold(p->getGold() - construction->getCost());
             }
         }                
     }

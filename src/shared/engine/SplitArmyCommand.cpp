@@ -23,9 +23,10 @@ namespace engine{
     void SplitArmyCommand::execute(state::State& state) {
         if(state.getMonde().get(xFrom,yFrom, 2) == NULL) return;
         if(state.getMonde().get(xTo,yTo, 2) != NULL) return;
-        if(!canAccess(state, xTo, yTo)) return;
+        
         if(state.getMonde().get(xFrom,yFrom, 2)->getTypeID() == ARMY){
             Army *army = (Army*)state.getMonde().get(xFrom,yFrom, 2);
+            if(!canMoveSimple(state, xFrom, yFrom, xTo, yTo, army->getRange())) return;
             if(army->getIdPlayer() != state.getIdPlayer()) return;
             if(army->getSoldiers() > this->soldiers){
                 army->setSoldiers(army->getSoldiers() - this->soldiers);

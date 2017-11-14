@@ -19,13 +19,16 @@
 #include <cmath>
 #include <time.h>
 #include <iostream>
+#include <random>
 using namespace std;
 using namespace state;
 using namespace engine;
 
 bool canAccess(State&, int, int);
 bool hasWonBattle(float, float);
+bool canReachSimple(int,int,int,int,int);
 bool canMoveSimple(State&,int,int,int,int,int);
+
 
 #endif /* UTILSENGINE_HPP */
 

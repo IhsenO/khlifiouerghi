@@ -23,7 +23,8 @@ namespace engine{
         if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);
             if(c->getIdPlayer() != state.getIdPlayer()) return;
-            c->setDefense(c->getDefense() + 1);
+            if(c->getDefense() < 3)
+                c->setDefense(c->getDefense() + 1);
             //if (c != NULL) delete c;
         }      
     }
