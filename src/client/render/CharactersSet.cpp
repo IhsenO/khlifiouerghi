@@ -62,6 +62,9 @@ namespace render {
             else
                 return this->characters[0];            
         }
+        else{
+            return this->characters[5];
+        }
     }
 
     const std::vector<Tile>& CharactersSet::getCharacters() const {

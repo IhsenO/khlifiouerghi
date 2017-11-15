@@ -6,6 +6,7 @@
 
 #include "UpgradeCommand.h"
 #include "state/City.h"
+#include <iostream>
 using namespace state;
 
 namespace engine{
@@ -19,12 +20,16 @@ namespace engine{
     }
 
     void UpgradeCommand::execute(State& state) {
+        std::cout << "UpgradeCommand" << std::endl;
         if(state.getMonde().get(x, y, 1) == NULL) return;
         if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);
             if(c->getIdPlayer() != state.getIdPlayer()) return;
-            if(c->getDefense() < 3)
+            if(c->getDefense() < 3 && state.getPlayer(state.getIdPlayer())->getGold() > 250 && state.getPlayer(state.getIdPlayer())->getFood() > 250){
                 c->setDefense(c->getDefense() + 1);
+                state.getPlayer(state.getIdPlayer())->setFood(state.getPlayer(state.getIdPlayer())->getFood() - 250);
+                state.getPlayer(state.getIdPlayer())->setGold(state.getPlayer(state.getIdPlayer())->getGold() - 250);
+            }
             //if (c != NULL) delete c;
         }      
     }

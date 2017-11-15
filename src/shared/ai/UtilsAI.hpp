@@ -5,35 +5,27 @@
  */
 
 /* 
- * File:   Tests.hpp
+ * File:   UtilsAI.hpp
  * Author: ihsen
  *
- * Created on 9 novembre 2017, 15:52
+ * Created on 14 novembre 2017, 18:41
  */
 
-#ifndef TESTS_HPP
-#define TESTS_HPP
+#ifndef UTILSAI_HPP
+#define UTILSAI_HPP
 
 #include "state.h"
 #include "engine.h"
 #include "ai.h"
-#include <iostream>
-#include "engine/UtilsEngine.hpp"
+#include "state/Construction.h"
+
 using namespace std;
 using namespace state;
 using namespace engine;
-using namespace ai;
 
+bool canBuildConstruction(State&, int, int, ConstructionTypeId);
+bool canUpgrade(State&, int, int);
+bool canMakeSoldiers(State&);
 
-
-void testsUnitaires();
-
-void testsEngine(int i, Engine& engine, State& state); 
-
-void testsAIRandom(Engine& engine, State& state); 
-
-void menu();
-
-
-#endif /* TESTS_HPP */
+#endif /* UTILSAI_HPP */
 

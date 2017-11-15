@@ -7,6 +7,13 @@
 #include "Tests.hpp"
 
 
+void testsAIRandom(Engine& engine, State& state){
+    
+    RandomAI random(state, engine);
+    random.run(engine);
+    
+}
+
 
 void testsEngine(int i, Engine& engine, State& state){
     std::cout << "Epoque : " << i + 1 << std::endl;

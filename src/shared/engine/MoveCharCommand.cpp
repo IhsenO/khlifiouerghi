@@ -19,7 +19,7 @@ namespace engine{
     }
 
     void MoveCharCommand::execute(State& state) {
-        //std::cout << "mm"  <<std::endl;
+        std::cout << "MoveChar"  <<std::endl;
         if(state.getMonde().get(xFrom, yFrom, 2) == NULL) return;
         if(state.getMonde().get(xFrom, yFrom, 2)->getIdPlayer() != state.getIdPlayer()) return;
         if(state.getMonde().get(xFrom, yFrom, 2)->getTypeID() == ARMY){

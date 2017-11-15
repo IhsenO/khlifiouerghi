@@ -34,6 +34,11 @@ namespace state{
     int State::getIdPlayer() const {
         return this->idPlayer;
     }
+
+    void State::setIdPlayer(int idPlayer) {
+        this->idPlayer = idPlayer;
+    }
+    
     
     
 }

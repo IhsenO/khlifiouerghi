@@ -8,6 +8,7 @@
 #include "state/City.h"
 #include "state/Army.h"
 #include "UtilsEngine.hpp"
+#include <iostream>
 
 using namespace state;
 
@@ -22,12 +23,13 @@ namespace engine{
     }
 
     void LeaveCityCommand::execute(state::State& state) {
+        std::cout << "LeaveCity" << std::endl;
         if(state.getMonde().get(xFrom, yFrom, 1) == NULL) return;
         if(state.getIdPlayer() != state.getMonde().get(xFrom, yFrom, 1)->getIdPlayer()) return;
         if(state.getMonde().get(xFrom, yFrom, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(xFrom, yFrom, 1);
             if(!canMoveSimple(state, xFrom, yFrom, xTo, yTo, 2)) return;
-            if(c->getSoldiers() < this->soldiers) return;
+            if(c->getSoldiers() < this->soldiers || this->soldiers < 0) return;
             c->setSoldiers(c->getSoldiers() - this->soldiers);
             state.getMonde().set(xTo,yTo,2,new Army(this->soldiers, c->getIdPlayer()));
             

@@ -7,6 +7,7 @@
 #include "MakeSoldiersCommand.h"
 #include "state/City.h"
 #include "state/Barrack.h"
+#include <iostream>
 
 using namespace state;
 
@@ -20,11 +21,14 @@ namespace engine{
     }
 
     void MakeSoldiersCommand::execute(state::State& state) {
+        std::cout << "MakeSoldiers" << std::endl;
         if(state.getMonde().get(x, y, 1) == NULL) return;
         if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);
-            if(c->getIdPlayer() != state.getIdPlayer()) return; 
+            if(c->getIdPlayer() != state.getIdPlayer()) return;
+            
             for(Construction *construction : c->getListConst()){
+            //for(int i = 0; i < c->getListConst().size(); i++){
                 if(construction->getConstructionId() == BARRACK){
                     Barrack *b = (Barrack*)construction;
                     if(state.getPlayer(state.getIdPlayer())->getGold() >= b->getSoldiersCost() && state.getPlayer(state.getIdPlayer())->getFood() >= b->getSoldiersFood()){
@@ -34,9 +38,9 @@ namespace engine{
                     }
                     else return;
                 }
-                else{
-                    return;
-                }
+                //else{
+                //    return;
+                //}
             }
                        
             

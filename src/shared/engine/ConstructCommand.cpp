@@ -18,7 +18,8 @@ namespace engine{
         return CONSTRUCT;
     }
 
-    void ConstructCommand::execute(State& state) {
+    void ConstructCommand::execute(State& state) { 
+        std::cout << "ConstructCommand" << std::endl;
         if(state.getMonde().get(x, y, 1) == NULL) return;
         if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);

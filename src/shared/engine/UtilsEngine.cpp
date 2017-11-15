@@ -8,7 +8,7 @@
 
 bool canAccess(State& state, int x, int y){
     
-    if(x < 0 || x > state.getMonde().getWidth() || y < 0 || y > state.getMonde().getHeight()) return false;
+    if(x < 0 || x >= state.getMonde().getWidth() || y < 0 || y >= state.getMonde().getHeight()) return false;
     if(state.getMonde().get(x,y,2) != NULL) return false;
     if(state.getMonde().get(x,y,1) != NULL){
         if(state.getMonde().get(x,y,1)->getTypeID() == LANDSCAPE){
