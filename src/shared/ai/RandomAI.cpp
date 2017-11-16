@@ -29,6 +29,7 @@ namespace ai{
         mt19937 mt_rand(seed);
         EndOfTurnCommand end;
         
+        
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Farm()));
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Barrack()));
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Mine()));
@@ -68,7 +69,18 @@ namespace ai{
                     if(state.getMonde().get(j,i,2)->getTypeID() == ARMY && state.getMonde().get(j,i,2)->getIdPlayer() == state.getIdPlayer()){
                         for(int k = i-2; k < i+3; k++)
                             for(int l = j-2; l < j+3; l++){
-                                listCommands.push_back(new MoveCharCommand(j,i,l,k));
+                                if(enemyArmy(state,l,k)){
+                                    
+                                    listCommands.push_back(new AttackArmyCommand(j,i,l,k));
+                                }
+                                else if(enemyCity(state,l,k)){
+                                    cout << "Okay" << endl;
+                                    listCommands.push_back(new AttackCityCommand(j,i,l,k));
+                                }
+                                else if(friendlyArmy(state,l,k) && j!=l && k!=i) listCommands.push_back(new ArmyFusionCommand(j,i,l,k));
+                                else{                           
+                                    listCommands.push_back(new MoveCharCommand(j,i,l,k));
+                                }
                             }
                         if(listCommands.size() > 0) engine.runCommand(listCommands[(int)(mt_rand() % listCommands.size())]);
                         listCommands.clear();

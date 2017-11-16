@@ -22,6 +22,8 @@ namespace engine{
     }
 
     void EnterCityCommand::execute(state::State& state) {
+        if(!inMap(state,xTo,yTo)) return;
+        if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom, yFrom, 2) == NULL || state.getMonde().get(xTo, yTo, 1) == NULL) return;
         if(state.getIdPlayer() != state.getMonde().get(xFrom, yFrom, 2)->getIdPlayer()) return;
         if(state.getIdPlayer() != state.getMonde().get(xTo, yTo, 1)->getIdPlayer()) return;

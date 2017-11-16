@@ -19,6 +19,9 @@ namespace engine {
     }
 
     void AttackArmyCommand::execute(state::State& state) {
+        std::cout << "AttackArmy" << std::endl;
+        if(!inMap(state,xTo,yTo)) return;
+        if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom,yFrom, 2) == NULL) return;
         if(state.getMonde().get(xTo,yTo, 2) == NULL) return;
         if(state.getMonde().get(xFrom,yFrom, 2)->getTypeID() == ARMY){

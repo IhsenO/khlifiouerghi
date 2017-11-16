@@ -153,7 +153,7 @@ int main(int argc,char* argv[])
     state.getMonde().get(2,2,1)->setIdPlayer(1);
     state.getMonde().get(18,11,1)->setIdPlayer(2);   
     Engine e(state);
-    
+     
  
     MapLayer map1(*m->getLayer(0));
     MapLayer map2(*m->getLayer(1));

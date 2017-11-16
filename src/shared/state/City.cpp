@@ -71,6 +71,15 @@ namespace state{
     void City::setSoldiers(int soldiers) {
         this->soldiers = soldiers;
     }
+
+    void City::setFree(bool free) {
+        this->free = free;
+    }
+
+    bool City::getFree() const {
+        return this->free;
+    }
+
     
 
 }

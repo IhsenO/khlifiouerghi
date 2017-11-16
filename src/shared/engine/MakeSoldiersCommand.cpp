@@ -8,6 +8,7 @@
 #include "state/City.h"
 #include "state/Barrack.h"
 #include <iostream>
+#include "UtilsEngine.hpp"
 
 using namespace state;
 
@@ -21,6 +22,7 @@ namespace engine{
     }
 
     void MakeSoldiersCommand::execute(state::State& state) {
+        if(!inMap(state,x,y)) return;
         std::cout << "MakeSoldiers" << std::endl;
         if(state.getMonde().get(x, y, 1) == NULL) return;
         if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){

@@ -25,6 +25,8 @@ namespace engine{
     }
 
     void AttackCityCommand::execute(state::State& state) {
+        if(!inMap(state,xTo,yTo)) return;
+        if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom,yFrom, 2) == NULL) return;
         if(state.getMonde().get(xTo,yTo, 1) == NULL) return;
         if(state.getMonde().get(xFrom,yFrom, 2)->getTypeID() == ARMY){
@@ -35,8 +37,11 @@ namespace engine{
                 if(!canReachSimple(xFrom, yFrom, xTo, yTo, army->getRange())) return;
                 if(hasWonBattle((float)army->getSoldiers(), (float)city->getDefense() * 100 + city->getSoldiers()) || city->isFree()){
                     city->setIdPlayer(army->getIdPlayer());
-                    state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
-                    state.getMonde().set(xFrom, yFrom, 2, NULL);
+                    city->setFree(false);
+                    city->setDefense(1);
+                    
+                    //state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
+                    //state.getMonde().set(xFrom, yFrom, 2, NULL);
                     city->setSoldiers(0);
                 }
                 else{

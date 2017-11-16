@@ -24,6 +24,8 @@ namespace engine{
 
     void LeaveCityCommand::execute(state::State& state) {
         std::cout << "LeaveCity" << std::endl;
+        if(!inMap(state,xTo,yTo)) return;
+        if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom, yFrom, 1) == NULL) return;
         if(state.getIdPlayer() != state.getMonde().get(xFrom, yFrom, 1)->getIdPlayer()) return;
         if(state.getMonde().get(xFrom, yFrom, 1)->getTypeID() == state::CITY){

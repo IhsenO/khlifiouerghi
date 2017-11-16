@@ -23,9 +23,14 @@ using namespace std;
 using namespace state;
 using namespace engine;
 
+bool isInMap(State&, int, int);
 bool canBuildConstruction(State&, int, int, ConstructionTypeId);
 bool canUpgrade(State&, int, int);
 bool canMakeSoldiers(State&);
+bool enemyArmy(State&, int, int);
+bool friendlyArmy(State&, int, int);
+bool enemyCity(State&, int, int);
+
 
 #endif /* UTILSAI_HPP */
 

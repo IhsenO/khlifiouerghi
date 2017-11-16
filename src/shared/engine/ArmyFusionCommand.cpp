@@ -6,6 +6,8 @@
 
 #include "ArmyFusionCommand.h"
 #include "state/Army.h"
+#include "UtilsEngine.hpp"
+#include <iostream>
 
 using namespace state;
 
@@ -20,6 +22,10 @@ namespace engine{
     }
 
     void ArmyFusionCommand::execute(state::State& state) {
+        std::cout << "ArmyFusion" << std::endl;
+        if(xFrom == yFrom && xTo==yTo) return;
+        if(!inMap(state,xTo,yTo)) return;
+        if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom,yFrom, 2) == NULL) return;
         if(state.getMonde().get(xTo,yTo, 2) == NULL) return;
         if(state.getMonde().get(xFrom,yFrom, 2)->getTypeID() == ARMY){
