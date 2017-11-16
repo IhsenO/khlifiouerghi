@@ -22,6 +22,11 @@ namespace state{
     City::City(int defense, bool free) : defense(defense), free(free) {
         this->soldiers = 100;
     }
+    
+    City::City(int defense, bool free, int player) : defense(defense), free(free) {
+        this->idPlayer = player;
+        this->soldiers = 100;
+    }
 
     int City::getDefense() const {
         return this->defense;

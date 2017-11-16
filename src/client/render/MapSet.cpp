@@ -46,12 +46,18 @@ namespace render{
             state::City *tmp = (state::City*)&e;
             if(tmp->isFree() == true)
                 return this->map[185];            
-            else if(tmp->getDefense() == 1)
+            else if(tmp->getDefense() == 1 && tmp->getIdPlayer() == 1)
                 return this->map[101];
-            else if(tmp->getDefense() == 2)
-                return this->map[80];
-            else if(tmp->getDefense() == 3)
+            else if(tmp->getDefense() == 2 && tmp->getIdPlayer() == 1)
                 return this->map[142];
+            else if(tmp->getDefense() == 3 && tmp->getIdPlayer() == 1)
+                return this->map[163];
+            else if(tmp->getDefense() == 1 && tmp->getIdPlayer() == 2)
+                return this->map[100];
+            else if(tmp->getDefense() == 2 && tmp->getIdPlayer() == 2)
+                return this->map[141];
+            else if(tmp->getDefense() == 3 && tmp->getIdPlayer() == 2)
+                return this->map[162];
             else{
                 std::cout << "Probleme dans la transformation d'un état en une tile" << std::endl;
                 return this->map[188];

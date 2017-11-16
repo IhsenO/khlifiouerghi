@@ -52,11 +52,13 @@ namespace state{
                     this->set(j,i,(new City(1,true)));
                 }
                 else if(tileToElem[vcarteInit[i*width + j]] == 3)
-                    this->set(j,i,(new City(1,false)));
+                    this->set(j,i,(new City(1,false,1)));
                 else if(tileToElem[vcarteInit[i*width + j]] == 4)
                     this->set(j,i,(new City(2,false))); 
                 else if(tileToElem[vcarteInit[i*width + j]] == 5)
                     this->set(j,i,(new City(3,false)));
+                else if(tileToElem[vcarteInit[i*width + j]] == 6)
+                    this->set(j,i,(new City(1,false,2)));
                 else if(tileToElem[vcarteInit[i*width + j]] == -1){
                     this->set(j,i,NULL);
                 }

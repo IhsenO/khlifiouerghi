@@ -28,6 +28,7 @@ namespace state {
     // Operations
   public:
     City ();
+    City (int defense, bool free);
     TypeID getTypeID () const;
     bool isFree () const;
     bool isBuilding () const;
@@ -36,8 +37,8 @@ namespace state {
     bool isStatic () const;
     void addConstruction (Construction* construction);
     bool canBuild (int id) const;
-    City (int defense, bool free);
     ~City ();
+    City (int defense, bool free, int player);
     // Setters and Getters
     int getDefense() const;
     void setDefense(int defense);
