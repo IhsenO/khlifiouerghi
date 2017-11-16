@@ -21,7 +21,7 @@ namespace engine{
     }
 
     void EndOfTurnCommand::execute(State& state) {
-        std::cout << "EndOfTurnCommand" << std::endl;
+        std::cout << "Fin du tour !" << std::endl;
         for(int i = 0; i < state.getMonde().getHeight(); i++)
             for(int j = 0; j < state.getMonde().getWidth(); j++){
                 if(state.getMonde().get(j,i,1) != NULL){

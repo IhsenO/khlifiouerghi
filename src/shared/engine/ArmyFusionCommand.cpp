@@ -22,7 +22,7 @@ namespace engine{
     }
 
     void ArmyFusionCommand::execute(state::State& state) {
-        std::cout << "ArmyFusion" << std::endl;
+        //std::cout << "ArmyFusion" << std::endl;
         if(xFrom == yFrom && xTo==yTo) return;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;

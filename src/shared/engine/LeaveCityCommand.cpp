@@ -23,7 +23,7 @@ namespace engine{
     }
 
     void LeaveCityCommand::execute(state::State& state) {
-        std::cout << "LeaveCity" << std::endl;
+        //std::cout << "LeaveCity" << std::endl;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom, yFrom, 1) == NULL) return;

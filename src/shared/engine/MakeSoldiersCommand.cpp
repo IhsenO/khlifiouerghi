@@ -23,7 +23,7 @@ namespace engine{
 
     void MakeSoldiersCommand::execute(state::State& state) {
         if(!inMap(state,x,y)) return;
-        std::cout << "MakeSoldiers" << std::endl;
+       //std::cout << "MakeSoldiers" << std::endl;
         if(state.getMonde().get(x, y, 1) == NULL) return;
         if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(x, y, 1);

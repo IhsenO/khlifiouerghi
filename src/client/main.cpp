@@ -150,11 +150,12 @@ int main(int argc,char* argv[])
     state.addPlayer(new Player("Joueur 1"));
     state.addPlayer(new Player("Joueur 2"));
 
-    state.getMonde().get(2,2,1)->setIdPlayer(1);
-    state.getMonde().get(18,11,1)->setIdPlayer(2);   
+    //state.getMonde().get(2,2,1)->setIdPlayer(1);
+    //state.getMonde().get(18,11,1)->setIdPlayer(2);   
     Engine e(state);
      
- 
+    state.setIdPlayer(2);
+    
     MapLayer map1(*m->getLayer(0));
     MapLayer map2(*m->getLayer(1));
     
@@ -163,6 +164,11 @@ int main(int argc,char* argv[])
     map1.initDrawer();   
     map2.initDrawer();  
     chars.initDrawer();
+    
+    cout << "Bienvenue dans le mode avec une IA random !" << endl;
+    cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
+    cout << "En restant appuyé, les epoches défilent plus vite !" << endl;
+    
   
     while (window.isOpen())
     {
@@ -171,7 +177,7 @@ int main(int argc,char* argv[])
         {
             if(event.type == sf::Event::Closed)
                 window.close();
-            else if(event.type == sf::Event::KeyReleased){
+            else if(event.type == sf::Event::KeyPressed){
                 testsAIRandom(e, state);
                 if(state.getIdPlayer() == 1) state.setIdPlayer(2);
                 else if(state.getIdPlayer() == 2) state.setIdPlayer(1);

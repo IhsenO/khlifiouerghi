@@ -19,7 +19,7 @@ namespace engine {
     }
 
     void AttackArmyCommand::execute(state::State& state) {
-        std::cout << "AttackArmy" << std::endl;
+        std::cout << "Le joueur "<< state.getIdPlayer() << " attaque une armée adverse" << std::endl;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom,yFrom, 2) == NULL) return;

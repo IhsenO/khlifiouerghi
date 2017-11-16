@@ -21,7 +21,7 @@ namespace engine{
     }
 
     void UpgradeCommand::execute(State& state) {
-        std::cout << "UpgradeCommand" << std::endl;
+        //std::cout << "UpgradeCommand" << std::endl;
         if(!inMap(state,x,y)) return;
         if(state.getMonde().get(x, y, 1) == NULL) return;
         if(state.getMonde().get(x, y, 1)->getTypeID() == state::CITY){

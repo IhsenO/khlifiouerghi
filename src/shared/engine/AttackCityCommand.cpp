@@ -25,6 +25,7 @@ namespace engine{
     }
 
     void AttackCityCommand::execute(state::State& state) {
+        std::cout << "Le joueur "<< state.getIdPlayer() << " attaque une ville adverse" << std::endl;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom,yFrom, 2) == NULL) return;

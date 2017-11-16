@@ -37,6 +37,7 @@ namespace ai{
         
         cout <<"Tour du Joueur " << this->state.getIdPlayer() << endl;
         cout <<"Ressources ---> OR : " << this->state.getPlayer(state.getIdPlayer())->getGold() <<" Nourriture : " << this->state.getPlayer(state.getIdPlayer())->getGold() <<endl;
+        cout <<"\n";
         for(int i = 0; i < state.getMonde().getHeight(); i++)
             for(int j = 0; j < state.getMonde().getWidth(); j++){
                 if(state.getMonde().get(j,i,1) != NULL){
@@ -52,7 +53,7 @@ namespace ai{
                         
                         listCommands.push_back(new MakeSoldiersCommand(j,i));
                         
-                        cout << c->getSoldiers() <<endl;
+                        //cout << c->getSoldiers() <<endl;
                         if(c->getSoldiers() > 50){
                             listCommands.push_back(new LeaveCityCommand(j,i,j+1,i,c->getSoldiers()/2));
                             listCommands.push_back(new LeaveCityCommand(j,i,j-1,i,c->getSoldiers()/2));
@@ -74,7 +75,7 @@ namespace ai{
                                     listCommands.push_back(new AttackArmyCommand(j,i,l,k));
                                 }
                                 else if(enemyCity(state,l,k)){
-                                    cout << "Okay" << endl;
+                                    //cout << "Okay" << endl;
                                     listCommands.push_back(new AttackCityCommand(j,i,l,k));
                                 }
                                 else if(friendlyArmy(state,l,k) && j!=l && k!=i) listCommands.push_back(new ArmyFusionCommand(j,i,l,k));
@@ -89,8 +90,9 @@ namespace ai{
             }
         
         listCommands.clear();
-        engine.runCommand(&end);
         
+        engine.runCommand(&end);
+        cout <<"\n";
     }
     
     
