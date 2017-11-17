@@ -35,6 +35,8 @@ namespace ai{
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Mine()));
         //engine.runCommand(new ConstructCommand(18,11,new Barrack()));
         
+        
+               
         cout <<"Tour du Joueur " << this->state.getIdPlayer() << endl;
         cout <<"Ressources ---> OR : " << this->state.getPlayer(state.getIdPlayer())->getGold() <<" Nourriture : " << this->state.getPlayer(state.getIdPlayer())->getGold() <<endl;
         cout <<"\n";
@@ -43,11 +45,16 @@ namespace ai{
                 if(state.getMonde().get(j,i,1) != NULL){
                     if(state.getMonde().get(j,i,1)->getTypeID() == CITY && state.getMonde().get(j,i,1)->getIdPlayer() == state.getIdPlayer()){
                         City *c = (City*)state.getMonde().get(j,i,1);
-                        listCommands.push_back(new ConstructCommand(j,i,new Barrack()));
                         
-                        listCommands.push_back(new ConstructCommand(j,i,new Mine()));
-                      
-                        listCommands.push_back(new ConstructCommand(j,i,new Farm()));
+                        Barrack *b = new Barrack();
+                        //listCommands.push_back(new ConstructCommand(j,i,new Barrack()));
+                        listCommands.push_back(new ConstructCommand(j,i,b));
+                        Mine *m = new Mine();
+                        //listCommands.push_back(new ConstructCommand(j,i,new Mine()));
+                        listCommands.push_back(new ConstructCommand(j,i,m));
+                        Farm *f = new Farm();
+                        //listCommands.push_back(new ConstructCommand(j,i,new Farm()));
+                        listCommands.push_back(new ConstructCommand(j,i,f));
                        
                         listCommands.push_back(new UpgradeCommand(j,i));
                         
@@ -62,7 +69,17 @@ namespace ai{
                             
                         }
                         
-                        if(listCommands.size() > 0) engine.runCommand(listCommands[(int)(mt_rand() % listCommands.size())]);
+                        int random = (int)(mt_rand() % listCommands.size());
+                        
+                        if(random != 0) delete b;
+                        if(random != 1) delete m;
+                        if(random != 2) delete f;
+                        if(listCommands.size() > 0) engine.runCommand(listCommands[random]);
+                        
+                        
+                        for(auto& command : listCommands)
+                            delete command;
+                        
                         listCommands.clear();
                     }                 
                 }
@@ -84,15 +101,22 @@ namespace ai{
                                 }
                             }
                         if(listCommands.size() > 0) engine.runCommand(listCommands[(int)(mt_rand() % listCommands.size())]);
+                        
+                        for(auto& command : listCommands)
+                            delete command;
                         listCommands.clear();
                     }
                 }
             }
         
+        for(auto& command : listCommands)
+            delete command;
         listCommands.clear();
-        
+        //listCommands.erase(listCommands.begin(), listCommands.end());
         engine.runCommand(&end);
         cout <<"\n";
+        
+         
     }
     
     

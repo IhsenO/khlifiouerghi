@@ -19,6 +19,7 @@ namespace engine{
         return CONSTRUCT;
     }
 
+    
     void ConstructCommand::execute(State& state) { 
         //std::cout << "ConstructCommand" << std::endl;
         if(!inMap(state,x,y)) return;

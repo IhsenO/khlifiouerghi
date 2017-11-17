@@ -38,7 +38,10 @@ namespace state{
     void State::setIdPlayer(int idPlayer) {
         this->idPlayer = idPlayer;
     }
-    
+
+    void State::setMonde(const Monde&& monde) {
+        this->monde = monde;
+    }
     
     
 }

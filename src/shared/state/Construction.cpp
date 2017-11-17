@@ -20,5 +20,10 @@ namespace state{
     int Construction::getCost() const {
         return 250;
     }
+
+    Construction::~Construction() {
+        std::cout << "delete Const" << std::endl;
+    }
+    
     
 }

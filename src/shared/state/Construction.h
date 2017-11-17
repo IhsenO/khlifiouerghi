@@ -22,6 +22,7 @@ namespace state {
     virtual bool isProducing () const = 0;
     virtual ConstructionTypeId getConstructionId () const = 0;
     int getCost () const;
+    virtual ~Construction ();
     // Setters and Getters
     int getLevel() const;
     void setLevel(int level);

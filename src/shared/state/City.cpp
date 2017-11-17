@@ -15,7 +15,11 @@ namespace state{
     }
 
     City::~City() {
-
+        std::cout << "Delete" << std::endl;
+        //for(int i = 0; i < this->listConst.size(); i++)
+        //    delete this->listConst[i];
+        for(auto& construction : listConst)
+            delete construction;
     }
     
     
