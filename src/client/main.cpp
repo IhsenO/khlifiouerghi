@@ -167,7 +167,7 @@ int main(int argc,char* argv[])
     
     cout << "Bienvenue dans le mode avec une IA random !" << endl;
     cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
-    cout << "En restant appuyé, les epoches défilent plus vite !" << endl;
+    cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
     
   
     while (window.isOpen())
