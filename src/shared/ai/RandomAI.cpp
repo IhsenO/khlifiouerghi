@@ -28,15 +28,12 @@ namespace ai{
         auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
         mt19937 mt_rand(seed);
         EndOfTurnCommand end;
-        
-        
+               
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Farm()));
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Barrack()));
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Mine()));
         //engine.runCommand(new ConstructCommand(18,11,new Barrack()));
-        
-        
-               
+                               
         cout <<"Tour du Joueur " << this->state.getIdPlayer() << endl;
         cout <<"Ressources ---> OR : " << this->state.getPlayer(state.getIdPlayer())->getGold() <<" Nourriture : " << this->state.getPlayer(state.getIdPlayer())->getGold() <<endl;
         cout <<"\n";

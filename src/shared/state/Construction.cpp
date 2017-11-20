@@ -22,7 +22,6 @@ namespace state{
     }
 
     Construction::~Construction() {
-        std::cout << "delete Const" << std::endl;
     }
     
     
