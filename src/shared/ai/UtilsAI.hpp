@@ -18,6 +18,7 @@
 #include "engine.h"
 #include "ai.h"
 #include "state/Construction.h"
+#include <cmath>
 
 using namespace std;
 using namespace state;
@@ -31,6 +32,8 @@ bool enemyArmy(State&, int, int);
 bool friendlyArmy(State&, int, int);
 bool enemyCity(State&, int, int);
 
-
+bool canAccessAI(State&, int, int);
+bool canReachImprovedAI(int,int,int,int,int);
+bool canMoveImprovedAI(State&,int,int,int,int,int);
 #endif /* UTILSAI_HPP */
 

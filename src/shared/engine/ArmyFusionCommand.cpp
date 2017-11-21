@@ -32,6 +32,7 @@ namespace engine{
             if(state.getMonde().get(xTo,yTo,2)->getTypeID() == ARMY){
                 Army *army1 = (Army*)state.getMonde().get(xFrom,yFrom, 2);                
                 Army *army2 = (Army*)state.getMonde().get(xTo,yTo, 2);
+                if(!canReachImproved(xFrom, yFrom, xTo, yTo, army1->getRange())) return;
                 if(army1->getIdPlayer() != army2->getIdPlayer()) return;
                 army2->setSoldiers(army2->getSoldiers() + army1->getSoldiers());
                 state.getMonde().set(xFrom, yFrom, 2, NULL);

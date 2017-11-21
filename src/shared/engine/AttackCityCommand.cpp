@@ -35,7 +35,7 @@ namespace engine{
                 if(state.getMonde().get(xTo,yTo, 1)->getIdPlayer() == state.getMonde().get(xFrom,yFrom, 2)->getIdPlayer()) return;
                 Army *army = (Army*)state.getMonde().get(xFrom,yFrom,2);
                 City *city = (City*)state.getMonde().get(xTo,yTo,1);
-                if(!canReachSimple(xFrom, yFrom, xTo, yTo, army->getRange())) return;
+                if(!canReachImproved(xFrom, yFrom, xTo, yTo, army->getRange())) return;
                 if(hasWonBattle((float)army->getSoldiers(), (float)city->getDefense() * 100 + city->getSoldiers()) || city->isFree()){
                     city->setIdPlayer(army->getIdPlayer());
                     city->setFree(false);

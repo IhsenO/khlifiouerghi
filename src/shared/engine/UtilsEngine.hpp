@@ -30,7 +30,8 @@ bool hasWonBattle(float, float);
 bool canReachSimple(int,int,int,int,int);
 bool canMoveSimple(State&,int,int,int,int,int);
 
-
+bool canReachImproved(int,int,int,int,int);
+bool canMoveImproved(State&,int,int,int,int,int);
 
 #endif /* UTILSENGINE_HPP */
 

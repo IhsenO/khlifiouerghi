@@ -31,7 +31,7 @@ namespace engine{
         if(state.getMonde().get(xFrom, yFrom, 2)->getTypeID() != ARMY || state.getMonde().get(xTo, yTo, 1)->getTypeID() != CITY) return;
         Army *a = (Army*)state.getMonde().get(xFrom, yFrom, 2);
         City *c = (City*)state.getMonde().get(xTo,yTo,1);
-        if(!canReachSimple(xFrom, yFrom, xTo, yTo, a->getRange())) return;
+        if(!canReachImproved(xFrom, yFrom, xTo, yTo, a->getRange())) return;
         if(a->getSoldiers() > soldiers){
             a->setSoldiers(a->getSoldiers() - soldiers);
             c->setSoldiers(c->getSoldiers() + soldiers);

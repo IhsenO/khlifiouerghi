@@ -169,7 +169,8 @@ int main(int argc,char* argv[])
     cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
     cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
     
-  
+    RandomAI random(state, e);
+    
     while (window.isOpen())
     {
         sf::Event event;
@@ -178,7 +179,69 @@ int main(int argc,char* argv[])
             if(event.type == sf::Event::Closed)
                 window.close();
             else if(event.type == sf::Event::KeyPressed){
-                testsAIRandom(e, state);
+                //testsAIRandom(e, state);
+                random.run(e);
+                if(state.getIdPlayer() == 1) state.setIdPlayer(2);
+                else if(state.getIdPlayer() == 2) state.setIdPlayer(1);
+            }
+        }
+        window.clear();
+
+        map1.initDrawer();
+        map2.initDrawer();
+        chars.initDrawer();
+        window.draw(*map1.getDrawer());
+        window.draw(*map2.getDrawer());
+        window.draw(*chars.getDrawer());
+        window.display();
+
+        
+    }
+    
+    delete m;
+        
+    }
+    
+    else if(mode == "heuristic_ai"){
+        
+    sf::RenderWindow window(sf::VideoMode(336, 224), "Random_IA");
+
+    Monde *m = new Monde("MapTestEngine", 3); 
+    State state(*m);
+    state.addPlayer(new Player("Joueur 1"));
+    state.addPlayer(new Player("Joueur 2"));
+
+    //state.getMonde().get(2,2,1)->setIdPlayer(1);
+    //state.getMonde().get(18,11,1)->setIdPlayer(2);   
+    Engine e(state);
+     
+    state.setIdPlayer(2);
+    
+    MapLayer map1(*m->getLayer(0));
+    MapLayer map2(*m->getLayer(1));
+    
+    CharactersLayer chars(*m->getLayer(2));
+    
+    map1.initDrawer();   
+    map2.initDrawer();  
+    chars.initDrawer();
+    
+    cout << "Bienvenue dans le mode avec une IA random !" << endl;
+    cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
+    cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
+    
+    HeuristicAI heuristic(state, e);
+    
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed)
+                window.close();
+            else if(event.type == sf::Event::KeyPressed){
+                //testsAIRandom(e, state);
+                heuristic.run(e);
                 if(state.getIdPlayer() == 1) state.setIdPlayer(2);
                 else if(state.getIdPlayer() == 2) state.setIdPlayer(1);
             }

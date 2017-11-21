@@ -30,7 +30,7 @@ namespace engine{
         if(state.getIdPlayer() != state.getMonde().get(xFrom, yFrom, 1)->getIdPlayer()) return;
         if(state.getMonde().get(xFrom, yFrom, 1)->getTypeID() == state::CITY){
             City *c = (City*)state.getMonde().get(xFrom, yFrom, 1);
-            if(!canMoveSimple(state, xFrom, yFrom, xTo, yTo, 2)) return;
+            if(!canMoveImproved(state, xFrom, yFrom, xTo, yTo, 2)) return;
             if(c->getSoldiers() < this->soldiers || this->soldiers < 0) return;
             c->setSoldiers(c->getSoldiers() - this->soldiers);
             state.getMonde().set(xTo,yTo,2,new Army(this->soldiers, c->getIdPlayer()));

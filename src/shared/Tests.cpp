@@ -350,5 +350,6 @@ void menu(){
     cout << "   render: affiche un état" << endl;
     cout << "   engine: teste le moteur de jeu" << endl;
     cout << "   random_ai: teste le jeu avec une IA aléatoire" << endl;
+    cout << "   heuristic_ai: teste le jeu avec une IA heuristique" << endl;
 } 
 

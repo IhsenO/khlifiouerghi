@@ -29,7 +29,7 @@ namespace engine {
                 Army *army1 = (Army*)state.getMonde().get(xFrom,yFrom, 2);                
                 Army *army2 = (Army*)state.getMonde().get(xTo,yTo, 2);
                 if(army1->getIdPlayer() == army2->getIdPlayer()) return;
-                if(!canReachSimple(xFrom, yFrom, xTo, yTo, army1->getRange())) return;
+                if(!canReachImproved(xFrom, yFrom, xTo, yTo, army1->getRange())) return;
                 if(hasWonBattle((float)army1->getSoldiers(), (float)army2->getSoldiers())){
                     state.getMonde().set(xTo, yTo, 2, NULL);
                     state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));

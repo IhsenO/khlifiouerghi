@@ -74,4 +74,24 @@ bool canMoveSimple(State& state,int xFrom, int yFrom, int xTo, int yTo, int rang
         return false;
 }
 
+bool canReachImproved(int xFrom, int yFrom, int xTo, int yTo, int range){
+
+    //if(abs(xFrom - xTo) <= range && abs(yFrom - yTo) <= range)
+    if(sqrt((xFrom-xTo)*(xFrom-xTo) + (yFrom-yTo)*(yFrom-yTo)) <= range)
+        return true;
+    else
+        return false;
+}
+
+bool canMoveImproved(State& state,int xFrom, int yFrom, int xTo, int yTo, int range){
+    if(canReachImproved(xFrom, yFrom, xTo, yTo, range)){
+        if(canAccess(state, xTo, yTo))
+            return true;        
+        else 
+            return false;        
+    }
+    else
+        return false;
+}
+
 

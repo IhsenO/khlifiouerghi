@@ -28,7 +28,7 @@ namespace engine{
         
         if(state.getMonde().get(xFrom,yFrom, 2)->getTypeID() == ARMY){
             Army *army = (Army*)state.getMonde().get(xFrom,yFrom, 2);
-            if(!canMoveSimple(state, xFrom, yFrom, xTo, yTo, army->getRange())) return;
+            if(!canMoveImproved(state, xFrom, yFrom, xTo, yTo, army->getRange())) return;
             if(army->getIdPlayer() != state.getIdPlayer()) return;
             if(army->getSoldiers() > this->soldiers){
                 army->setSoldiers(army->getSoldiers() - this->soldiers);

@@ -81,3 +81,44 @@ bool enemyCity(State& state, int x, int y){
     else return false;
     
 }
+
+bool canAccessAI(State& state, int x, int y){
+    
+    if(!isInMap(state,x,y)) return false;
+    if(state.getMonde().get(x,y,2) != NULL) return false;
+    if(state.getMonde().get(x,y,1) != NULL){
+        if(state.getMonde().get(x,y,1)->getTypeID() == LANDSCAPE){
+            Landscape *l = (Landscape*)state.getMonde().get(x,y,1);
+            if(l->isAccessible())
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+        
+    }
+    else  
+        return true;
+       
+}
+
+bool canReachImprovedAI(int xFrom, int yFrom, int xTo, int yTo, int range){
+
+    //if(abs(xFrom - xTo) <= range && abs(yFrom - yTo) <= range)
+    if(sqrt((xFrom-xTo)*(xFrom-xTo) + (yFrom-yTo)*(yFrom-yTo)) <= range)
+        return true;
+    else
+        return false;
+}
+
+bool canMoveImprovedAI(State& state,int xFrom, int yFrom, int xTo, int yTo, int range){
+    if(canReachImprovedAI(xFrom, yFrom, xTo, yTo, range)){
+        if(canAccessAI(state, xTo, yTo))
+            return true;        
+        else 
+            return false;        
+    }
+    else
+        return false;
+}

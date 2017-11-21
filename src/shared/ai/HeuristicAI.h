@@ -3,6 +3,9 @@
 #define AI__HEURISTICAI__H
 
 
+namespace ai {
+  class DistanceMap;
+};
 namespace state {
   class State;
 };
@@ -13,17 +16,24 @@ namespace ai {
   class AI;
 }
 
+#include "DistanceMap.h"
 #include "AI.h"
 
 namespace ai {
 
   /// class HeuristicAI - 
   class HeuristicAI : public ai::AI {
+    // Associations
+    // Attributes
+  protected:
+    DistanceMap map;
     // Operations
   public:
     HeuristicAI (state::State& state, engine::Engine& engine);
     void run (engine::Engine& engine);
     // Setters and Getters
+    const DistanceMap& getMap() const;
+    void setMap(const DistanceMap& map);
   };
 
 };
