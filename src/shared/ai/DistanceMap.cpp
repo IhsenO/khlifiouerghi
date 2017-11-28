@@ -101,15 +101,23 @@ namespace ai{
 		cout << '\n';
 	}
     }
-    
 
-    void DistanceMap::dijkstra(int xFrom, int yFrom) {
+    void DistanceMap::addQueue(int x, int y) {
+        pointsQueue.push(Point(x,y,0));
+    }
+
+    void DistanceMap::clearQueue() {
+        pointsQueue = priority_queue<Point, vector<Point>, PointCompareWeight>();
+    }
+
+    
+    void DistanceMap::dijkstra() {
                 
         //this->map[yTo*width + xTo] = true;
         //vector<Point> ferme;
         //queue<Point> pointsQueue;
-        priority_queue<Point, vector<Point>, PointCompareWeight> pointsQueue;
-        pointsQueue.push(Point(xFrom, yFrom,0));
+        //priority_queue<Point, vector<Point>, PointCompareWeight> pointsQueue;
+        //pointsQueue.push(Point(xFrom, yFrom,0));
         //vector<int> weights(this->width*this->height);
         for(int i = 0; i < (int)weights.size(); i++)
             weights[i] = 9999;
@@ -139,6 +147,7 @@ namespace ai{
                 }
             }
         }
+        
         //return -1;
           
     }

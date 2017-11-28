@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <queue>
+#include <queue>
 
 namespace state {
   class State;
@@ -28,15 +29,18 @@ namespace ai {
     std::vector<bool> map;
     std::vector<int> weights;
     std::vector<Direction> directions;
+    std::priority_queue<Point, std::vector<Point>, PointCompareWeight> pointsQueue;
     // Operations
   public:
     DistanceMap ();
     void update (state::State& state);
     void afficher ();
     void init (int weight, int height);
-    void dijkstra (int xFrom, int yFrom);
+    void dijkstra ();
     void sortQueue (std::queue<Point>& queue);
     void afficherPoids ();
+    void clearQueue ();
+    void addQueue (int x, int y);
     // Setters and Getters
     int getWidth() const;
     void setWidth(int width);
@@ -48,6 +52,8 @@ namespace ai {
     void setWeights(const std::vector<int>& weights);
     const std::vector<Direction>& getDirections() const;
     void setDirections(const std::vector<Direction>& directions);
+    const std::priority_queue<Point, std::vector<Point>, PointCompareWeight>& getPointsQueue() const;
+    void setPointsQueue(const std::priority_queue<Point, std::vector<Point>, PointCompareWeight>& pointsQueue);
   };
 
 };

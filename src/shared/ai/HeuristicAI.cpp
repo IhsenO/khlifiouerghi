@@ -32,8 +32,9 @@ namespace ai{
         this->map.update(state);
         //cout << "Affiché" << endl;
         this->map.afficher();
-        
-        map.dijkstra(4,4);
+        map.addQueue(4,4);
+        map.addQueue(10,4);
+        map.dijkstra();
         map.afficherPoids();
         //queue<Point> test;
         //for(int i = 0; i < 100; i++)
