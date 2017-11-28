@@ -33,6 +33,7 @@ bool friendlyArmy(State&, int, int);
 bool enemyCity(State&, int, int);
 
 bool canAccessAI(State&, int, int);
+bool canAccessAIDist(State&, int, int);
 bool canReachImprovedAI(int,int,int,int,int);
 bool canMoveImprovedAI(State&,int,int,int,int,int);
 #endif /* UTILSAI_HPP */

@@ -27,8 +27,10 @@ namespace ai{
         this->height = height;
         //cout << width << endl;
         //this->setHeight(state.getMonde().getHeight());
-        for(int i = 0; i < width*height; i++)
+        for(int i = 0; i < width*height; i++){
             this->map.push_back(true);
+            this->weights.push_back(9999);
+        }
         
         this->directions.push_back(UP);
         this->directions.push_back(RIGHT);
@@ -60,7 +62,7 @@ namespace ai{
         for(int i = 0; i < this->height; i++)
             for(int j = 0; j < this->width; j++){
                 //cout << this->map.size() << endl;
-                if(canAccessAI(state, j, i)) this->map[i*width + j] = true;
+                if(canAccessAIDist(state, j, i)) this->map[i*width + j] = true;
                 else this->map[i*width + j] = false;
             }
     }
@@ -81,34 +83,55 @@ namespace ai{
         
     }
 
-    int DistanceMap::dijkstra(int xFrom, int yFrom, int xTo, int yTo) {
+    void DistanceMap::afficherPoids() {
+        for(int i = 0; i < height; i++){ 
+		for(int j = 0; j < width; j++){
+			if(weights[i*width + j] < 10){
+				cout << weights[i*width + j];
+                                cout << "  ";
+			}
+                        else if(weights[i*width + j] == 9999){
+                                cout << "x  ";
+                        }
+			else{
+				cout << weights[i*width + j];
+                                cout << " ";
+			}
+		}
+		cout << '\n';
+	}
+    }
+    
+
+    void DistanceMap::dijkstra(int xFrom, int yFrom) {
                 
-        this->map[yTo*width + xTo] = true;
-        queue<Point> pointsQueue;
+        //this->map[yTo*width + xTo] = true;
+        //vector<Point> ferme;
+        //queue<Point> pointsQueue;
+        priority_queue<Point, vector<Point>, PointCompareWeight> pointsQueue;
         pointsQueue.push(Point(xFrom, yFrom,0));
-        vector<int> weights(this->width*this->height);
+        //vector<int> weights(this->width*this->height);
         for(int i = 0; i < (int)weights.size(); i++)
-            weights[i] = 99999;
+            weights[i] = 9999;
             
         while(!pointsQueue.empty()){
             
-            Point p = pointsQueue.front();
+            Point p = pointsQueue.top();
             pointsQueue.pop();
-            cout << "x : "<< p.getX() << " y : "<< p.getY() << endl;
-            cout << "poid debut : "<<pointsQueue.front().getWeight() << " poid fin : "<<pointsQueue.back().getWeight() << endl;
+
             weights[p.getY()*width + p.getX()] = p.getWeight();
-            if(p.getX() == xTo && p.getY() == yTo)
-                return p.getWeight();
-            
+            //if(p.getX() == xTo && p.getY() == yTo)
+            //    return p.getWeight();
+
             for(Direction d : this->directions){
                 Point pp = p.transform(d);
                 if(pp.getX() >= 0 && pp.getX() < width && pp.getY() >= 0 && pp.getY() < height){
                     if(map[pp.getY()*width + pp.getX()] != false){
-                        pp.setWeight(p.getWeight() + 1);
-                    
+                        pp.setWeight(p.getWeight() + 1);                                           
                         if(weights[pp.getY()*width + pp.getX()] > pp.getWeight()){
                             pointsQueue.push(pp);
-                            sortQueue(pointsQueue);
+                            //sortQueue(pointsQueue);
+                            
                         //cout << "poid debut : "<<pointsQueue.front().getWeight() << " poid fin : "<<pointsQueue.back().getWeight() << endl; 
                         }
                     
@@ -116,7 +139,7 @@ namespace ai{
                 }
             }
         }
-        return -1;
+        //return -1;
           
     }
  

@@ -33,7 +33,8 @@ namespace ai{
         //cout << "Affiché" << endl;
         this->map.afficher();
         
-        cout << this->map.dijkstra(4,4,16,10) << endl;
+        map.dijkstra(4,4);
+        map.afficherPoids();
         //queue<Point> test;
         //for(int i = 0; i < 100; i++)
         //    test.push(Point(rand() % 10, rand() % 10, rand() % 50));

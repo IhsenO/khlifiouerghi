@@ -10,10 +10,12 @@ namespace state {
 };
 namespace ai {
   class Point;
+  class PointCompareWeight;
 }
 
 #include "Direction.h"
 #include "Point.h"
+#include "PointCompareWeight.h"
 
 namespace ai {
 
@@ -24,6 +26,7 @@ namespace ai {
     int width;
     int height;
     std::vector<bool> map;
+    std::vector<int> weights;
     std::vector<Direction> directions;
     // Operations
   public:
@@ -31,8 +34,9 @@ namespace ai {
     void update (state::State& state);
     void afficher ();
     void init (int weight, int height);
-    int dijkstra (int xFrom, int yFrom, int xTo, int yTo);
+    void dijkstra (int xFrom, int yFrom);
     void sortQueue (std::queue<Point>& queue);
+    void afficherPoids ();
     // Setters and Getters
     int getWidth() const;
     void setWidth(int width);
@@ -40,6 +44,8 @@ namespace ai {
     void setHeight(int height);
     const std::vector<bool>& getMap() const;
     void setMap(const std::vector<bool>& map);
+    const std::vector<int>& getWeights() const;
+    void setWeights(const std::vector<int>& weights);
     const std::vector<Direction>& getDirections() const;
     void setDirections(const std::vector<Direction>& directions);
   };
