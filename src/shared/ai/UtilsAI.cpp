@@ -145,3 +145,22 @@ bool canMoveImprovedAI(State& state,int xFrom, int yFrom, int xTo, int yTo, int 
     else
         return false;
 }
+
+void findBestMoveAI(State& state, int& xBest, int& yBest, int range, vector<int> map){
+    int x = xBest;
+    int y = yBest;
+    int best = map[yBest*state.getMonde().getWidth() + xBest];
+    for(int k = y-2; k < y+3; k++)
+        for(int l = x-2; l < x+3; l++){
+            if(canMoveImprovedAI(state, x, y, l, k, range)){
+                if(map[k*state.getMonde().getWidth() + l] < best){
+                    best = map[k*state.getMonde().getWidth() + l];
+                    xBest = l;
+                    yBest = k;
+                }
+            }
+        }
+        
+                                
+    
+}

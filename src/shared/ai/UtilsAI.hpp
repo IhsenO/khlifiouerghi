@@ -36,5 +36,6 @@ bool canAccessAI(State&, int, int);
 bool canAccessAIDist(State&, int, int);
 bool canReachImprovedAI(int,int,int,int,int);
 bool canMoveImprovedAI(State&,int,int,int,int,int);
+void findBestMoveAI(State&, int&, int&, int, vector<int>);
 #endif /* UTILSAI_HPP */
 

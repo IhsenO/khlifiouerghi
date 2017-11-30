@@ -17,8 +17,17 @@ namespace state{
     }
     
     int Element::getIdPlayer() const { return idPlayer; }
-    void Element::setIdPlayer(int idPlayer) { this->idPlayer = idPlayer; }
+    void Element::setIdPlayer(int idPlayer) { this->idPlayer = idPlayer;
+    }
 
+    bool Element::getHasPlayed() const {
+        return hasPlayed;
+    }
+
+    void Element::setHasPlayed(bool hasPlayed) {
+        this->hasPlayed = hasPlayed;
+    }
+    
 
 
 }

@@ -13,6 +13,7 @@ namespace state {
     // Attributes
   protected:
     int idPlayer     = -1;
+    bool hasPlayed;
     // Operations
   public:
     Element ();
@@ -23,6 +24,8 @@ namespace state {
     // Setters and Getters
     int getIdPlayer() const;
     void setIdPlayer(int idPlayer);
+    bool getHasPlayed() const;
+    void setHasPlayed(bool hasPlayed);
   };
 
 };

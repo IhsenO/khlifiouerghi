@@ -36,7 +36,7 @@ namespace ai {
     void update (state::State& state);
     void afficher ();
     void init (int weight, int height);
-    void dijkstra ();
+    std::vector<int> dijkstra ();
     void sortQueue (std::queue<Point>& queue);
     void afficherPoids ();
     void clearQueue ();

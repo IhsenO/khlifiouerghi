@@ -14,10 +14,12 @@ namespace engine {
 };
 namespace ai {
   class AI;
+  class CommandsWeights;
 }
 
 #include "DistanceMap.h"
 #include "AI.h"
+#include "CommandsWeights.h"
 
 namespace ai {
 
