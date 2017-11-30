@@ -204,7 +204,7 @@ int main(int argc,char* argv[])
     
     else if(mode == "heuristic_ai"){
         
-    sf::RenderWindow window(sf::VideoMode(336, 224), "Random_IA");
+    
 
     Monde *m = new Monde("MapTestEngine", 3); 
     State state(*m);
@@ -231,13 +231,47 @@ int main(int argc,char* argv[])
     map2.initDrawer();  
     chars.initDrawer();
     
-    cout << "Bienvenue dans le mode avec une IA random !" << endl;
+    cout << "Bienvenue dans le mode avec une IA heuristique !" << endl;
     cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
     cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
     
-    HeuristicAI heuristic(state, e);
-    RandomAI random(state, e);
+    cout << "Choisissez l'IA du joueur 1 avec les batiments rouges et unités or !" << endl;
+    cout << "Tapez 1 pour une IA Random et 2 pour une Heuristique !" << endl;
+    AI *ai1;
+    int IA1 = 1;
+    cin >> IA1;
+    if(IA1 == 1){
+        ai1 = new RandomAI(state,e); 
+    }
+    else if(IA1 == 2){
+        ai1 = new HeuristicAI(state,e); 
+    }
+    else{
+        cout << "Erreur, Du coup on choisi l'IA Random." << endl;
+        ai1 = new RandomAI(state,e); 
+    }
+        
     
+    cout << "Choisissez l'IA du joueur 2 avec les batiments Jaunes et unités Argent !" << endl;
+    cout << "Tapez 1 pour une IA Random et 2 pour une Heuristique !" << endl;
+    AI *ai2;
+    int IA2 = 1;
+    cin >> IA2;
+    if(IA2 == 1){
+        ai2 = new RandomAI(state,e); 
+    }
+    else if(IA2 == 2){
+        ai2 = new HeuristicAI(state,e); 
+    }
+    else{
+        cout << "Erreur, Du coup on choisi l'IA Random." << endl;
+        ai2 = new RandomAI(state,e); 
+    }
+    
+    //HeuristicAI heuristic(state, e);
+    //RandomAI random(state, e);
+    //AI *ai1 = new HeuristicAI(state,e); 
+    sf::RenderWindow window(sf::VideoMode(336, 224), "Heuristic_IA");
     
     while (window.isOpen())
     {
@@ -248,13 +282,14 @@ int main(int argc,char* argv[])
                 window.close();
             else if(event.type == sf::Event::KeyPressed){
                 //testsAIRandom(e, state);
-                heuristic.run(e);
+                //heuristic.run(e);
                 if(state.getIdPlayer() == 1){
-                    heuristic.run(e);
+                    //heuristic.run(e);
+                    ai1->run(e);
                     state.setIdPlayer(2);
                 }
                 else if(state.getIdPlayer() == 2){
-                    random.run(e);
+                    ai2->run(e);
                     state.setIdPlayer(1);
                 }
             }
