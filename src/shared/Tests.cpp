@@ -354,5 +354,6 @@ void menu(){
     cout << "   random_ai: teste le jeu avec une IA aléatoire" << endl;
     cout << "   heuristic_ai: teste le jeu avec une IA heuristique" << endl;
     cout << "   rollback: teste le rollback" << endl;
+    cout << "   deep_ai: teste le jeu avec une IA avancé" << endl;
 } 
 

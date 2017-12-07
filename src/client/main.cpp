@@ -412,6 +412,104 @@ int main(int argc,char* argv[])
     delete m;
         
     }
+    
+    else if(mode == "deep_ai"){
+        
+    
+
+    Monde *m = new Monde("MapTestEngine", 3); 
+    State state(*m);
+    state.addPlayer(new Player("Joueur 1"));
+    state.addPlayer(new Player("Joueur 2"));
+ 
+    m->set(2,4,2,new Army(1000, 1));
+    m->set(4,2,2,new Army(100, 1));
+    
+    
+    //m->set(4,6,2,new Army(100, 2));
+
+    
+    Engine e(state);
+     
+    state.setIdPlayer(1);
+    
+    MapLayer map1(*m->getLayer(0));
+    MapLayer map2(*m->getLayer(1));
+    
+    CharactersLayer chars(*m->getLayer(2));
+    
+    map1.initDrawer();   
+    map2.initDrawer();  
+    chars.initDrawer();
+    
+    //AI *ai1;
+    
+    //ai1 = new DeepAI(state,e); 
+
+    DeepAI deep(state,e);
+    
+    stack<Action*> pile;
+    //HeuristicAI heuristic(state, e);
+    //RandomAI random(state, e);
+    //AI *ai1 = new HeuristicAI(state,e); 
+    sf::RenderWindow window(sf::VideoMode(336, 224), "DeepAI");
+    
+    //int i = 0;
+    
+    
+    
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed)
+                window.close();
+            else if(event.type == sf::Event::KeyPressed){
+                
+                stack<Command*> st;
+                deep.findCommands(st);
+                //MoveCharCommand move(2,4,3,4);
+                //e.runCommand(&move, pile);
+                //cout << pile.size() << endl;
+                /*
+                if(i < 100){
+                    cout << "Okay" << endl;
+                    if(state.getIdPlayer() == 1){
+                        //cout << "J1" << endl;
+                        ai1->run(e, pile);
+                        state.setIdPlayer(2);
+                        //cout << "Okay" << endl;
+                    }
+                    else if(state.getIdPlayer() == 2){
+                        ai2->run(e, pile);
+                        //cout << "J2" << endl;
+                        state.setIdPlayer(1);
+                    }
+                    
+                }
+                */
+                
+                        
+                    
+            }
+        }
+        window.clear();
+
+        map1.initDrawer();
+        map2.initDrawer();
+        chars.initDrawer();
+        window.draw(*map1.getDrawer());
+        window.draw(*map2.getDrawer());
+        window.draw(*chars.getDrawer());
+        window.display();
+
+        
+    }
+    
+    delete m;
+        
+    }
  
   
     return 0;

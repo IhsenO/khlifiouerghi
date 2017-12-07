@@ -10,4 +10,6 @@
 #include "ai/DistanceMap.h"
 #include "ai/CommandsWeights.h"
 #include "ai/HeuristicAI.h"
+#include "ai/Node.h"
+#include "ai/DeepAI.h"
 #endif
