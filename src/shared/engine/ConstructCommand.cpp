@@ -20,7 +20,7 @@ namespace engine{
     }
 
     
-    void ConstructCommand::execute(State& state) { 
+    void ConstructCommand::execute(State& state, std::stack<Action*>& actionStack) { 
         //std::cout << "ConstructCommand" << std::endl;
         if(!inMap(state,x,y)) return;
         if(state.getMonde().get(x, y, 1) == NULL) return;
@@ -28,6 +28,7 @@ namespace engine{
             City *c = (City*)state.getMonde().get(x, y, 1);
             if(c->getIdPlayer() != state.getIdPlayer()) return;            
             if(c->canBuild(this->construction->getConstructionId())){
+                actionStack.push(new ConstructAction(x,y,construction));
                 c->addConstruction(this->construction);
                 Player *p = state.getPlayer(c->getIdPlayer());
                 p->setGold(p->getGold() - construction->getCost());

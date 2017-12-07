@@ -21,7 +21,7 @@ namespace engine{
         return ENTERCITY;
     }
 
-    void EnterCityCommand::execute(state::State& state) {
+    void EnterCityCommand::execute(state::State& state, std::stack<Action*>& actionStack) {
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom, yFrom, 2) == NULL || state.getMonde().get(xTo, yTo, 1) == NULL) return;
@@ -33,10 +33,12 @@ namespace engine{
         City *c = (City*)state.getMonde().get(xTo,yTo,1);
         if(!canReachImproved(xFrom, yFrom, xTo, yTo, a->getRange())) return;
         if(a->getSoldiers() > soldiers){
+            actionStack.push(new EnterCityAction(xFrom, yFrom, xTo, yTo, soldiers));
             a->setSoldiers(a->getSoldiers() - soldiers);
             c->setSoldiers(c->getSoldiers() + soldiers);
         }
         else if(a->getSoldiers() == soldiers){
+            actionStack.push(new EnterCityAction(xFrom, yFrom, xTo, yTo, soldiers));
             c->setSoldiers(c->getSoldiers() + soldiers);
             state.getMonde().set(xFrom, yFrom, 2, NULL);
         }

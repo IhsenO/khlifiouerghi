@@ -18,7 +18,7 @@ namespace engine {
 
     }
 
-    void AttackArmyCommand::execute(state::State& state) {
+    void AttackArmyCommand::execute(state::State& state, std::stack<Action*>& actionStack) {
         std::cout << "Le joueur "<< state.getIdPlayer() << " attaque une armée adverse" << std::endl;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
@@ -30,6 +30,7 @@ namespace engine {
                 Army *army2 = (Army*)state.getMonde().get(xTo,yTo, 2);
                 if(army1->getIdPlayer() == army2->getIdPlayer()) return;
                 if(!canReachImproved(xFrom, yFrom, xTo, yTo, army1->getRange())) return;
+                actionStack.push(new AttackArmyAction(xFrom, yFrom, xTo, yTo, army1->getSoldiers(), army2->getSoldiers(), army1->getIdPlayer(), army2->getIdPlayer()));
                 if(hasWonBattle((float)army1->getSoldiers(), (float)army2->getSoldiers())){
                     state.getMonde().set(xTo, yTo, 2, NULL);
                     state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));

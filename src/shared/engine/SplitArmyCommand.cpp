@@ -20,7 +20,7 @@ namespace engine{
         return SPLITARMY;
     }
 
-    void SplitArmyCommand::execute(state::State& state) {
+    void SplitArmyCommand::execute(state::State& state, std::stack<Action*>& actionStack) {
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
         if(state.getMonde().get(xFrom,yFrom, 2) == NULL) return;
@@ -31,6 +31,7 @@ namespace engine{
             if(!canMoveImproved(state, xFrom, yFrom, xTo, yTo, army->getRange())) return;
             if(army->getIdPlayer() != state.getIdPlayer()) return;
             if(army->getSoldiers() > this->soldiers){
+                actionStack.push(new SplitArmyAction(xFrom, yFrom, xTo, yTo, soldiers));
                 army->setSoldiers(army->getSoldiers() - this->soldiers);
                 state.getMonde().set(xTo,yTo,2,new Army(soldiers, state.getIdPlayer()));
             }

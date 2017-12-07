@@ -3,12 +3,14 @@
 #define ENGINE__ENGINE__H
 
 #include <vector>
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Command;
+  class Action;
 }
 
 #include "Command.h"
@@ -29,8 +31,9 @@ namespace engine {
     void addCommand (Command* command);
     void addPassiveCommand ();
     void Update ();
-    void runCommand (Command* command);
+    void runCommand (Command* command, std::stack<Action*>& actionStack);
     const state::State& getState () const;
+    void undo (std::stack<Action*>& actionStack);
     // Setters and Getters
   };
 

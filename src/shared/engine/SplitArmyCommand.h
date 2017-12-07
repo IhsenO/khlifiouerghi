@@ -2,11 +2,13 @@
 #ifndef ENGINE__SPLITARMYCOMMAND__H
 #define ENGINE__SPLITARMYCOMMAND__H
 
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
+  class Action;
   class Command;
 }
 
@@ -27,7 +29,7 @@ namespace engine {
     // Operations
   public:
     SplitArmyCommand (int xFrom, int yFrom, int xTo, int yTo, int soldiers);
-    void execute (state::State& state);
+    void execute (state::State& state, std::stack<Action*>& actionStack);
     CommandTypeId getCommandTypeId () const;
     // Setters and Getters
     int getXFrom() const;

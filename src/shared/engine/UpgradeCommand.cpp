@@ -20,7 +20,7 @@ namespace engine{
         return UPGRADE;
     }
 
-    void UpgradeCommand::execute(State& state) {
+    void UpgradeCommand::execute(State& state, std::stack<Action*>& actionStack) {
         //std::cout << "UpgradeCommand" << std::endl;
         if(!inMap(state,x,y)) return;
         if(state.getMonde().get(x, y, 1) == NULL) return;
@@ -28,6 +28,7 @@ namespace engine{
             City *c = (City*)state.getMonde().get(x, y, 1);
             if(c->getIdPlayer() != state.getIdPlayer()) return;
             if(c->getDefense() < 3 && state.getPlayer(state.getIdPlayer())->getGold() > 250 && state.getPlayer(state.getIdPlayer())->getFood() > 250){
+                actionStack.push(new UpgradeAction(x,y));
                 c->setDefense(c->getDefense() + 1);
                 state.getPlayer(state.getIdPlayer())->setFood(state.getPlayer(state.getIdPlayer())->getFood() - 250);
                 state.getPlayer(state.getIdPlayer())->setGold(state.getPlayer(state.getIdPlayer())->getGold() - 250);

@@ -21,7 +21,7 @@ namespace engine{
         return MAKESOLDIERS;
     }
 
-    void MakeSoldiersCommand::execute(state::State& state) {
+    void MakeSoldiersCommand::execute(state::State& state, std::stack<Action*>& actionStack) {
         if(!inMap(state,x,y)) return;
        //std::cout << "MakeSoldiers" << std::endl;
         if(state.getMonde().get(x, y, 1) == NULL) return;
@@ -35,6 +35,7 @@ namespace engine{
                     Barrack *b = (Barrack*)construction;
                     if(state.getPlayer(state.getIdPlayer())->getGold() >= b->getSoldiersCost() && state.getPlayer(state.getIdPlayer())->getFood() >= b->getSoldiersFood()){
                         //std::cout <<b->getSoldiersCost() << std::endl;
+                        actionStack.push(new MakeSoldiersAction(x,y));
                         c->setSoldiers(c->getSoldiers() + b->getProductionByTurn());
                         state.getPlayer(state.getIdPlayer())->setGold(state.getPlayer(state.getIdPlayer())->getGold() - b->getSoldiersCost());
                         state.getPlayer(state.getIdPlayer())->setFood(state.getPlayer(state.getIdPlayer())->getFood() - b->getSoldiersFood());

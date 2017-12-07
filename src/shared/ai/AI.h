@@ -2,15 +2,18 @@
 #ifndef AI__AI__H
 #define AI__AI__H
 
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Engine;
+  class Action;
   class Command;
 }
 
+#include "engine/Action.h"
 #include "engine/Engine.h"
 #include "engine/Command.h"
 #include "state/State.h"
@@ -25,7 +28,7 @@ namespace ai {
     engine::Engine& engine;
     // Operations
   public:
-    virtual void run (engine::Engine& engine) = 0;
+    virtual void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack) = 0;
     AI (state::State& state, engine::Engine& engine);
     // Setters and Getters
     state::State& getState() const;

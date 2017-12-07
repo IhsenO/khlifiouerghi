@@ -2,11 +2,13 @@
 #ifndef ENGINE__MAKESOLDIERSCOMMAND__H
 #define ENGINE__MAKESOLDIERSCOMMAND__H
 
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
+  class Action;
   class Command;
 }
 
@@ -25,7 +27,7 @@ namespace engine {
   public:
     MakeSoldiersCommand (int x, int y);
     CommandTypeId getCommandTypeId () const;
-    void execute (state::State& state);
+    void execute (state::State& state, std::stack<Action*>& actionStack);
     // Setters and Getters
     int getX() const;
     void setX(int x);

@@ -5,6 +5,7 @@
  */
 
 #include "Engine.h"
+#include <iostream>
 
 namespace engine {
 
@@ -21,10 +22,18 @@ namespace engine {
         return this->currentState;
     }
 
-    void Engine::runCommand(Command* command) {
-        command->execute(this->currentState);
+    void Engine::runCommand(Command* command, std::stack<Action*>& actionStack) {
+        command->execute(this->currentState, actionStack);
     }
-    
+
+    void Engine::undo(std::stack<Action*>&  actionStack) {
+        if(actionStack.size()>0){
+            std::cout << actionStack.size() << std::endl;
+            actionStack.top()->undo(currentState);
+            actionStack.pop();
+            std::cout << actionStack.size() << std::endl;
+        }
+    }
 
     
 }

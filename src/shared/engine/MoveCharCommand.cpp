@@ -18,7 +18,7 @@ namespace engine{
         
     }
 
-    void MoveCharCommand::execute(State& state) {
+    void MoveCharCommand::execute(State& state, std::stack<Action*>& actionStack) {
         //std::cout << "MoveChar"  <<std::endl;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
@@ -27,6 +27,9 @@ namespace engine{
         if(state.getMonde().get(xFrom, yFrom, 2)->getTypeID() == ARMY){
             Army *chars= (Army*)state.getMonde().get(xFrom, yFrom, 2);
             if(canMoveImproved(state, xFrom, yFrom, xTo, yTo, chars->getRange())){
+                //std::cout << "Add" << std::endl;
+                actionStack.push(new MoveCharAction(xFrom, yFrom, xTo, yTo));
+                //std::cout << actionStack.size() << std::endl;
                 state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
                 state.getMonde().set(xFrom, yFrom, 2, NULL);
             }               
@@ -34,6 +37,7 @@ namespace engine{
         else if(state.getMonde().get(xFrom, yFrom, 2)->getTypeID() == SETTLERS){
             Settlers *chars= (Settlers*)state.getMonde().get(xFrom, yFrom, 2);
             if(canMoveImproved(state, xFrom, yFrom, xTo, yTo, chars->getRange())){
+                actionStack.push(new MoveCharAction(xFrom, yFrom, xTo, yTo));
                 state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
                 state.getMonde().set(xFrom, yFrom, 2, NULL);
             }               

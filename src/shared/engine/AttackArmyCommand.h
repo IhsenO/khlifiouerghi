@@ -2,9 +2,15 @@
 #ifndef ENGINE__ATTACKARMYCOMMAND__H
 #define ENGINE__ATTACKARMYCOMMAND__H
 
+#include <stack>
 
 namespace state {
   class State;
+};
+namespace engine {
+  class Action;
+};
+namespace state {
   class Army;
 };
 namespace engine {
@@ -28,7 +34,7 @@ namespace engine {
   public:
     AttackArmyCommand (int xFrom, int yFrom, int xTo, int yTo);
     CommandTypeId getCommandTypeId () const;
-    void execute (state::State& state);
+    void execute (state::State& state, std::stack<Action*>& actionStack);
     bool solveFightArmy (state::Army* firstArmy, state::Army* secondArmy);
     // Setters and Getters
     int getXFrom() const;

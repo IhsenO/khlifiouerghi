@@ -6,6 +6,7 @@
 
 #include "EndOfTurnCommand.h"
 #include "state/City.h"
+#include "EndOfTurnAction.h"
 #include <iostream>
 
 using namespace state;
@@ -20,7 +21,8 @@ namespace engine{
         return EOT;
     }
 
-    void EndOfTurnCommand::execute(State& state) {
+    void EndOfTurnCommand::execute(State& state, std::stack<Action*>& actionStack) {
+        actionStack.push(new EndOfTurnAction());
         std::cout << "Fin du tour !" << std::endl;
         for(int i = 0; i < state.getMonde().getHeight(); i++)
             for(int j = 0; j < state.getMonde().getWidth(); j++){

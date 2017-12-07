@@ -171,6 +171,7 @@ int main(int argc,char* argv[])
     cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
     
     RandomAI random(state, e);
+    stack<Action*> pile;
     
     while (window.isOpen())
     {
@@ -181,7 +182,7 @@ int main(int argc,char* argv[])
                 window.close();
             else if(event.type == sf::Event::KeyPressed){
                 //testsAIRandom(e, state);
-                random.run(e);
+                random.run(e, pile);
                 if(state.getIdPlayer() == 1) state.setIdPlayer(2);
                 else if(state.getIdPlayer() == 2) state.setIdPlayer(1);
             }
@@ -231,6 +232,8 @@ int main(int argc,char* argv[])
     map1.initDrawer();   
     map2.initDrawer();  
     chars.initDrawer();
+    
+    stack<Action*> pile;
     
     cout << "Bienvenue dans le mode avec une IA heuristique !" << endl;
     cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
@@ -286,11 +289,11 @@ int main(int argc,char* argv[])
                 //heuristic.run(e);
                 if(state.getIdPlayer() == 1){
                     //heuristic.run(e);
-                    ai1->run(e);
+                    ai1->run(e, pile);
                     state.setIdPlayer(2);
                 }
                 else if(state.getIdPlayer() == 2){
-                    ai2->run(e);
+                    ai2->run(e, pile);
                     state.setIdPlayer(1);
                 }
             }
@@ -340,12 +343,12 @@ int main(int argc,char* argv[])
     map2.initDrawer();  
     chars.initDrawer();
     
-    //AI *ai1;
+    AI *ai1;
     
-    //ai1 = new HeuristicAI(state,e); 
+    ai1 = new HeuristicAI(state,e); 
 
-    //AI *ai2;
-    //ai2 = new RandomAI(state,e); 
+    AI *ai2;
+    ai2 = new RandomAI(state,e); 
     
     stack<Action*> pile;
     //HeuristicAI heuristic(state, e);
@@ -353,12 +356,7 @@ int main(int argc,char* argv[])
     //AI *ai1 = new HeuristicAI(state,e); 
     sf::RenderWindow window(sf::VideoMode(336, 224), "Rollback");
     
-    //ConstructCommand con(2,2, new Farm());
-    //ConstructCommand con2(2,2, new Mine());
-    ConstructCommand con3(2,2, new Barrack());
-    //e.runCommand(&con);
-    //e.runCommand(&con2);
-    e.runCommand(&con3);
+    int i = 0;
     
     
     
@@ -370,30 +368,32 @@ int main(int argc,char* argv[])
             if(event.type == sf::Event::Closed)
                 window.close();
             else if(event.type == sf::Event::KeyPressed){
-                cout << "Okay" << endl;
-                if(state.getIdPlayer() == 1){
-                    cout << "J1" << endl;
-                    MakeSoldiersCommand mak(2,2);
-                    City *c = (City*)state.getMonde().get(2,2,1);
-                    //cout << "Avant " << c->getSoldiers() << endl;
-                    cout << state.getPlayer(1)->getFood() << endl;
-                    cout << state.getPlayer(1)->getGold() << endl;
-
-                    pile.push(new MakeSoldiersAction(2,2));
-                    e.runCommand(&mak);
-                   //cout << "Apres " << c->getSoldiers() << endl;
-                    cout << state.getPlayer(1)->getFood() << endl;
-                    cout << state.getPlayer(1)->getGold() << endl;
-
-                    state.setIdPlayer(2);
-                    //cout << "Okay" << endl;
+                
+                //MoveCharCommand move(2,4,3,4);
+                //e.runCommand(&move, pile);
+                //cout << pile.size() << endl;
+                
+                if(i < 100){
+                    cout << "Okay" << endl;
+                    if(state.getIdPlayer() == 1){
+                        //cout << "J1" << endl;
+                        ai1->run(e, pile);
+                        state.setIdPlayer(2);
+                        //cout << "Okay" << endl;
+                    }
+                    else if(state.getIdPlayer() == 2){
+                        ai2->run(e, pile);
+                        //cout << "J2" << endl;
+                        state.setIdPlayer(1);
+                    }
+                    i++;
                 }
-                else if(state.getIdPlayer() == 2){
-                    state.setIdPlayer(1);
-                    if(pile.size()>0) pile.top()->undo(state); 
-                    cout << "J2" << endl;
-                    state.setIdPlayer(1);
+                else{
+                    cout << pile.size() << endl;
+                    e.undo(pile);
                 }
+                        
+                    
             }
         }
         window.clear();

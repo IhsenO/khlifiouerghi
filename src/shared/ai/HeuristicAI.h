@@ -2,6 +2,7 @@
 #ifndef AI__HEURISTICAI__H
 #define AI__HEURISTICAI__H
 
+#include <stack>
 
 namespace ai {
   class DistanceMap;
@@ -11,6 +12,7 @@ namespace state {
 };
 namespace engine {
   class Engine;
+  class Action;
 };
 namespace ai {
   class AI;
@@ -32,7 +34,7 @@ namespace ai {
     // Operations
   public:
     HeuristicAI (state::State& state, engine::Engine& engine);
-    void run (engine::Engine& engine);
+    void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack);
     // Setters and Getters
     const DistanceMap& getMap() const;
     void setMap(const DistanceMap& map);

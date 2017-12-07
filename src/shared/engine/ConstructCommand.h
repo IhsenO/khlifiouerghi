@@ -2,8 +2,10 @@
 #ifndef ENGINE__CONSTRUCTCOMMAND__H
 #define ENGINE__CONSTRUCTCOMMAND__H
 
+#include <stack>
 
 namespace engine {
+  class Action;
   class Command;
 };
 namespace state {
@@ -27,7 +29,7 @@ namespace engine {
   public:
     ConstructCommand (int x, int y, state::Construction* construction);
     CommandTypeId getCommandTypeId () const;
-    void execute ( state::State& state);
+    void execute ( state::State& state, std::stack<Action*>& actionStack);
     // Setters and Getters
     int getX() const;
     void setX(int x);

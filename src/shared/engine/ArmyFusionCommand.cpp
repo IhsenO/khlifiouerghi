@@ -21,7 +21,7 @@ namespace engine{
         return FUSIONARMY;
     }
 
-    void ArmyFusionCommand::execute(state::State& state) {
+    void ArmyFusionCommand::execute(state::State& state, std::stack<Action*>& actionStack) {
         //std::cout << "ArmyFusion" << std::endl;
         if(xFrom == yFrom && xTo==yTo) return;
         if(!inMap(state,xTo,yTo)) return;
@@ -34,6 +34,7 @@ namespace engine{
                 Army *army2 = (Army*)state.getMonde().get(xTo,yTo, 2);
                 if(!canReachImproved(xFrom, yFrom, xTo, yTo, army1->getRange())) return;
                 if(army1->getIdPlayer() != army2->getIdPlayer()) return;
+                actionStack.push(new ArmyFusionAction(xFrom, yFrom, xTo, yTo, army1->getSoldiers(), army2->getSoldiers()));
                 army2->setSoldiers(army2->getSoldiers() + army1->getSoldiers());
                 state.getMonde().set(xFrom, yFrom, 2, NULL);
             }

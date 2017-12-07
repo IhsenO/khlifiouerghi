@@ -22,7 +22,7 @@ namespace engine{
         return LEAVECITY;
     }
 
-    void LeaveCityCommand::execute(state::State& state) {
+    void LeaveCityCommand::execute(state::State& state, std::stack<Action*>& actionStack) {
         //std::cout << "LeaveCity" << std::endl;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
@@ -32,6 +32,7 @@ namespace engine{
             City *c = (City*)state.getMonde().get(xFrom, yFrom, 1);
             if(!canMoveImproved(state, xFrom, yFrom, xTo, yTo, 2)) return;
             if(c->getSoldiers() < this->soldiers || this->soldiers < 0) return;
+            actionStack.push(new LeaveCityAction(xFrom, yFrom, xTo, yTo, soldiers));
             c->setSoldiers(c->getSoldiers() - this->soldiers);
             state.getMonde().set(xTo,yTo,2,new Army(this->soldiers, c->getIdPlayer()));
             

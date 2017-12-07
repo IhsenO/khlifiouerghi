@@ -24,7 +24,7 @@ namespace engine{
         return ATTACKCITY;
     }
 
-    void AttackCityCommand::execute(state::State& state) {
+    void AttackCityCommand::execute(state::State& state, std::stack<Action*>& actionStack) {
         std::cout << "Le joueur "<< state.getIdPlayer() << " attaque une ville adverse" << std::endl;
         if(!inMap(state,xTo,yTo)) return;
         if(!inMap(state,xFrom,yFrom)) return;
@@ -36,19 +36,19 @@ namespace engine{
                 Army *army = (Army*)state.getMonde().get(xFrom,yFrom,2);
                 City *city = (City*)state.getMonde().get(xTo,yTo,1);
                 if(!canReachImproved(xFrom, yFrom, xTo, yTo, army->getRange())) return;
-                std::cout << "Test "<< std::endl;
+                actionStack.push(new AttackCityAction(xFrom, yFrom, xTo, yTo, army->getIdPlayer(), city->getIdPlayer(), army->getSoldiers(), city->getSoldiers(),city->getDefense(), city->isFree()));
                 if(hasWonBattle((float)army->getSoldiers(), (float)city->getDefense() * 100 + city->getSoldiers()) || city->isFree()){
                     city->setIdPlayer(army->getIdPlayer());
                     city->setFree(false);
                     city->setDefense(1);
-                    std::cout << "Test "<< std::endl;
+                    
                     //state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
                     //state.getMonde().set(xFrom, yFrom, 2, NULL);
                     city->setSoldiers(0);
                 }
                 else{
                     state.getMonde().set(xFrom, yFrom, 2, NULL);
-                    std::cout << "Test "<< std::endl;
+                    
                 }
             }                            
         }

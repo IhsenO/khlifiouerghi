@@ -28,7 +28,7 @@ namespace ai {
 
     }
 
-    void HeuristicAI::run(engine::Engine& engine) {
+    void HeuristicAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack) {
 
 
         cout << "Tour du Joueur " << this->state.getIdPlayer() << endl;
@@ -83,7 +83,7 @@ namespace ai {
                         if (random != 0) delete b;
                         if (random != 1) delete m;
                         if (random != 2) delete f;
-                        if (listCommands.size() > 0) engine.runCommand(listCommands[random]);
+                        if (listCommands.size() > 0) engine.runCommand(listCommands[random], actionStack);
 
 
                         for (auto& command : listCommands)
@@ -133,7 +133,7 @@ namespace ai {
                                     cmdValueMax = cw[i].getWeight();
                                 }
                             }
-                            cw[idCmd].getCommand()->execute(state);
+                            cw[idCmd].getCommand()->execute(state, actionStack);
                             playerArmy->setHasPlayed(true);
                             cw.clear();
 
@@ -192,7 +192,7 @@ namespace ai {
                                         cmdValueMax = cw[i2].getWeight();
                                     }
                                 }
-                                cw[idCmd].getCommand()->execute(state);
+                                cw[idCmd].getCommand()->execute(state, actionStack);
                                 playerArmy->setHasPlayed(true);
                                 cw.clear();
                             }
@@ -207,7 +207,7 @@ namespace ai {
             }
         cout << "\n";
 
-        engine.runCommand(&end);
+        engine.runCommand(&end, actionStack);
         cw.clear();
 
 

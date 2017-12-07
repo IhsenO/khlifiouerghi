@@ -2,11 +2,13 @@
 #ifndef ENGINE__MOVECHARCOMMAND__H
 #define ENGINE__MOVECHARCOMMAND__H
 
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
+  class Action;
   class Command;
 }
 
@@ -26,7 +28,7 @@ namespace engine {
     // Operations
   public:
     CommandTypeId getCommandTypeId () const;
-    void execute (state::State& state);
+    void execute (state::State& state, std::stack<Action*>& actionStack);
     MoveCharCommand (int xFrom, int yFrom, int xTo, int yTo);
     // Setters and Getters
     int getXFrom() const;

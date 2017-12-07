@@ -21,7 +21,7 @@ namespace ai{
     RandomAI::RandomAI(state::State& state, engine::Engine& engine) : AI(state, engine) {
     }
 
-    void RandomAI::run(engine::Engine& engine) {
+    void RandomAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack) {
         
         vector<Command*> listCommands;
         //mt19937 mt_rand(time(0));
@@ -71,7 +71,7 @@ namespace ai{
                         if(random != 0) delete b;
                         if(random != 1) delete m;
                         if(random != 2) delete f;
-                        if(listCommands.size() > 0) engine.runCommand(listCommands[random]);
+                        if(listCommands.size() > 0) engine.runCommand(listCommands[random], actionStack);
                         
                         
                         for(auto& command : listCommands)
@@ -97,7 +97,7 @@ namespace ai{
                                     listCommands.push_back(new MoveCharCommand(j,i,l,k));
                                 }
                             }
-                        if(listCommands.size() > 0) engine.runCommand(listCommands[(int)(mt_rand() % listCommands.size())]);
+                        if(listCommands.size() > 0) engine.runCommand(listCommands[(int)(mt_rand() % listCommands.size())], actionStack);
                         
                         for(auto& command : listCommands)
                             delete command;
@@ -110,7 +110,7 @@ namespace ai{
             delete command;
         listCommands.clear();
         //listCommands.erase(listCommands.begin(), listCommands.end());
-        engine.runCommand(&end);
+        engine.runCommand(&end, actionStack);
         cout <<"\n";
         
          

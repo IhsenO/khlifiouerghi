@@ -2,12 +2,14 @@
 #ifndef AI__RANDOMAI__H
 #define AI__RANDOMAI__H
 
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Engine;
+  class Action;
 };
 namespace ai {
   class AI;
@@ -22,7 +24,7 @@ namespace ai {
     // Operations
   public:
     RandomAI (state::State& state, engine::Engine& engine);
-    void run (engine::Engine& engine);
+    void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack);
     // Setters and Getters
   };
 

@@ -2,11 +2,13 @@
 #ifndef ENGINE__ENDOFTURNCOMMAND__H
 #define ENGINE__ENDOFTURNCOMMAND__H
 
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
+  class Action;
   class Command;
 }
 
@@ -20,7 +22,7 @@ namespace engine {
     // Operations
   public:
     CommandTypeId getCommandTypeId () const;
-    void execute (state::State& state);
+    void execute (state::State& state, std::stack<Action*>& actionStack);
     EndOfTurnCommand ();
     // Setters and Getters
   };
