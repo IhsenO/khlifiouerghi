@@ -467,11 +467,11 @@ int main(int argc,char* argv[])
                 window.close();
             else if(event.type == sf::Event::KeyPressed){
                 
-                stack<Command*> st;
-                deep.findCommands(st);
+                
+                vector<Command*> comm = deep.findCommands();
                 //MoveCharCommand move(2,4,3,4);
                 //e.runCommand(&move, pile);
-                //cout << pile.size() << endl;
+                cout << "MMM" << endl;
                 /*
                 if(i < 100){
                     cout << "Okay" << endl;

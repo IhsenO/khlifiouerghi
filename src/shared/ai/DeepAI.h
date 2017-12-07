@@ -3,6 +3,7 @@
 #define AI__DEEPAI__H
 
 #include <stack>
+#include <vector>
 
 namespace ai {
   class DistanceMap;
@@ -13,7 +14,6 @@ namespace state {
 namespace engine {
   class Engine;
   class Action;
-  class Command;
 };
 namespace ai {
   class AI;
@@ -32,17 +32,20 @@ namespace ai {
     // Attributes
   protected:
     DistanceMap map;
+    int depth;
     // Operations
   public:
-    DeepAI (state::State& state, engine::Engine& engine);
+    DeepAI (state::State& state, engine::Engine& engine, int depth);
     void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack);
     int minmaxRecMin ();
     int minmaxRecMax ();
     void createTree (std::stack<engine::Action*>& actionStack);
-    void findCommands (std::stack<engine::Command*>& stackCommands);
+    std::vector<engine::Command*> findCommands ();
     // Setters and Getters
     const DistanceMap& getMap() const;
     void setMap(const DistanceMap& map);
+    int getDepth() const;
+    void setDepth(int depth);
   };
 
 };

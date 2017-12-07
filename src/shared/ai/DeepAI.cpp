@@ -15,25 +15,40 @@
 
 using namespace state;
 using namespace engine;
+using namespace std;
 
 namespace ai{
     
     
-    DeepAI::DeepAI(state::State& state, engine::Engine& engine) : AI(state, engine)  {
-
+    DeepAI::DeepAI(state::State& state, engine::Engine& engine, int depth) : AI(state, engine), depth(depth)  {
+        
     }
 
     void DeepAI::createTree(std::stack<engine::Action*>& actionStack) {
-        Node *root = new Node();
-        std::stack<Command*> todo;
-        findCommands(todo);
+        Node *root = new Node(0,0,NULL);
+        stack<Node*> todo;
+        todo.push(root);
+        //findCommands(todo);
+        //root->addSon(todo.top());
+        while(!todo.empty()){
+            Node *node = todo.top();
+            todo.pop();
+            if(node->getProf() < depth){
+                vector<Command*> commands = findCommands();            
+                for(int i = 0; i < commands.size(); i++){
+                    node->addSon(new Node(node->getProf()+1, 0, commands[i]));
+                }            
+            }
+        }
     }
 
     void DeepAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack) {
         
     }
 
-    void DeepAI::findCommands(std::stack<engine::Command*>& stackCommands) {
+    std::vector<Command*> DeepAI::findCommands() {
+        
+        std::vector<Command*> commands;
         for (int i = 0; i < state.getMonde().getHeight(); i++)
             for (int j = 0; j < state.getMonde().getWidth(); j++) {
                if (state.getMonde().get(j, i, 2) != NULL) {
@@ -42,19 +57,20 @@ namespace ai{
                         for (int k = i - 2; k < i + 3; k++)
                             for (int l = j - 2; l < j + 3; l++) {
                                 if (isInMap(state, l, k) && enemyArmy(state, l, k) && canReachImprovedAI(j, i, l, k, playerArmy->getRange())) {
-                                    stackCommands.push(new AttackArmyCommand(j,i,l,k));
+                                    commands.push_back(new AttackArmyCommand(j,i,l,k));
                                 }
                                 else if(isInMap(state, l, k) && enemyCity(state, l, k) && canReachImprovedAI(j, i, l, k, playerArmy->getRange())){
-                                    stackCommands.push(new AttackCityCommand(j,i,l,k));
+                                    commands.push_back(new AttackCityCommand(j,i,l,k));
                                 }
                                 else if(isInMap(state, l, k) && canReachImprovedAI(j, i, l, k, playerArmy->getRange()) && canAccessAI(state,l,k)){
-                                    stackCommands.push(new MoveCharCommand(j,i,l,k));
+                                    commands.push_back(new MoveCharCommand(j,i,l,k));
                                 }
                             } 
                     }
                 }                 
             }
-        std::cout << stackCommands.size() << std::endl;
+        std::cout << commands.size() << std::endl;
+        return commands; 
     }
 
     

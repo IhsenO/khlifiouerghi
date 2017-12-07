@@ -6,6 +6,9 @@
 
 namespace ai {
   class Node;
+};
+namespace engine {
+  class Command;
 }
 
 namespace ai {
@@ -18,9 +21,15 @@ namespace ai {
     std::vector<Node*> sons;
     Node* father;
     int value;
+    engine::Command* command;
     // Operations
   public:
     Node ();
+    Node (int prof, int value, engine::Command* command);
+    void addSon (Node* node);
+    Node* getSon (int id) const;
+    int getSize () const;
+    engine::Command* getCommand () const;
     // Setters and Getters
     int getProf() const;
     void setProf(int prof);
@@ -30,6 +39,7 @@ namespace ai {
     void setFather(const Node*& father);
     int getValue() const;
     void setValue(int value);
+    void setCommand(const engine::Command*& command);
   };
 
 };
