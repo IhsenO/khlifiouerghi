@@ -5,10 +5,16 @@
 
 namespace state {
   class State;
+};
+namespace engine {
+  class Action;
+};
+namespace state {
   class Element;
 }
 
 #include "CommandTypeId.h"
+#include "Action.h"
 #include "state/Element.h"
 #include "state/State.h"
 

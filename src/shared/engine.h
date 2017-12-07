@@ -3,6 +3,7 @@
 #define __ENGINE__H
 
 #include "engine/CommandTypeId.h"
+#include "engine/Action.h"
 #include "engine/Command.h"
 #include "engine/Engine.h"
 #include "engine/MoveCharCommand.h"
@@ -16,4 +17,15 @@
 #include "engine/SplitArmyCommand.h"
 #include "engine/EnterCityCommand.h"
 #include "engine/MakeSoldiersCommand.h"
+#include "engine/MoveCharAction.h"
+#include "engine/UpgradeAction.h"
+#include "engine/ConstructAction.h"
+#include "engine/EndOfTurnAction.h"
+#include "engine/AttackArmyAction.h"
+#include "engine/AttackCityAction.h"
+#include "engine/LeaveCityAction.h"
+#include "engine/ArmyFusionAction.h"
+#include "engine/EnterCityAction.h"
+#include "engine/SplitArmyAction.h"
+#include "engine/MakeSoldiersAction.h"
 #endif

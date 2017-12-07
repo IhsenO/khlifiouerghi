@@ -39,6 +39,7 @@ namespace state {
     bool canBuild (int id) const;
     ~City ();
     City (int defense, bool free, int player);
+    void deleteConstruction (Construction* construction);
     // Setters and Getters
     int getDefense() const;
     void setDefense(int defense);

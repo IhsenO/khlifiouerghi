@@ -36,17 +36,19 @@ namespace engine{
                 Army *army = (Army*)state.getMonde().get(xFrom,yFrom,2);
                 City *city = (City*)state.getMonde().get(xTo,yTo,1);
                 if(!canReachImproved(xFrom, yFrom, xTo, yTo, army->getRange())) return;
+                std::cout << "Test "<< std::endl;
                 if(hasWonBattle((float)army->getSoldiers(), (float)city->getDefense() * 100 + city->getSoldiers()) || city->isFree()){
                     city->setIdPlayer(army->getIdPlayer());
                     city->setFree(false);
                     city->setDefense(1);
-                    
+                    std::cout << "Test "<< std::endl;
                     //state.getMonde().set(xTo, yTo, 2, state.getMonde().get(xFrom, yFrom, 2));
                     //state.getMonde().set(xFrom, yFrom, 2, NULL);
                     city->setSoldiers(0);
                 }
                 else{
                     state.getMonde().set(xFrom, yFrom, 2, NULL);
+                    std::cout << "Test "<< std::endl;
                 }
             }                            
         }

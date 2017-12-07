@@ -34,6 +34,7 @@ namespace engine{
                 if(construction->getConstructionId() == BARRACK){
                     Barrack *b = (Barrack*)construction;
                     if(state.getPlayer(state.getIdPlayer())->getGold() >= b->getSoldiersCost() && state.getPlayer(state.getIdPlayer())->getFood() >= b->getSoldiersFood()){
+                        //std::cout <<b->getSoldiersCost() << std::endl;
                         c->setSoldiers(c->getSoldiers() + b->getProductionByTurn());
                         state.getPlayer(state.getIdPlayer())->setGold(state.getPlayer(state.getIdPlayer())->getGold() - b->getSoldiersCost());
                         state.getPlayer(state.getIdPlayer())->setFood(state.getPlayer(state.getIdPlayer())->getFood() - b->getSoldiersFood());

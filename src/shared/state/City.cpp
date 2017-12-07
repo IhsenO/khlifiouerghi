@@ -59,6 +59,14 @@ namespace state{
         this->listConst.push_back(construction);
     }
 
+    void City::deleteConstruction(Construction* construction) {
+        for(unsigned int i = 0; i < listConst.size(); i++){
+            if(listConst[i]->getConstructionId() == construction->getConstructionId())
+                listConst.erase(listConst.begin() + i);
+        }
+    }
+    
+
     bool City::canBuild(int id) const {
         if(this->listConst.size()==3) return false;
         for(unsigned int i = 0; i < listConst.size(); i++){
