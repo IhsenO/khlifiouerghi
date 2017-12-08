@@ -350,6 +350,11 @@ int main(int argc,char* argv[])
     AI *ai2;
     ai2 = new RandomAI(state,e); 
     
+    cout << "Bienvenue dans le mode avec un rollback !" << endl;
+    cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
+    cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
+    cout << "Au bout de 50 commandes le jeu reviens en arrière !" << endl;
+    
     stack<Action*> pile;
     //HeuristicAI heuristic(state, e);
     //RandomAI random(state, e);
@@ -373,8 +378,8 @@ int main(int argc,char* argv[])
                 //e.runCommand(&move, pile);
                 //cout << pile.size() << endl;
                 
-                if(i < 100){
-                    cout << "Okay" << endl;
+                if(i < 50){
+                    //cout << "Okay" << endl;
                     if(state.getIdPlayer() == 1){
                         //cout << "J1" << endl;
                         ai1->run(e, pile);
@@ -388,9 +393,11 @@ int main(int argc,char* argv[])
                     }
                     i++;
                 }
+                
                 else{
-                    cout << pile.size() << endl;
+                    //cout << pile.size() << endl;
                     e.undo(pile);
+                    //i++;
                 }
                         
                     
@@ -423,8 +430,9 @@ int main(int argc,char* argv[])
     state.addPlayer(new Player("Joueur 2"));
  
     m->set(2,4,2,new Army(1000, 1));
-    m->set(4,2,2,new Army(100, 1));
-    
+    m->set(10,2,2,new Army(1000, 1));
+    m->set(8,2,2,new Army(200, 2));
+    m->set(16,11,2,new Army(100, 2));
     
     //m->set(4,6,2,new Army(100, 2));
 
@@ -443,10 +451,14 @@ int main(int argc,char* argv[])
     chars.initDrawer();
     
     //AI *ai1;
-    
+    cout << "Bienvenue dans le mode avec une IA Avancé!" << endl;
+    cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
+    cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
+    cout << "L'IA avancé ne fonctionne actuellement pas helas, il semble y avoir un soucis que nous avons pas eu le temps de régler... !" << endl;
     //ai1 = new DeepAI(state,e); 
 
-    DeepAI deep(state,e);
+    DeepAI deepJ1(state,e, 1);
+    DeepAI deepJ2(state,e, 2);
     
     stack<Action*> pile;
     //HeuristicAI heuristic(state, e);
@@ -466,29 +478,20 @@ int main(int argc,char* argv[])
             if(event.type == sf::Event::Closed)
                 window.close();
             else if(event.type == sf::Event::KeyPressed){
-                
-                
-                vector<Command*> comm = deep.findCommands();
-                //MoveCharCommand move(2,4,3,4);
-                //e.runCommand(&move, pile);
-                cout << "MMM" << endl;
-                /*
-                if(i < 100){
-                    cout << "Okay" << endl;
-                    if(state.getIdPlayer() == 1){
-                        //cout << "J1" << endl;
-                        ai1->run(e, pile);
-                        state.setIdPlayer(2);
-                        //cout << "Okay" << endl;
-                    }
-                    else if(state.getIdPlayer() == 2){
-                        ai2->run(e, pile);
-                        //cout << "J2" << endl;
-                        state.setIdPlayer(1);
-                    }
-                    
+
+                if(state.getIdPlayer() == 1){
+
+                    deepJ1.run(e, pile);
+                    state.setIdPlayer(2);
+
                 }
-                */
+                else if(state.getIdPlayer() == 2){
+                    deepJ2.run(e, pile);
+                    state.setIdPlayer(1);
+                }
+                    
+                
+                
                 
                         
                     

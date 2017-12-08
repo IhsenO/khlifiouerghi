@@ -13,7 +13,7 @@ namespace ai{
 
     }
 
-    Node::Node(int prof, int value, engine::Command* command) : prof(prof), value(value), command(command) {
+    Node::Node(int prof, int value, int player, std::vector<engine::Command*> commands) : prof(prof), value(value), player(player), commands(commands) {
 
     }
 
@@ -41,14 +41,27 @@ namespace ai{
         return sons[id];
     }
 
-    engine::Command* Node::getCommand() const {
-        return command;
+    const std::vector<engine::Command*>& Node::getCommands() const {
+        return commands;
+    }
+
+    void Node::addCommand(engine::Command* command) {
+        commands.push_back(command);
     }
 
 
     int Node::getSize() const {
         return sons.size();
     }
+
+    int Node::getPlayer() const {
+        return player;
+    }
+
+    void Node::setPlayer(int player) {
+        player = player;
+    }
+    
     
     
 }

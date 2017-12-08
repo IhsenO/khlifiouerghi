@@ -16,8 +16,8 @@ namespace engine {
   class Action;
 };
 namespace ai {
-  class AI;
   class Node;
+  class AI;
 }
 
 #include "DistanceMap.h"
@@ -37,10 +37,11 @@ namespace ai {
   public:
     DeepAI (state::State& state, engine::Engine& engine, int depth);
     void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack);
-    int minmaxRecMin ();
-    int minmaxRecMax ();
-    void createTree (std::stack<engine::Action*>& actionStack);
+    int minmaxRecMin (Node* node);
+    int minmaxRecMax (Node* node);
+    Node* createTree (std::stack<engine::Action*>& actionStack, int player);
     std::vector<engine::Command*> findCommands ();
+    int getHeuristic (int player);
     // Setters and Getters
     const DistanceMap& getMap() const;
     void setMap(const DistanceMap& map);

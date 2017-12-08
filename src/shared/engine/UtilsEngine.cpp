@@ -46,11 +46,11 @@ bool hasWonBattle(float a, float b){
     //std:: cout << difference << " proba " << probability << std::endl;
     //std:: cout << randNumber << " PROBA " << probability*100 << std::endl;
     if(randNumber <= probability*100){
-        std:: cout << "Victoire" << std::endl;
+        //std:: cout << "Victoire" << std::endl;
         return true;
     }
     else{
-        std::cout << "Defaite" << std::endl;
+        //std::cout << "Defaite" << std::endl;
         return false;
     }   
 }
