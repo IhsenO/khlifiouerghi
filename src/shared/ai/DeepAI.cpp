@@ -22,10 +22,11 @@ namespace ai{
     
     
     DeepAI::DeepAI(state::State& state, engine::Engine& engine, int depth) : AI(state, engine), depth(depth)  {
-        
+        this->map.init(state.getMonde().getWidth(), state.getMonde().getHeight());
     }
 
     Node* DeepAI::createTree(std::stack<engine::Action*>& actionStack, int player) {
+        state.setIdPlayer(player);
         int a = 0;
         int player2;
         if(player == 1) player2 = 2;
@@ -80,20 +81,42 @@ namespace ai{
     }
 
     void DeepAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack) {
+        
+        //auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+        //mt19937 mt_rand(seed);
+        
         stack<engine::Action*> tmp;
         Node *root = createTree(tmp, state.getIdPlayer());
-        int bestMove = minmaxRecMax(root);
-        //cout << "Ocedc" << endl;
+        //int bestMove = minmaxRecMin(root);
+        int bestMove = -9999;
+        //cout << root->getSon(0)->getSon(0)->getCommands().size() << endl;
         //cout << bestMove << endl;
+        Command *comMax = root->getSon(0)->getCommands()[0];
+        int max;
+        //int id = 0;
         for(int i = 0; i < root->getSize(); i++){
             //cout << root->getSon(i)->getValue() << endl;
-            if(root->getSon(i)->getValue() == bestMove){
-                root->getSon(i)->getCommands()[0]->execute(state, actionStack);
-                break;
+            
+           //cout << minmaxRecMax(root->getSon(i)) << " " << root->getSon(i)->getCommands()[0]->getCommandTypeId() << endl;
+            max = minmaxRecMax(root->getSon(i));
+            cout << i << endl;
+            if(max > bestMove){
+                comMax = root->getSon(i)->getCommands()[0];
+                bestMove = max;
+                //id = i;
+                //root->getSon(i)->getCommands()[0]->execute(state, actionStack);
+                //break;
                 //cout << root->getSon(i)->getCommands().size() << endl; 
+                //cout << i << endl;
             }
+            //cout << id << endl;
+            //cout << comMax->getCommandTypeId() << endl;
+            //comMax->execute(state, actionStack);
+            //root->getSon(id)->getCommands()[0]->execute(state, actionStack);
             
         }
+        cout << comMax->getCommandTypeId() << endl;
+        comMax->execute(state, actionStack);
     }
 
     std::vector<Command*> DeepAI::findCommands() {
@@ -128,6 +151,7 @@ namespace ai{
         int nbCity = 0;
         int mySoldiers = 0;
         int enemySoldiers = 0;
+        int bestDist = 0;
         for (int i = 0; i < state.getMonde().getHeight(); i++)
             for (int j = 0; j < state.getMonde().getWidth(); j++) {
                 if (state.getMonde().get(j, i, 1) != NULL) {
@@ -139,6 +163,24 @@ namespace ai{
                     if (state.getMonde().get(j, i, 2)->getTypeID() == ARMY && state.getMonde().get(j, i, 2)->getIdPlayer() == player) {
                         Army *myArmy = (Army*)state.getMonde().get(j,i,2);
                         mySoldiers+=myArmy->getSoldiers();
+                        //cout << "Ouais" << endl;
+                        /*
+                        for (int k = 0; k < state.getMonde().getHeight(); k++)
+                            for (int l = 0; l < state.getMonde().getWidth(); l++) {
+                                if (state.getMonde().get(l, k, 1) != NULL) {
+                                    if (state.getMonde().get(l, k, 1)->getTypeID() == CITY && state.getMonde().get(l, k, 1)->getIdPlayer() != player) {
+                                        //City *c = (City*)state.getMonde().get(l,k,1);
+                                        //cout << "Ouais" << endl;
+                                        map.update(state);
+                                        map.addQueue(l, k);
+                                        vector<int> map2 = map.dijkstra();
+                                        int score =  1 / map2[i*state.getMonde().getWidth()+i];
+                                        if(score*10 > bestDist)
+                                            bestDist = score*10;
+                                    }
+                                }
+                            }
+                        */
                     }
                     else if (state.getMonde().get(j, i, 2)->getTypeID() == ARMY && state.getMonde().get(j, i, 2)->getIdPlayer() != player) {
                         Army *enemyArmy = (Army*)state.getMonde().get(j,i,2);
@@ -147,7 +189,7 @@ namespace ai{
                 }
             }
         
-        return nbCity * 1000 + (mySoldiers-enemySoldiers);
+        return nbCity * 1000 + (mySoldiers-enemySoldiers) + bestDist;
     }
 
     int DeepAI::minmaxRecMin(Node* node) {
@@ -160,7 +202,7 @@ namespace ai{
             if(value < min)
                 min = value;
         }
-        node->setValue(min);
+        //node->setValue(min);
         return min;
         }
 
@@ -176,7 +218,7 @@ namespace ai{
             if(value > max)
                 max = value;
         }
-        node->setValue(max);
+        //node->setValue(max);
         return max;
         }
     
