@@ -3,12 +3,14 @@
 #define ENGINE__ENDOFTURNCOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Action;
+  class EndOfTurnCommand;
   class Command;
 }
 
@@ -24,6 +26,8 @@ namespace engine {
     CommandTypeId getCommandTypeId () const;
     void execute (state::State& state, std::stack<Action*>& actionStack);
     EndOfTurnCommand ();
+    void serialize (Json::Value& out) const;
+    EndOfTurnCommand* deserialize (const Json::Value& in);
     // Setters and Getters
   };
 

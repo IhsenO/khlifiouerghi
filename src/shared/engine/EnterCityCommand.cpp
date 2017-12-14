@@ -46,6 +46,20 @@ namespace engine{
         
         
     }
+
+    void EnterCityCommand::serialize(Json::Value& out) const {
+        out["Type"] = "EnterCity";
+        out["xFrom"] = xFrom;
+        out["yFrom"] = yFrom;
+        out["xTo"] = xTo;
+        out["yTo"] = yTo;
+        out["soldiers"] = soldiers;
+    }
+
+    EnterCityCommand* EnterCityCommand::deserialize(const Json::Value& in) {
+        return new EnterCityCommand(in["xFrom"].asInt(), in["yFrom"].asInt(), in["xTo"].asInt(), in["yTo"].asInt(), in["soldiers"].asInt());
+    }
+    
     
     
 }

@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <mutex>
+#include <json/json.h>
 #include <stack>
 
 namespace state {
@@ -32,6 +33,7 @@ namespace engine {
   protected:
     int player     = 0;
     std::mutex mutexFlag;
+    Json::Value* listCommandPlayer;
     // Operations
   public:
     Engine (state::State& state);
@@ -39,15 +41,20 @@ namespace engine {
     void addCommand (Command* command);
     void addPassiveCommand ();
     void Update ();
-    void runCommand (Command* command, std::stack<Action*>& actionStack);
+    void runCommand (Command* command, std::stack<Action*>& actionStack, bool serialise);
     const state::State& getState () const;
     void undo (std::stack<Action*>& actionStack);
     void runThread (ai::AI* aiPlayer1, ai::AI* aiPlayer2);
+    Json::Value* getValueJson () const;
+    void runCommandJson (Json::Value& commandJson, std::stack<Action*>& actionStack);
+    void runListCommandJson (Json::Value& listCommandsJson, std::stack<Action*>& stack);
     // Setters and Getters
     int getPlayer() const;
     void setPlayer(int player);
     const std::mutex& getMutexFlag() const;
     void setMutexFlag(const std::mutex& mutexFlag);
+    const Json::Value*& getListCommandPlayer() const;
+    void setListCommandPlayer(const Json::Value*& listCommandPlayer);
   };
 
 };

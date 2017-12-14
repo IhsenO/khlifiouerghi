@@ -41,7 +41,22 @@ namespace engine{
             
         }
     }
-    
+
+    void ArmyFusionCommand::serialize(Json::Value& out) const {
+        out["Type"] = "ArmyFusion";
+        out["xFrom"] = xFrom;
+        out["yFrom"] = yFrom;
+        out["xTo"] = xTo;
+        out["yTo"] = yTo;
+    }
+
+    ArmyFusionCommand* ArmyFusionCommand::deserialize(const Json::Value& in) {
+        return new ArmyFusionCommand(in["xFrom"].asInt(), in["yFrom"].asInt(), in["xTo"].asInt(), in["yTo"].asInt());
+    }
+
+    int ArmyFusionCommand::getXFrom() const {
+        return xFrom;
+    }
     
     
 }

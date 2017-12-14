@@ -34,6 +34,8 @@ void testsAIRandom(Engine& engine, State& state);
 
 void menu();
 
+void menuServer();
+
 
 #endif /* TESTS_HPP */
 

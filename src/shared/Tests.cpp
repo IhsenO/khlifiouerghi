@@ -10,7 +10,7 @@
 void testsAIRandom(Engine& engine, State& state){
     stack<Action*> pile;
     RandomAI random(state, engine);
-    random.run(engine, pile);
+    random.run(engine, pile, false);
     
 }
 
@@ -22,7 +22,7 @@ void testsEngine(int i, Engine& engine, State& state){
     if(i == 0){
         std::cout << "Ajout de la commande qui déplace une armée dans un endroit accessible : "<< std::endl;
         MoveCharCommand move(4,4,6,6);
-        engine.runCommand(&move, pile);
+        engine.runCommand(&move, pile, false);
         std::cout << "Vérifie Déplacement... ";
         if(state.getMonde().get(4,4,2) == NULL && state.getMonde().get(6,6,2) != NULL)
             if(state.getMonde().get(6,6,2)->getTypeID() == 3) std::cout << "OK" <<std::endl;
@@ -30,7 +30,7 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 1){
         std::cout << "Ajout de la commande qui déplace une armée dans un endroit accessible : "<< std::endl;
         MoveCharCommand move(6,6,8,8);
-        engine.runCommand(&move, pile);
+        engine.runCommand(&move, pile, false);
         std::cout << "Vérifie Déplacement... ";
         if(state.getMonde().get(6,6,2) == NULL && state.getMonde().get(8,8,2) != NULL)
             if(state.getMonde().get(8,8,2)->getTypeID() == 3) std::cout << "OK" <<std::endl;
@@ -39,21 +39,21 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 2){
         std::cout << "Ajout de la commande qui déplace une armée dans un endroit inaccessible : "<< std::endl;
         MoveCharCommand move(8,8,10,10);
-        engine.runCommand(&move, pile);
+        engine.runCommand(&move, pile, false);
         std::cout << "Vérifie qu'il n'y a pas déplacement... ";
         if(state.getMonde().get(8,8,2) != NULL) std::cout << "OK" <<std::endl;
     }
     else if(i == 3){
         std::cout << "Ajout de la commande qui déplace une armée dans un endroit au delà de sa portée : "<< std::endl;
         MoveCharCommand move(8,8,4,4);
-        engine.runCommand(&move, pile);
+        engine.runCommand(&move, pile, false);
         std::cout << "Vérifie qu'il n'y a pas déplacement... ";
         if(state.getMonde().get(8,8,2) != NULL) std::cout << "OK" <<std::endl;
     }
     else if(i == 4){
         std::cout << "Essayons de construire une Caserne dans la ville :" << std::endl;
         ConstructCommand construct(2,2,new Barrack());
-        engine.runCommand(&construct, pile);
+        engine.runCommand(&construct, pile, false);
         std::cout << "Vérifie la construction... ";
         if(state.getMonde().get(2,2,1) != NULL){
             if(state.getMonde().get(2,2,1)->getTypeID() == 2){
@@ -65,7 +65,7 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 5){
         std::cout << "Essayons de construire une Ferme dans la ville :" << std::endl;
         ConstructCommand construct(2,2,new Farm());
-        engine.runCommand(&construct, pile);
+        engine.runCommand(&construct, pile, false);
         std::cout << "Vérifie la construction... ";
         if(state.getMonde().get(2,2,1) != NULL){
             if(state.getMonde().get(2,2,1)->getTypeID() == 2){
@@ -77,7 +77,7 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 6){
         std::cout << "Essayons de construire une Mine dans la ville :" << std::endl;
         ConstructCommand construct(2,2,new Mine());
-        engine.runCommand(&construct, pile);
+        engine.runCommand(&construct, pile, false);
         std::cout << "Vérifie la construction... ";
         if(state.getMonde().get(2,2,1) != NULL){
             if(state.getMonde().get(2,2,1)->getTypeID() == 2){
@@ -89,7 +89,7 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 7){
         std::cout << "Essayons de rajouter une construction dans une ville pleine :" << std::endl;
         ConstructCommand construct(2,2,new Mine());
-        engine.runCommand(&construct, pile);
+        engine.runCommand(&construct, pile, false);
         std::cout << "Vérifie qu'il n'y a pas de construction... ";
         if(state.getMonde().get(2,2,1) != NULL){
             if(state.getMonde().get(2,2,1)->getTypeID() == 2){
@@ -101,7 +101,7 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 8){
         std::cout << "Essayons d'améliorer une ville :" << std::endl;
         UpgradeCommand up(2,2);
-        engine.runCommand(&up, pile);
+        engine.runCommand(&up, pile, false);
         std::cout << "Vérifie qu'on a amélioré la ville... ";
         if(state.getMonde().get(2,2,1) != NULL){
             if(state.getMonde().get(2,2,1)->getTypeID() == 2){
@@ -113,7 +113,7 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 9){
         std::cout << "Essayons d'améliorer une ville encore :" << std::endl;
         UpgradeCommand up(2,2);
-        engine.runCommand(&up, pile);
+        engine.runCommand(&up, pile, false);
         std::cout << "Vérifie qu'on a encore amélioré la ville... ";
         if(state.getMonde().get(2,2,1) != NULL){
             if(state.getMonde().get(2,2,1)->getTypeID() == 2){
@@ -126,7 +126,7 @@ void testsEngine(int i, Engine& engine, State& state){
         std::cout << "Essayons la commande fin de tour, qui doit incrémenter nos ressources selon nos villes et batiments :" << std::endl;
         std::cout << "Avant Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
         EndOfTurnCommand end;
-        engine.runCommand(&end, pile);
+        engine.runCommand(&end, pile, false);
         std::cout << "Apres Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
         
     }
@@ -142,7 +142,7 @@ void testsEngine(int i, Engine& engine, State& state){
     else if(i == 12){
         
         AttackArmyCommand attack(8,8,8,10);
-        engine.runCommand(&attack, pile);    
+        engine.runCommand(&attack, pile, false);    
     }
         
     else if(i == 13){
@@ -153,7 +153,7 @@ void testsEngine(int i, Engine& engine, State& state){
     }
     else if(i == 14){
         AttackCityCommand attCity(16,11,18,11);
-        engine.runCommand(&attCity, pile);
+        engine.runCommand(&attCity, pile, false);
     }
     else if(i == 15){
         std::cout << "On positionne une armée pour essayer une fuision entre 2 armées du meme camps : " << std::endl;
@@ -164,7 +164,7 @@ void testsEngine(int i, Engine& engine, State& state){
     }
     else if(i == 16){
         ArmyFusionCommand fusion(8,10,10,10);
-        engine.runCommand(&fusion, pile);
+        engine.runCommand(&fusion, pile, false);
         Army *a = (Army*)state.getMonde().get(10,10,2);
         std::cout << "Après la fusion il y a "  << a->getSoldiers() << " soldats !"<< std::endl;
     }
@@ -173,7 +173,7 @@ void testsEngine(int i, Engine& engine, State& state){
         City *c = (City*)state.getMonde().get(2,2,1);
         std::cout << "La ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         LeaveCityCommand leave(2,2,4,4,50);
-        engine.runCommand(&leave, pile);
+        engine.runCommand(&leave, pile, false);
         std::cout << "Apres la création de l'armée, la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         Army *a = (Army*)state.getMonde().get(4,4,2);
         std::cout << "L'Armée possede : " << a->getSoldiers() << " Soldats !" << std::endl;
@@ -183,7 +183,7 @@ void testsEngine(int i, Engine& engine, State& state){
         City *c = (City*)state.getMonde().get(2,2,1);
         std::cout << "Pour l'instant la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         EnterCityCommand enter(4,4,2,2,25);
-        engine.runCommand(&enter, pile);
+        engine.runCommand(&enter, pile, false);
         std::cout << "Apres l'ajout de l'armée, la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         Army *a = (Army*)state.getMonde().get(4,4,2);
         std::cout << "L'Armée possede : " << a->getSoldiers() << " Soldats !" << std::endl;
@@ -193,7 +193,7 @@ void testsEngine(int i, Engine& engine, State& state){
         City *c = (City*)state.getMonde().get(2,2,1);
         std::cout << "Pour l'instant la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         EnterCityCommand enter(4,4,2,2,25);
-        engine.runCommand(&enter, pile);
+        engine.runCommand(&enter, pile, false);
         std::cout << "Apres l'ajout de l'armée, la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
     }
     else if(i == 20){
@@ -202,7 +202,7 @@ void testsEngine(int i, Engine& engine, State& state){
         std::cout << "Pour l'instant la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         std::cout << "Avant Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
         MakeSoldiersCommand make(2,2);
-        engine.runCommand(&make, pile);
+        engine.runCommand(&make, pile, false);
         std::cout << "Ensuite la ville possede : " << c->getSoldiers() << " Soldats !" << std::endl;
         std::cout << "Apres Commande ---> OR : " << state.getPlayer(state.getIdPlayer())->getGold() <<" | Nourriture : " << state.getPlayer(state.getIdPlayer())->getFood() <<std::endl;
     }
@@ -211,7 +211,7 @@ void testsEngine(int i, Engine& engine, State& state){
         Army *a = (Army*)state.getMonde().get(10,10,2);
         std::cout << "L'Armée possede : " << a->getSoldiers() << " Soldats avant !" << std::endl;
         SplitArmyCommand split(10,10,10,12,50);
-        engine.runCommand(&split, pile);
+        engine.runCommand(&split, pile, false);
         std::cout << "L'Armée 1 possede : " << a->getSoldiers() << " Soldats après !" << std::endl;
         Army *a2 = (Army*)state.getMonde().get(10,12,2);
         std::cout << "L'Armée 2 possede : " << a2->getSoldiers() << " Soldats après !" << std::endl;
@@ -358,3 +358,10 @@ void menu(){
     cout << "   thread: teste le jeu avec des threads" << endl;
 } 
 
+void menuServer(){
+    
+    cout << "Usage:  ./bin/server <mode>" << endl;
+    cout << "Modes disponibles: " << endl;
+    cout << "   hello: affiche un simple message dans la console" << endl;
+    cout << "   record: Enregistre une séquence de jeu" << endl;
+}

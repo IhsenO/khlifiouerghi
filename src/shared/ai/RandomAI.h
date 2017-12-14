@@ -24,7 +24,7 @@ namespace ai {
     // Operations
   public:
     RandomAI (state::State& state, engine::Engine& engine);
-    void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack);
+    void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack, bool serialize);
     // Setters and Getters
   };
 

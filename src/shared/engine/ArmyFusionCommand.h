@@ -3,12 +3,14 @@
 #define ENGINE__ARMYFUSIONCOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Action;
+  class ArmyFusionCommand;
   class Command;
 }
 
@@ -30,6 +32,8 @@ namespace engine {
     ArmyFusionCommand (int xFrom, int yFrom, int xTo, int yTo);
     void execute (state::State& state, std::stack<Action*>& actionStack);
     CommandTypeId getCommandTypeId () const;
+    void serialize (Json::Value& out) const;
+    ArmyFusionCommand* deserialize (const Json::Value& in);
     // Setters and Getters
     int getXFrom() const;
     void setXFrom(int xFrom);

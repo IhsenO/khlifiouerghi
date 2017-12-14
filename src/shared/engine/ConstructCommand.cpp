@@ -35,6 +35,30 @@ namespace engine{
             }
         }                
     }
+
+    void ConstructCommand::serialize(Json::Value& out) const {
+        out["Type"] = "Construct";
+        out["x"] = x;
+        out["y"] = y;
+        out["constructType"] = (int)construction->getConstructionId();
+    }
+
+    ConstructCommand* ConstructCommand::deserialize(const Json::Value& in) {
+        if(in["constructType"] == 1){
+            return new ConstructCommand(in["x"].asInt(), in["y"].asInt(), new Farm());
+        }
+        else if(in["constructType"] == 2){
+            return new ConstructCommand(in["x"].asInt(), in["y"].asInt(), new Mine());
+        }
+        else if(in["constructType"] == 3){
+            return new ConstructCommand(in["x"].asInt(), in["y"].asInt(), new Barrack());
+        }  
+        else{
+            std::cout << "Probleme ConstructTypeID" << std::endl;
+            return NULL;
+        }
+    }
     
+ 
     
 }

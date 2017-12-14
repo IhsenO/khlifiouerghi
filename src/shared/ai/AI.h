@@ -28,7 +28,7 @@ namespace ai {
     engine::Engine& engine;
     // Operations
   public:
-    virtual void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack) = 0;
+    virtual void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack, bool serialize) = 0;
     AI (state::State& state, engine::Engine& engine);
     // Setters and Getters
     state::State& getState() const;

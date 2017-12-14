@@ -3,6 +3,7 @@
 #define ENGINE__ATTACKCITYCOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
@@ -15,6 +16,7 @@ namespace state {
   class City;
 };
 namespace engine {
+  class AttackCityCommand;
   class Command;
 }
 
@@ -37,6 +39,8 @@ namespace engine {
     CommandTypeId getCommandTypeId () const;
     void execute (state::State& state, std::stack<Action*>& actionStack);
     bool solveCityAttack (state::Army* army, state::City* city);
+    void serialize (Json::Value& out) const;
+    AttackCityCommand* deserialize (const Json::Value& in);
     // Setters and Getters
     int getXFrom() const;
     void setXFrom(int xFrom);

@@ -3,12 +3,14 @@
 #define ENGINE__ENTERCITYCOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Action;
+  class EnterCityCommand;
   class Command;
 }
 
@@ -31,6 +33,8 @@ namespace engine {
     EnterCityCommand (int xFrom, int yFrom, int xTo, int yTo, int soldiers);
     CommandTypeId getCommandTypeId () const;
     void execute (state::State& state, std::stack<Action*>& actionStack);
+    void serialize (Json::Value& out) const;
+    EnterCityCommand* deserialize (const Json::Value& in);
     // Setters and Getters
     int getXFrom() const;
     void setXFrom(int xFrom);

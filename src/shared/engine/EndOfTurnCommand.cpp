@@ -45,5 +45,14 @@ namespace engine{
             }
     }
 
+    void EndOfTurnCommand::serialize(Json::Value& out) const {
+        out["Type"] = "EndOfTurn";
+    }
+
+    EndOfTurnCommand* EndOfTurnCommand::deserialize(const Json::Value& in) {
+        return new EndOfTurnCommand();
+    }
+
+    
     
 }

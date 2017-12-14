@@ -65,5 +65,17 @@ namespace engine{
         return hasWonBattle(a, b);
     }
 
+    void AttackCityCommand::serialize(Json::Value& out) const {
+        out["Type"] = "AttackCity";
+        out["xFrom"] = xFrom;
+        out["yFrom"] = yFrom;
+        out["xTo"] = xTo;
+        out["yTo"] = yTo;
+    }
+    
+    AttackCityCommand* AttackCityCommand::deserialize(const Json::Value& in) {
+        return new AttackCityCommand(in["xFrom"].asInt(), in["yFrom"].asInt(), in["xTo"].asInt(), in["yTo"].asInt());
+    }
+    
     
 }

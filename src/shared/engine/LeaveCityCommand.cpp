@@ -38,7 +38,19 @@ namespace engine{
             
         } 
     }
-    
 
+    void LeaveCityCommand::serialize(Json::Value& out) const {
+        out["Type"] = "LeaveCity";
+        out["xFrom"] = xFrom;
+        out["yFrom"] = yFrom;
+        out["xTo"] = xTo;
+        out["yTo"] = yTo;
+        out["soldiers"] = soldiers;
+    }
+
+    LeaveCityCommand* LeaveCityCommand::deserialize(const Json::Value& in) {
+        return new LeaveCityCommand(in["xFrom"].asInt(), in["yFrom"].asInt(), in["xTo"].asInt(), in["yTo"].asInt(), in["soldiers"].asInt());
+    }
+  
     
 }

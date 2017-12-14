@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <stack>
 #include <thread>
+#include "unistd.h"
+#include <fstream>
 
 void testSFML() {
     sf::Texture texture;
@@ -42,7 +44,7 @@ int main(int argc, char* argv[]) {
     else if (mode == "render") {
 
         sf::RenderWindow window(sf::VideoMode(800, 480), "Rendu");
-
+        window.setFramerateLimit(60);
         Monde *m = new Monde(3);
 
         m->set(2, 2, 2, new Army());
@@ -88,7 +90,7 @@ int main(int argc, char* argv[]) {
 
 
         sf::RenderWindow window(sf::VideoMode(336, 224), "Engine");
-
+        window.setFramerateLimit(60);
         int i = 0;
 
         Monde *m = new Monde("MapTestEngine", 3);
@@ -143,7 +145,7 @@ int main(int argc, char* argv[]) {
     else if (mode == "random_ai") {
 
         sf::RenderWindow window(sf::VideoMode(336, 224), "Random_IA");
-
+        window.setFramerateLimit(60);
         Monde *m = new Monde("MapTestEngine", 3);
         State state(*m);
         state.addPlayer(new Player("Joueur 1"));
@@ -178,7 +180,7 @@ int main(int argc, char* argv[]) {
                     window.close();
                 else if (event.type == sf::Event::KeyPressed) {
                     //testsAIRandom(e, state);
-                    random.run(e, pile);
+                    random.run(e, pile, false);
                     if (state.getIdPlayer() == 1) state.setIdPlayer(2);
                     else if (state.getIdPlayer() == 2) state.setIdPlayer(1);
                 }
@@ -267,7 +269,7 @@ int main(int argc, char* argv[]) {
         //RandomAI random(state, e);
         //AI *ai1 = new HeuristicAI(state,e); 
         sf::RenderWindow window(sf::VideoMode(336, 224), "Heuristic_IA");
-
+        window.setFramerateLimit(60);
         while (window.isOpen()) {
             sf::Event event;
             while (window.pollEvent(event)) {
@@ -278,10 +280,10 @@ int main(int argc, char* argv[]) {
                     //heuristic.run(e);
                     if (state.getIdPlayer() == 1) {
                         //heuristic.run(e);
-                        ai1->run(e, pile);
+                        ai1->run(e, pile, false);
                         state.setIdPlayer(2);
                     } else if (state.getIdPlayer() == 2) {
-                        ai2->run(e, pile);
+                        ai2->run(e, pile, false);
                         state.setIdPlayer(1);
                     }
                 }
@@ -347,7 +349,7 @@ int main(int argc, char* argv[]) {
         //RandomAI random(state, e);
         //AI *ai1 = new HeuristicAI(state,e); 
         sf::RenderWindow window(sf::VideoMode(336, 224), "Rollback");
-
+        window.setFramerateLimit(60);
         int i = 0;
 
 
@@ -367,11 +369,11 @@ int main(int argc, char* argv[]) {
                         //cout << "Okay" << endl;
                         if (state.getIdPlayer() == 1) {
                             //cout << "J1" << endl;
-                            ai1->run(e, pile);
+                            ai1->run(e, pile, false);
                             state.setIdPlayer(2);
                             //cout << "Okay" << endl;
                         } else if (state.getIdPlayer() == 2) {
-                            ai2->run(e, pile);
+                            ai2->run(e, pile, false);
                             //cout << "J2" << endl;
                             state.setIdPlayer(1);
                         }
@@ -395,7 +397,7 @@ int main(int argc, char* argv[]) {
             window.draw(*map2.getDrawer());
             window.draw(*chars.getDrawer());
             window.display();
-
+            //usleep(50);
 
         }
 
@@ -445,7 +447,7 @@ int main(int argc, char* argv[]) {
         stack<Action*> pile;
 
         sf::RenderWindow window(sf::VideoMode(336, 224), "DeepAI");
-
+        window.setFramerateLimit(60);
 
         while (window.isOpen()) {
             sf::Event event;
@@ -456,11 +458,11 @@ int main(int argc, char* argv[]) {
 
                     if (state.getIdPlayer() == 1) {
 
-                        deepJ1.run(e, pile);
+                        deepJ1.run(e, pile, false);
                         state.setIdPlayer(2);
 
                     } else if (state.getIdPlayer() == 2) {
-                        deepJ2.run(e, pile);
+                        deepJ2.run(e, pile, false);
                         state.setIdPlayer(1);
                     }
 
@@ -526,7 +528,8 @@ int main(int argc, char* argv[]) {
         stack<Action*> pile;
 
         sf::RenderWindow window(sf::VideoMode(336, 224), "Thread");
-
+        
+        window.setFramerateLimit(60);
         AI *ai1;
         ai1 = new HeuristicAI(state, e);
 
@@ -567,10 +570,96 @@ int main(int argc, char* argv[]) {
             window.draw(*map2.getDrawer());
             window.draw(*chars.getDrawer());
             window.display();
+            //usleep(2);
         }
         e.setPlayer(-1);
         delete m;
 
+    }
+    else if(mode == "replay"){
+        
+        cout << "Mode Replay !!!" << endl;
+        Monde *m = new Monde("MapTestEngine", 3);
+        State state(*m);
+        state.addPlayer(new Player("Joueur 1"));
+        state.addPlayer(new Player("Joueur 2"));
+    
+        Engine e(state);
+
+        state.setIdPlayer(1);
+
+        MapLayer map1(*m->getLayer(0));
+        MapLayer map2(*m->getLayer(1));
+
+        CharactersLayer chars(*m->getLayer(2));
+
+        map1.initDrawer();
+        map2.initDrawer();
+        chars.initDrawer();
+
+        stack<Action*> pile;
+
+        //AI *ai1;
+        //ai1 = new HeuristicAI(state, e);
+
+        //AI *ai2;
+        //ai2 = new RandomAI(state, e);
+        Json::Reader reader;
+        Json::Value replay;   
+        
+        ifstream fichier("res/replay.json");
+        if(fichier){
+            reader.parse(fichier, replay);
+        }      
+        int size = replay.size();
+        int i = 0;
+        //HeuristicAI heuristic(state, e);
+        //RandomAI random(state, e);
+        //AI *ai1 = new HeuristicAI(state,e); 
+        sf::RenderWindow window(sf::VideoMode(336, 224), "Replay");
+        window.setFramerateLimit(60);
+        while (window.isOpen()) {
+            sf::Event event;
+            while (window.pollEvent(event)) {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+                else if (event.type == sf::Event::KeyPressed) {
+                    //testsAIRandom(e, state);
+                    //heuristic.run(e);
+                    if(i < size){
+                        if(state.getIdPlayer() == 1){
+                            Json::Value tmp = replay[i];
+                            e.runListCommandJson(tmp, pile);
+                            cout << i << endl;
+                            i++;
+                            state.setIdPlayer(2);
+                        }
+                        else if(state.getIdPlayer() == 2){
+                            Json::Value tmp = replay[i];
+                            e.runListCommandJson(tmp, pile);
+                            cout << i << endl;
+                            i++;
+                            state.setIdPlayer(1);
+                        }
+                    }
+                    
+                }
+            }
+            window.clear();
+
+            map1.initDrawer();
+            map2.initDrawer();
+            chars.initDrawer();
+            window.draw(*map1.getDrawer());
+            window.draw(*map2.getDrawer());
+            window.draw(*chars.getDrawer());
+            window.display();
+
+
+        }
+
+        delete m;
+        
     }
 
 

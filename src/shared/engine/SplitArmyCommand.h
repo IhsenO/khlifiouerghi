@@ -3,12 +3,14 @@
 #define ENGINE__SPLITARMYCOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Action;
+  class SplitArmyCommand;
   class Command;
 }
 
@@ -31,6 +33,8 @@ namespace engine {
     SplitArmyCommand (int xFrom, int yFrom, int xTo, int yTo, int soldiers);
     void execute (state::State& state, std::stack<Action*>& actionStack);
     CommandTypeId getCommandTypeId () const;
+    void serialize (Json::Value& out) const;
+    SplitArmyCommand* deserialize (const Json::Value& in);
     // Setters and Getters
     int getXFrom() const;
     void setXFrom(int xFrom);

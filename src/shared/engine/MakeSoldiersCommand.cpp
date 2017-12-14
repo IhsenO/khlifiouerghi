@@ -50,6 +50,16 @@ namespace engine{
             
         }
     }
+
+    void MakeSoldiersCommand::serialize(Json::Value& out) const {
+        out["Type"] = "MakeSoldiers";
+        out["x"] = x;
+        out["y"] = y;
+    }
+
+    MakeSoldiersCommand* MakeSoldiersCommand::deserialize(const Json::Value& in) {
+        return new MakeSoldiersCommand(in["x"].asInt(), in["y"].asInt());
+    }
     
     
 }

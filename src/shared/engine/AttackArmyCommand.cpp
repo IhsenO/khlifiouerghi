@@ -60,6 +60,18 @@ namespace engine {
     CommandTypeId AttackArmyCommand::getCommandTypeId() const {
         return ATTACKARMY;
     }
-   
+
+    void AttackArmyCommand::serialize(Json::Value& out) const {
+        out["Type"] = "AttackArmy";
+        out["xFrom"] = xFrom;
+        out["yFrom"] = yFrom;
+        out["xTo"] = xTo;
+        out["yTo"] = yTo;
+    }
+
+    AttackArmyCommand* AttackArmyCommand::deserialize(const Json::Value& in) {
+        return new AttackArmyCommand(in["xFrom"].asInt(), in["yFrom"].asInt(), in["xTo"].asInt(), in["yTo"].asInt());
+    }
+    
     
 }

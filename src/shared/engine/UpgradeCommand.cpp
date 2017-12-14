@@ -36,6 +36,16 @@ namespace engine{
             //if (c != NULL) delete c;
         }      
     }
-  
+
+    void UpgradeCommand::serialize(Json::Value& out) const {
+        out["Type"] = "Upgrade";
+        out["x"] = x;
+        out["y"] = y;
+    }
+
+    UpgradeCommand* UpgradeCommand::deserialize(const Json::Value& in) {
+        return new UpgradeCommand(in["x"].asInt(), in["y"].asInt());
+    }
+    
     
 }

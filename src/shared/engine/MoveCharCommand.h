@@ -3,12 +3,14 @@
 #define ENGINE__MOVECHARCOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Action;
+  class MoveCharCommand;
   class Command;
 }
 
@@ -30,6 +32,8 @@ namespace engine {
     CommandTypeId getCommandTypeId () const;
     void execute (state::State& state, std::stack<Action*>& actionStack);
     MoveCharCommand (int xFrom, int yFrom, int xTo, int yTo);
+    void serialize (Json::Value& out) const;
+    MoveCharCommand* deserialize (const Json::Value& in);
     // Setters and Getters
     int getXFrom() const;
     void setXFrom(int xFrom);

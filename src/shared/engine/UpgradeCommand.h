@@ -3,12 +3,14 @@
 #define ENGINE__UPGRADECOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Action;
+  class UpgradeCommand;
   class Command;
 }
 
@@ -28,6 +30,8 @@ namespace engine {
     UpgradeCommand (int x, int y);
     CommandTypeId getCommandTypeId () const;
     void execute (state::State& state, std::stack<Action*>& actionStack);
+    void serialize (Json::Value& out) const;
+    UpgradeCommand* deserialize (const Json::Value& in);
     // Setters and Getters
     int getX() const;
     void setX(int x);

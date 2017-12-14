@@ -36,7 +36,7 @@ namespace ai {
     // Operations
   public:
     DeepAI (state::State& state, engine::Engine& engine, int depth);
-    void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack);
+    void run (engine::Engine& engine, std::stack<engine::Action*>& actionStack, bool serialize);
     int minmaxRecMin (Node* node);
     int minmaxRecMax (Node* node);
     Node* createTree (std::stack<engine::Action*>& actionStack, int player);

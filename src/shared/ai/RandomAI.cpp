@@ -21,7 +21,7 @@ namespace ai{
     RandomAI::RandomAI(state::State& state, engine::Engine& engine) : AI(state, engine) {
     }
 
-    void RandomAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack) {
+    void RandomAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack, bool serialize) {
         
         vector<Command*> listCommands;
         //mt19937 mt_rand(time(0));
@@ -29,6 +29,9 @@ namespace ai{
         mt19937 mt_rand(seed);
         EndOfTurnCommand end;
                
+        if(serialize){
+            engine.getValueJson()->clear();
+        }
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Farm()));
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Barrack()));
         //if(state.getIdPlayer() == 1) engine.runCommand(new ConstructCommand(2,2,new Mine()));
@@ -71,8 +74,14 @@ namespace ai{
                         if(random != 0) delete b;
                         if(random != 1) delete m;
                         if(random != 2) delete f;
-                        if(listCommands.size() > 0) engine.runCommand(listCommands[random], actionStack);
-                        
+                        if(listCommands.size() > 0){
+                            engine.runCommand(listCommands[random], actionStack, serialize);
+                            if(serialize){
+                                Json::Value tmpCommands;
+                                listCommands[random]->serialize(tmpCommands);
+                                engine.getValueJson()->append(tmpCommands);
+                            }
+                        }
                         
                         for(auto& command : listCommands)
                             delete command;
@@ -97,7 +106,15 @@ namespace ai{
                                     listCommands.push_back(new MoveCharCommand(j,i,l,k));
                                 }
                             }
-                        if(listCommands.size() > 0) engine.runCommand(listCommands[(int)(mt_rand() % listCommands.size())], actionStack);
+                        int random2 = (int)(mt_rand() % listCommands.size());
+                        if(listCommands.size() > 0){
+                            engine.runCommand(listCommands[random2], actionStack, serialize);
+                            if(serialize){
+                                Json::Value tmpCommands;
+                                listCommands[random2]->serialize(tmpCommands);
+                                engine.getValueJson()->append(tmpCommands);
+                            }
+                        }
                         
                         for(auto& command : listCommands)
                             delete command;
@@ -108,9 +125,17 @@ namespace ai{
         
         for(auto& command : listCommands)
             delete command;
+        
         listCommands.clear();
         //listCommands.erase(listCommands.begin(), listCommands.end());
-        engine.runCommand(&end, actionStack);
+        engine.runCommand(&end, actionStack, serialize);
+        
+        if(serialize){
+            Json::Value tmpCommands;
+            end.serialize(tmpCommands);
+            engine.getValueJson()->append(tmpCommands);
+        }
+        
         cout <<"\n";
         
          

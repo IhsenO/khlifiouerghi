@@ -80,7 +80,7 @@ namespace ai{
         return root;
     }
 
-    void DeepAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack) {
+    void DeepAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack, bool serialize) {
         
         //auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
         //mt19937 mt_rand(seed);

@@ -38,7 +38,21 @@ namespace engine{
             
         }
     }
-    
+
+    void SplitArmyCommand::serialize(Json::Value& out) const {
+        out["Type"] = "SplitArmy";
+        out["xFrom"] = xFrom;
+        out["yFrom"] = yFrom;
+        out["xTo"] = xTo;
+        out["yTo"] = yTo;
+        out["soldiers"] = soldiers;
+    }
+
+    SplitArmyCommand* SplitArmyCommand::deserialize(const Json::Value& in) {
+        return new SplitArmyCommand(in["xFrom"].asInt(), in["yFrom"].asInt(), in["xTo"].asInt(), in["yTo"].asInt(), in["soldiers"].asInt());
+    }
+
+
     
     
 }

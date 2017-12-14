@@ -12,6 +12,7 @@
 #include "Point.h"
 #include <random>
 #include <chrono>
+#include <fstream>
 
 using namespace state;
 using namespace engine;
@@ -28,7 +29,7 @@ namespace ai {
 
     }
 
-    void HeuristicAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack) {
+    void HeuristicAI::run(engine::Engine& engine, std::stack<engine::Action*>& actionStack, bool serialize) {
 
 
         cout << "Tour du Joueur " << this->state.getIdPlayer() << endl;
@@ -41,7 +42,11 @@ namespace ai {
         EndOfTurnCommand end;
         auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
         mt19937 mt_rand(seed);
-
+        Json::Value tmpCommands;
+        if(serialize){          
+            engine.getValueJson()->clear();
+        }
+        
         for (int i = 0; i < state.getMonde().getHeight(); i++)
             for (int j = 0; j < state.getMonde().getWidth(); j++) {
                 if (state.getMonde().get(j, i, 2) != NULL) state.getMonde().get(j, i, 2)->setHasPlayed(false);
@@ -83,8 +88,14 @@ namespace ai {
                         if (random != 0) delete b;
                         if (random != 1) delete m;
                         if (random != 2) delete f;
-                        if (listCommands.size() > 0) engine.runCommand(listCommands[random], actionStack);
-
+                        if (listCommands.size() > 0){
+                            engine.runCommand(listCommands[random], actionStack, serialize);
+                            if(serialize){
+                                tmpCommands.clear();
+                                listCommands[random]->serialize(tmpCommands);
+                                engine.getValueJson()->append(tmpCommands);
+                            }
+                        }
 
                         for (auto& command : listCommands)
                             delete command;
@@ -133,7 +144,13 @@ namespace ai {
                                     cmdValueMax = cw[i].getWeight();
                                 }
                             }
-                            cw[idCmd].getCommand()->execute(state, actionStack);
+                            //cw[idCmd].getCommand()->execute(state, actionStack);
+                            engine.runCommand(cw[idCmd].getCommand(), actionStack, serialize);
+                            if(serialize){
+                                tmpCommands.clear();
+                                cw[idCmd].getCommand()->serialize(tmpCommands);
+                                engine.getValueJson()->append(tmpCommands);
+                            }
                             playerArmy->setHasPlayed(true);
                             cw.clear();
 
@@ -192,7 +209,13 @@ namespace ai {
                                         cmdValueMax = cw[i2].getWeight();
                                     }
                                 }
-                                cw[idCmd].getCommand()->execute(state, actionStack);
+                                //cw[idCmd].getCommand()->execute(state, actionStack);
+                                engine.runCommand(cw[idCmd].getCommand(), actionStack, serialize);
+                                if(serialize){
+                                    tmpCommands.clear();
+                                    cw[idCmd].getCommand()->serialize(tmpCommands);
+                                    engine.getValueJson()->append(tmpCommands);
+                                }
                                 playerArmy->setHasPlayed(true);
                                 cw.clear();
                             }
@@ -207,10 +230,16 @@ namespace ai {
             }
         cout << "\n";
 
-        engine.runCommand(&end, actionStack);
+        engine.runCommand(&end, actionStack, serialize);
+        if(serialize){
+            tmpCommands.clear();
+            end.serialize(tmpCommands);
+            engine.getValueJson()->append(tmpCommands);
+        }
         cw.clear();
 
-
+        
+        
     }
 
 }

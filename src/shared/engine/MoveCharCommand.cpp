@@ -75,5 +75,18 @@ namespace engine{
     CommandTypeId MoveCharCommand::getCommandTypeId() const {
         return MOVECHAR;
     }
+
+    void MoveCharCommand::serialize(Json::Value& out) const {
+        out["Type"] = "MoveChar";
+        out["xFrom"] = xFrom;
+        out["yFrom"] = yFrom;
+        out["xTo"] = xTo;
+        out["yTo"] = yTo;
+    }
+
+    MoveCharCommand* MoveCharCommand::deserialize(const Json::Value& in) {
+        return new MoveCharCommand(in["xFrom"].asInt(), in["yFrom"].asInt(), in["xTo"].asInt(), in["yTo"].asInt());
+    }
+    
     
 }
