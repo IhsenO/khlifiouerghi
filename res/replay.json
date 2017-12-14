@@ -1,10 +1,60 @@
 [
 	[
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
+			"xTo" : 2,
+			"yFrom" : 2,
+			"yTo" : 3
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 11,
+			"yTo" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 2,
+			"xTo" : 4,
+			"yFrom" : 3,
+			"yTo" : 3
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 11,
+			"yTo" : 13
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 18,
+			"y" : 11
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -13,8 +63,184 @@
 	[
 		{
 			"Type" : "Upgrade",
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 4,
+			"xTo" : 6,
+			"yFrom" : 3,
+			"yTo" : 3
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
+			"yFrom" : 11,
+			"yTo" : 12
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
 			"x" : 18,
 			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 6,
+			"xTo" : 8,
+			"yFrom" : 3,
+			"yTo" : 3
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 16,
+			"yFrom" : 11,
+			"yTo" : 9
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 10,
+			"yFrom" : 3,
+			"yTo" : 3
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 11,
+			"yTo" : 9
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 10,
+			"xTo" : 12,
+			"yFrom" : 3,
+			"yTo" : 3
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 12,
+			"xTo" : 13,
+			"yFrom" : 3,
+			"yTo" : 2
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
+			"yFrom" : 11,
+			"yTo" : 13
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 12
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 12,
+			"yTo" : 11
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -30,15 +256,36 @@
 			"yTo" : 1
 		},
 		{
+			"Type" : "MoveChar",
+			"xFrom" : 13,
+			"xTo" : 15,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
 			"Type" : "EndOfTurn"
 		}
 	],
 	[
 		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 11,
+			"yTo" : 10
+		},
+		{
 			"Type" : "Construct",
 			"constructType" : 2,
 			"x" : 18,
 			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 16,
+			"yFrom" : 12,
+			"yTo" : 14
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -53,9 +300,17 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "Upgrade",
+			"Type" : "Construct",
+			"constructType" : 3,
 			"x" : 2,
 			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 15,
+			"xTo" : 17,
+			"yFrom" : 2,
+			"yTo" : 2
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -63,9 +318,31 @@
 	],
 	[
 		{
-			"Type" : "MakeSoldiers",
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 11,
+			"yTo" : 10
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
 			"x" : 18,
 			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 12,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
+			"yFrom" : 13,
+			"yTo" : 15
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -80,10 +357,149 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 2
+		},
+		{
+			"Type" : "AttackCity",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 10,
+			"yTo" : 12
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 16,
+			"yFrom" : 12,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 13,
+			"yTo" : 13
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 6,
+			"xTo" : 8,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
+			"xTo" : 2,
+			"yFrom" : 2,
+			"yTo" : 3
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 2,
+			"yTo" : 3
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 12,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 13,
+			"yTo" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 10,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 2,
+			"xTo" : 4,
+			"yFrom" : 3,
+			"yTo" : 3
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 3,
+			"yTo" : 5
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -94,6 +510,153 @@
 			"Type" : "MakeSoldiers",
 			"x" : 18,
 			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 12,
+			"yTo" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 13,
+			"yTo" : 14
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 10,
+			"xTo" : 8,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 4,
+			"xTo" : 2,
+			"yFrom" : 3,
+			"yTo" : 3
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 16,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 13,
+			"yTo" : 13
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 6,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 2,
+			"xTo" : 2,
+			"yFrom" : 3,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 14,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 75,
+			"xFrom" : 18,
+			"xTo" : 19,
+			"yFrom" : 11,
+			"yTo" : 11
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 19,
+			"xTo" : 17,
+			"yFrom" : 11,
+			"yTo" : 13
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 12,
+			"yTo" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 13,
+			"yTo" : 14
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -114,15 +677,210 @@
 			"y" : 2
 		},
 		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 2,
+			"xTo" : 4,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 14,
+			"xTo" : 16,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
 			"Type" : "EndOfTurn"
 		}
 	],
 	[
 		{
-			"Type" : "Construct",
-			"constructType" : 2,
+			"Type" : "MakeSoldiers",
 			"x" : 18,
 			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 19,
+			"yFrom" : 11,
+			"yTo" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 13,
+			"yTo" : 14
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 6,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "Upgrade",
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 4,
+			"xTo" : 2,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 14,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 62,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 13,
+			"yTo" : 12
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 6,
+			"xTo" : 8,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 2,
+			"xTo" : 4,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 14,
+			"xTo" : 16,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 10,
+			"yTo" : 12
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 31,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 21,
+			"yFrom" : 11,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
+			"yFrom" : 12,
+			"yTo" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 13,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 19,
+			"yFrom" : 13,
+			"yTo" : 11
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -137,9 +895,29 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "Upgrade",
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 4,
+			"xTo" : 6,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 18,
+			"yFrom" : 5,
+			"yTo" : 5
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -147,8 +925,15 @@
 	],
 	[
 		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 10,
+			"yTo" : 9
+		},
+		{
 			"Type" : "LeaveCity",
-			"soldiers" : 50,
+			"soldiers" : 31,
 			"xFrom" : 18,
 			"xTo" : 18,
 			"yFrom" : 11,
@@ -156,24 +941,31 @@
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 12,
-			"yTo" : 12
-		},
-		{
-			"Type" : "MoveChar",
 			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 12,
+			"xTo" : 18,
+			"yFrom" : 11,
 			"yTo" : 13
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 12,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 20,
+			"yFrom" : 12,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 18,
 			"yFrom" : 13,
-			"yTo" : 15
+			"yTo" : 14
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -188,9 +980,31 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "Upgrade",
-			"x" : 2,
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
+			"xTo" : 3,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 18,
 			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 6,
+			"xTo" : 8,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 5,
+			"yTo" : 7
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -198,17 +1012,44 @@
 	],
 	[
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 9,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 10,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MakeSoldiers",
 			"x" : 18,
 			"y" : 11
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
+			"xFrom" : 19,
+			"xTo" : 20,
+			"yFrom" : 11,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 16,
+			"yFrom" : 12,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 17,
 			"yFrom" : 13,
-			"yTo" : 11
+			"yTo" : 13
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -224,9 +1065,36 @@
 		},
 		{
 			"Type" : "Construct",
-			"constructType" : 2,
+			"constructType" : 1,
 			"x" : 2,
 			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 3,
+			"xTo" : 5,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 8,
+			"yFrom" : 5,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 7,
+			"yTo" : 9
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -234,17 +1102,45 @@
 	],
 	[
 		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 19,
+			"yFrom" : 9,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 10,
+			"yTo" : 8
+		},
+		{
 			"Type" : "Construct",
-			"constructType" : 2,
+			"constructType" : 3,
 			"x" : 18,
 			"y" : 11
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 19,
+			"xFrom" : 19,
+			"xTo" : 20,
+			"yFrom" : 11,
+			"yTo" : 9
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 12,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
 			"yFrom" : 13,
-			"yTo" : 15
+			"yTo" : 14
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -259,9 +1155,37 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "Upgrade",
+			"Type" : "Construct",
+			"constructType" : 1,
 			"x" : 2,
 			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 5,
+			"xTo" : 7,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 8,
+			"yFrom" : 7,
+			"yTo" : 9
+		},
+		{
+			"Type" : "AttackArmy",
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 9,
+			"yTo" : 8
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -269,16 +1193,33 @@
 	],
 	[
 		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 9,
+			"yTo" : 7
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 41,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 10
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 19,
+			"xTo" : 17,
+			"yFrom" : 11,
+			"yTo" : 13
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
+			"xFrom" : 17,
+			"xTo" : 18,
 			"yFrom" : 13,
-			"yTo" : 11
+			"yTo" : 14
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -293,51 +1234,35 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 1,
+			"Type" : "Upgrade",
 			"x" : 2,
 			"y" : 2
 		},
 		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
 			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "AttackCity",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 1,
+			"xFrom" : 7,
+			"xTo" : 9,
+			"yFrom" : 2,
 			"yTo" : 2
 		},
 		{
 			"Type" : "MakeSoldiers",
-			"x" : 2,
+			"x" : 18,
 			"y" : 2
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
+			"Type" : "AttackArmy",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 8,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 10,
+			"yFrom" : 9,
+			"yTo" : 9
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -345,19 +1270,30 @@
 	],
 	[
 		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
+			"Type" : "MoveChar",
 			"xFrom" : 18,
+			"xTo" : 16,
+			"yFrom" : 10,
+			"yTo" : 9
+		},
+		{
+			"Type" : "Upgrade",
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 19,
 			"xTo" : 17,
 			"yFrom" : 11,
-			"yTo" : 11
+			"yTo" : 13
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 10
+			"xFrom" : 17,
+			"xTo" : 16,
+			"yFrom" : 13,
+			"yTo" : 12
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -372,18 +1308,35 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 3,
+			"Type" : "Upgrade",
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 9,
+			"xTo" : 7,
 			"yFrom" : 2,
 			"yTo" : 2
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 2,
+			"Type" : "Upgrade",
 			"x" : 18,
 			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
+			"yFrom" : 7,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 10,
+			"xTo" : 8,
+			"yFrom" : 9,
+			"yTo" : 9
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -392,23 +1345,30 @@
 	[
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 18,
+			"xFrom" : 18,
+			"xTo" : 17,
 			"yFrom" : 10,
 			"yTo" : 8
 		},
 		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 16,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
 			"Type" : "Construct",
-			"constructType" : 1,
+			"constructType" : 2,
 			"x" : 18,
 			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 21,
+			"yFrom" : 11,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 14,
+			"yFrom" : 12,
+			"yTo" : 12
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -419,6 +1379,156 @@
 			"Type" : "MoveChar",
 			"xFrom" : 16,
 			"xTo" : 14,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 7,
+			"xTo" : 5,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "Upgrade",
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 15,
+			"xTo" : 13,
+			"yFrom" : 7,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 6,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 19,
+			"yFrom" : 10,
+			"yTo" : 9
+		},
+		{
+			"Type" : "Upgrade",
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 17,
+			"yFrom" : 11,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 14,
+			"xTo" : 13,
+			"yFrom" : 12,
+			"yTo" : 12
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 14,
+			"xTo" : 12,
+			"yFrom" : 1,
+			"yTo" : 1
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 5,
+			"xTo" : 3,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "Upgrade",
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 13,
+			"xTo" : 13,
+			"yFrom" : 7,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 6,
+			"xTo" : 4,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 18,
+			"yFrom" : 9,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 17,
+			"yFrom" : 11,
+			"yTo" : 12
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 13,
+			"xTo" : 14,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 12,
+			"xTo" : 10,
 			"yFrom" : 1,
 			"yTo" : 1
 		},
@@ -436,10 +1546,23 @@
 			"yTo" : 3
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
+			"Type" : "MakeSoldiers",
 			"x" : 18,
 			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 4,
+			"xTo" : 2,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 13,
+			"xTo" : 11,
+			"yFrom" : 9,
+			"yTo" : 9
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -449,21 +1572,43 @@
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 19,
-			"xTo" : 21,
-			"yFrom" : 10,
-			"yTo" : 11
+			"xTo" : 19,
+			"yFrom" : 9,
+			"yTo" : 8
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 11
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 15,
+			"xFrom" : 19,
+			"xTo" : 20,
 			"yFrom" : 11,
 			"yTo" : 12
 		},
 		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 11
+			"Type" : "MoveChar",
+			"xFrom" : 13,
+			"xTo" : 12,
+			"yFrom" : 12,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 22,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 12,
+			"xTo" : 14,
+			"yFrom" : 13,
+			"yTo" : 12
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -472,14 +1617,14 @@
 	[
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 14,
-			"xTo" : 12,
+			"xFrom" : 10,
+			"xTo" : 8,
 			"yFrom" : 1,
 			"yTo" : 1
 		},
 		{
 			"Type" : "Construct",
-			"constructType" : 2,
+			"constructType" : 3,
 			"x" : 2,
 			"y" : 2
 		},
@@ -496,117 +1641,25 @@
 			"yTo" : 5
 		},
 		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 21,
-			"yFrom" : 10,
-			"yTo" : 12
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 17,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 12,
-			"xTo" : 10,
-			"yFrom" : 1,
-			"yTo" : 1
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
+			"Type" : "AttackCity",
 			"xFrom" : 2,
 			"xTo" : 2,
-			"yFrom" : 5,
-			"yTo" : 7
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 21,
-			"yFrom" : 10,
-			"yTo" : 8
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 17,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 10,
-			"xTo" : 8,
-			"yFrom" : 1,
-			"yTo" : 1
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 2,
-			"yTo" : 2
+			"yFrom" : 9,
+			"yTo" : 11
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 7,
+			"xFrom" : 11,
+			"xTo" : 13,
+			"yFrom" : 9,
 			"yTo" : 9
 		},
 		{
+			"Type" : "Upgrade",
+			"x" : 2,
+			"y" : 11
+		},
+		{
 			"Type" : "EndOfTurn"
 		}
 	],
@@ -614,29 +1667,31 @@
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 10,
+			"xTo" : 21,
+			"yFrom" : 8,
+			"yTo" : 6
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 45,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 11,
 			"yTo" : 10
 		},
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 20,
-			"xTo" : 19,
-			"yFrom" : 10,
-			"yTo" : 10
+			"xTo" : 18,
+			"yFrom" : 12,
+			"yTo" : 12
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 16,
-			"yFrom" : 11,
+			"xFrom" : 12,
+			"xTo" : 12,
+			"yFrom" : 13,
 			"yTo" : 13
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -646,89 +1701,7 @@
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 8,
-			"xTo" : 6,
-			"yFrom" : 1,
-			"yTo" : 1
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "AttackCity",
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 9,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 15,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 11,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 19,
-			"yFrom" : 13,
-			"yTo" : 12
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 6,
-			"xTo" : 8,
+			"xTo" : 10,
 			"yFrom" : 1,
 			"yTo" : 1
 		},
@@ -739,17 +1712,19 @@
 			"y" : 2
 		},
 		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
+			"Type" : "LeaveCity",
+			"soldiers" : 75,
+			"xFrom" : 18,
 			"xTo" : 18,
 			"yFrom" : 2,
 			"yTo" : 3
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
+			"Type" : "MoveChar",
+			"xFrom" : 2,
+			"xTo" : 4,
+			"yFrom" : 5,
+			"yTo" : 5
 		},
 		{
 			"Type" : "MoveChar",
@@ -759,8 +1734,14 @@
 			"yTo" : 9
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 1,
+			"Type" : "MoveChar",
+			"xFrom" : 13,
+			"xTo" : 15,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 11
 		},
@@ -771,22 +1752,35 @@
 	[
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 9
+			"xFrom" : 19,
+			"xTo" : 21,
+			"yFrom" : 8,
+			"yTo" : 7
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 1,
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 10,
+			"yTo" : 11
+		},
+		{
+			"Type" : "MakeSoldiers",
 			"x" : 18,
 			"y" : 11
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 19,
+			"xFrom" : 18,
+			"xTo" : 17,
 			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 12,
+			"xTo" : 10,
+			"yFrom" : 13,
 			"yTo" : 14
 		},
 		{
@@ -796,20 +1790,20 @@
 	[
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 8,
-			"xTo" : 10,
+			"xFrom" : 10,
+			"xTo" : 12,
 			"yFrom" : 1,
 			"yTo" : 1
 		},
 		{
 			"Type" : "Construct",
-			"constructType" : 3,
+			"constructType" : 2,
 			"x" : 2,
 			"y" : 2
 		},
 		{
 			"Type" : "LeaveCity",
-			"soldiers" : 50,
+			"soldiers" : 37,
 			"xFrom" : 18,
 			"xTo" : 18,
 			"yFrom" : 2,
@@ -826,11 +1820,26 @@
 			"Type" : "MoveChar",
 			"xFrom" : 4,
 			"xTo" : 6,
+			"yFrom" : 5,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 4,
+			"xTo" : 6,
 			"yFrom" : 9,
 			"yTo" : 9
 		},
 		{
-			"Type" : "Upgrade",
+			"Type" : "MoveChar",
+			"xFrom" : 15,
+			"xTo" : 17,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 2,
 			"x" : 2,
 			"y" : 11
 		},
@@ -841,22 +1850,46 @@
 	[
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
+			"xFrom" : 19,
+			"xTo" : 17,
+			"yFrom" : 8,
+			"yTo" : 6
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 19,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 10,
+			"yTo" : 12
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 48,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 12
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 20,
+			"yFrom" : 12,
+			"yTo" : 12
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 21,
 			"yFrom" : 12,
 			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 12,
+			"xTo" : 10,
+			"yFrom" : 13,
+			"yTo" : 15
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -865,8 +1898,8 @@
 	[
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 10,
-			"xTo" : 12,
+			"xFrom" : 12,
+			"xTo" : 14,
 			"yFrom" : 1,
 			"yTo" : 1
 		},
@@ -892,92 +1925,25 @@
 			"Type" : "MoveChar",
 			"xFrom" : 6,
 			"xTo" : 8,
-			"yFrom" : 9,
-			"yTo" : 9
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 18,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 17,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 17,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 12,
-			"xTo" : 14,
-			"yFrom" : 1,
-			"yTo" : 1
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 1,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 3,
+			"yFrom" : 5,
 			"yTo" : 5
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 8,
-			"xTo" : 10,
+			"xFrom" : 6,
+			"xTo" : 8,
 			"yFrom" : 9,
 			"yTo" : 9
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 2,
+			"Type" : "AttackArmy",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 9,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 11
 		},
@@ -990,28 +1956,44 @@
 			"Type" : "MoveChar",
 			"xFrom" : 19,
 			"xTo" : 21,
-			"yFrom" : 10,
-			"yTo" : 9
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 17,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
+			"yFrom" : 8,
+			"yTo" : 7
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 20,
+			"xFrom" : 18,
+			"xTo" : 16,
+			"yFrom" : 10,
+			"yTo" : 12
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 48,
+			"xFrom" : 18,
+			"xTo" : 18,
 			"yFrom" : 11,
 			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 21,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 12,
+			"xTo" : 14,
+			"yFrom" : 13,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 14,
+			"xTo" : 15,
+			"yFrom" : 13,
+			"yTo" : 12
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -1026,8 +2008,9 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "MoveChar",
-			"xFrom" : 1,
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
 			"xTo" : 3,
 			"yFrom" : 2,
 			"yTo" : 2
@@ -1035,11 +2018,6 @@
 		{
 			"Type" : "Construct",
 			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
 			"x" : 18,
 			"y" : 2
 		},
@@ -1047,19 +2025,25 @@
 			"Type" : "MoveChar",
 			"xFrom" : 18,
 			"xTo" : 18,
+			"yFrom" : 3,
+			"yTo" : 5
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 8,
 			"yFrom" : 5,
 			"yTo" : 7
 		},
 		{
-			"Type" : "MoveChar",
-			"xFrom" : 10,
-			"xTo" : 12,
+			"Type" : "ArmyFusion",
+			"xFrom" : 8,
+			"xTo" : 8,
 			"yFrom" : 9,
-			"yTo" : 9
+			"yTo" : 7
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 2,
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 11
 		},
@@ -1071,23 +2055,16 @@
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 10,
+			"xTo" : 19,
+			"yFrom" : 8,
 			"yTo" : 8
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
+			"xFrom" : 18,
+			"xTo" : 16,
 			"yFrom" : 10,
-			"yTo" : 12
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 17,
-			"yFrom" : 11,
-			"yTo" : 12
+			"yTo" : 8
 		},
 		{
 			"Type" : "Construct",
@@ -1097,8 +2074,15 @@
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 15,
+			"xFrom" : 15,
+			"xTo" : 16,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 18,
 			"yFrom" : 12,
 			"yTo" : 13
 		},
@@ -1115,8 +2099,7 @@
 			"yTo" : 1
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 2
 		},
@@ -1137,14 +2120,14 @@
 			"Type" : "MoveChar",
 			"xFrom" : 18,
 			"xTo" : 18,
-			"yFrom" : 7,
-			"yTo" : 9
+			"yFrom" : 5,
+			"yTo" : 7
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 12,
-			"xTo" : 14,
-			"yFrom" : 9,
+			"xFrom" : 8,
+			"xTo" : 8,
+			"yFrom" : 7,
 			"yTo" : 9
 		},
 		{
@@ -1161,28 +2144,59 @@
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 19,
-			"xTo" : 18,
+			"xTo" : 17,
+			"yFrom" : 8,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 16,
 			"yFrom" : 10,
-			"yTo" : 11
+			"yTo" : 8
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 48,
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 11,
+			"yTo" : 12
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 15,
+			"xTo" : 15,
+			"yFrom" : 12,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 16,
+			"yFrom" : 12,
+			"yTo" : 14
 		},
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 20,
 			"xTo" : 22,
-			"yFrom" : 10,
-			"yTo" : 8
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
+			"yFrom" : 12,
+			"yTo" : 13
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 15,
-			"yFrom" : 12,
-			"yTo" : 12
+			"xFrom" : 15,
+			"xTo" : 16,
+			"yFrom" : 13,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 14,
+			"yFrom" : 13,
+			"yTo" : 11
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -1197,7 +2211,92 @@
 			"yTo" : 3
 		},
 		{
-			"Type" : "MakeSoldiers",
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
+			"xTo" : 3,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 3,
+			"xTo" : 5,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "AttackArmy",
+			"xFrom" : 18,
+			"xTo" : 19,
+			"yFrom" : 7,
+			"yTo" : 8
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 8,
+			"xTo" : 10,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 2,
+			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 10,
+			"yTo" : 10
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 12,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 22,
+			"yFrom" : 12,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 15,
+			"yFrom" : 13,
+			"yTo" : 14
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "Upgrade",
 			"x" : 2,
 			"y" : 2
 		},
@@ -1209,85 +2308,7 @@
 			"yTo" : 2
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 14,
-			"xTo" : 16,
-			"yFrom" : 9,
-			"yTo" : 9
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 16,
-			"yFrom" : 9,
-			"yTo" : 9
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 18,
-			"yFrom" : 10,
-			"yTo" : 10
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
 			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 15,
-			"xTo" : 13,
-			"yFrom" : 12,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 3,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 7,
-			"xTo" : 9,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
 			"x" : 18,
 			"y" : 2
 		},
@@ -1300,13 +2321,20 @@
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 16,
+			"xFrom" : 19,
 			"xTo" : 18,
+			"yFrom" : 8,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 10,
+			"xTo" : 12,
 			"yFrom" : 9,
 			"yTo" : 9
 		},
 		{
-			"Type" : "Upgrade",
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 11
 		},
@@ -1317,15 +2345,102 @@
 	[
 		{
 			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 17,
+			"yFrom" : 10,
+			"yTo" : 8
+		},
+		{
+			"Type" : "MoveChar",
 			"xFrom" : 18,
-			"xTo" : 19,
+			"xTo" : 18,
 			"yFrom" : 10,
 			"yTo" : 11
 		},
 		{
-			"Type" : "AttackArmy",
+			"Type" : "Upgrade",
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "ArmyFusion",
 			"xFrom" : 20,
 			"xTo" : 18,
+			"yFrom" : 12,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 16,
+			"yFrom" : 13,
+			"yTo" : 12
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 7,
+			"xTo" : 9,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 18,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 5,
+			"yTo" : 7
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 12,
+			"xTo" : 14,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 18,
+			"xTo" : 18,
+			"yFrom" : 9,
+			"yTo" : 7
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 3,
+			"x" : 2,
+			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 15,
+			"yFrom" : 8,
+			"yTo" : 6
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 18,
+			"xTo" : 19,
 			"yFrom" : 10,
 			"yTo" : 9
 		},
@@ -1336,17 +2451,179 @@
 		},
 		{
 			"Type" : "MoveChar",
+			"xFrom" : 16,
+			"xTo" : 15,
+			"yFrom" : 12,
+			"yTo" : 12
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 22,
+			"yFrom" : 12,
+			"yTo" : 13
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
+			"xTo" : 1,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 9,
+			"xTo" : 11,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 69,
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "AttackArmy",
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 7,
+			"yTo" : 8
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 14,
+			"xTo" : 16,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 2,
+			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
 			"xFrom" : 19,
 			"xTo" : 20,
-			"yFrom" : 11,
-			"yTo" : 13
+			"yFrom" : 9,
+			"yTo" : 11
+		},
+		{
+			"Type" : "Upgrade",
+			"x" : 18,
+			"y" : 11
 		},
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 15,
-			"xTo" : 14,
+			"xTo" : 15,
 			"yFrom" : 12,
 			"yTo" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 20,
+			"yFrom" : 12,
+			"yTo" : 14
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 1,
+			"xTo" : 3,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 2,
+			"y" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 11,
+			"xTo" : 13,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 17,
+			"xTo" : 18,
+			"yFrom" : 2,
+			"yTo" : 3
+		},
+		{
+			"Type" : "LeaveCity",
+			"soldiers" : 34,
+			"xFrom" : 18,
+			"xTo" : 17,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 17,
+			"xTo" : 16,
+			"yFrom" : 8,
+			"yTo" : 9
+		},
+		{
+			"Type" : "Construct",
+			"constructType" : 1,
+			"x" : 2,
+			"y" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 17,
+			"yFrom" : 9,
+			"yTo" : 10
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 15,
+			"xTo" : 17,
+			"yFrom" : 11,
+			"yTo" : 13
+		},
+		{
+			"Type" : "MakeSoldiers",
+			"x" : 18,
+			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 20,
+			"xTo" : 22,
+			"yFrom" : 12,
+			"yTo" : 14
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -1367,8 +2644,15 @@
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 9,
-			"xTo" : 11,
+			"xFrom" : 13,
+			"xTo" : 15,
+			"yFrom" : 2,
+			"yTo" : 2
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 17,
+			"xTo" : 15,
 			"yFrom" : 2,
 			"yTo" : 2
 		},
@@ -1379,64 +2663,57 @@
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 18,
+			"xFrom" : 16,
 			"xTo" : 18,
-			"yFrom" : 5,
-			"yTo" : 7
+			"yFrom" : 9,
+			"yTo" : 9
 		},
 		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 18,
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
+			"xTo" : 3,
+			"yFrom" : 11,
+			"yTo" : 11
+		},
+		{
+			"Type" : "EndOfTurn"
+		}
+	],
+	[
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 19,
+			"xTo" : 21,
 			"yFrom" : 9,
 			"yTo" : 7
 		},
 		{
+			"Type" : "MoveChar",
+			"xFrom" : 15,
+			"xTo" : 14,
+			"yFrom" : 11,
+			"yTo" : 11
+		},
+		{
 			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
+			"constructType" : 3,
+			"x" : 18,
 			"y" : 11
 		},
 		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
 			"Type" : "MoveChar",
 			"xFrom" : 20,
-			"xTo" : 18,
-			"yFrom" : 10,
-			"yTo" : 12
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 14,
-			"xTo" : 12,
-			"yFrom" : 11,
+			"xTo" : 19,
+			"yFrom" : 12,
 			"yTo" : 13
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 75,
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 11,
-			"yTo" : 11
 		},
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 11,
+			"xTo" : 17,
+			"yFrom" : 13,
 			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 11,
-			"yTo" : 10
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -1445,7 +2722,7 @@
 	[
 		{
 			"Type" : "Construct",
-			"constructType" : 2,
+			"constructType" : 3,
 			"x" : 2,
 			"y" : 2
 		},
@@ -1458,51 +2735,48 @@
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 11,
-			"xTo" : 13,
+			"xFrom" : 15,
+			"xTo" : 17,
 			"yFrom" : 2,
 			"yTo" : 2
 		},
 		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 3,
-			"yTo" : 5
+			"Type" : "Construct",
+			"constructType" : 2,
+			"x" : 18,
+			"y" : 2
 		},
 		{
 			"Type" : "ArmyFusion",
 			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 7,
-			"yTo" : 5
+			"xTo" : 17,
+			"yFrom" : 3,
+			"yTo" : 2
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 3,
+			"Type" : "AttackArmy",
+			"xFrom" : 18,
+			"xTo" : 19,
+			"yFrom" : 9,
+			"yTo" : 9
+		},
+		{
+			"Type" : "MakeSoldiers",
 			"x" : 2,
 			"y" : 11
+		},
+		{
+			"Type" : "MoveChar",
+			"xFrom" : 3,
+			"xTo" : 5,
+			"yFrom" : 11,
+			"yTo" : 11
 		},
 		{
 			"Type" : "EndOfTurn"
 		}
 	],
 	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 10,
-			"yTo" : 12
-		},
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 14,
@@ -1511,40 +2785,19 @@
 			"yTo" : 10
 		},
 		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
 			"Type" : "LeaveCity",
-			"soldiers" : 37,
+			"soldiers" : 49,
 			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
+			"xTo" : 17,
 			"yFrom" : 11,
 			"yTo" : 11
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 12,
-			"yTo" : 14
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 12,
-			"yTo" : 10
+			"xFrom" : 19,
+			"xTo" : 21,
+			"yFrom" : 13,
+			"yTo" : 15
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -1553,7 +2806,7 @@
 	[
 		{
 			"Type" : "Construct",
-			"constructType" : 2,
+			"constructType" : 1,
 			"x" : 2,
 			"y" : 2
 		},
@@ -1566,231 +2819,38 @@
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 13,
-			"xTo" : 15,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 5,
-			"yTo" : 7
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 10,
-			"yTo" : 8
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 14,
-			"xTo" : 14,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "MoveChar",
 			"xFrom" : 17,
-			"xTo" : 15,
-			"yFrom" : 11,
-			"yTo" : 13
+			"xTo" : 18,
+			"yFrom" : 2,
+			"yTo" : 3
 		},
 		{
 			"Type" : "Construct",
 			"constructType" : 3,
 			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 12,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 13,
-			"yTo" : 14
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
 			"y" : 2
 		},
 		{
 			"Type" : "MoveChar",
-			"xFrom" : 9,
-			"xTo" : 11,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 15,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 7,
-			"yTo" : 9
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 14,
-			"xTo" : 13,
-			"yFrom" : 10,
-			"yTo" : 8
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 10,
-			"yTo" : 10
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 11,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 13,
-			"yTo" : 15
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 13,
-			"yTo" : 15
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 11,
-			"xTo" : 13,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 18,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
 			"xFrom" : 19,
-			"xTo" : 18,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "AttackArmy",
-			"xFrom" : 18,
 			"xTo" : 18,
 			"yFrom" : 9,
 			"yTo" : 10
 		},
 		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
+			"Type" : "LeaveCity",
+			"soldiers" : 50,
+			"xFrom" : 2,
+			"xTo" : 3,
+			"yFrom" : 11,
+			"yTo" : 11
+		},
+		{
+			"Type" : "ArmyFusion",
+			"xFrom" : 5,
+			"xTo" : 3,
+			"yFrom" : 11,
+			"yTo" : 11
 		},
 		{
 			"Type" : "EndOfTurn"
@@ -1801,2090 +2861,36 @@
 			"Type" : "MoveChar",
 			"xFrom" : 14,
 			"xTo" : 16,
-			"yFrom" : 10,
-			"yTo" : 8
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 16,
-			"yFrom" : 13,
-			"yTo" : 14
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 13,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 13,
-			"xTo" : 15,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 3,
-			"yTo" : 5
-		},
-		{
-			"Type" : "AttackCity",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 14,
-			"xTo" : 13,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 13,
-			"xTo" : 15,
 			"yFrom" : 11,
 			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 15,
-			"xTo" : 15,
-			"yFrom" : 11,
-			"yTo" : 12
 		},
 		{
 			"Type" : "AttackArmy",
-			"xFrom" : 20,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 15,
-			"xTo" : 17,
-			"yFrom" : 12,
-			"yTo" : 12
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 16,
-			"yFrom" : 12,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 13,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 18,
-			"yFrom" : 13,
-			"yTo" : 14
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "ArmyFusion",
 			"xFrom" : 16,
 			"xTo" : 18,
 			"yFrom" : 11,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 11,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 20,
-			"yFrom" : 13,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 19,
-			"yFrom" : 13,
-			"yTo" : 13
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 16,
-			"xTo" : 17,
-			"yFrom" : 11,
-			"yTo" : 11
+			"yTo" : 10
 		},
 		{
 			"Type" : "MoveChar",
 			"xFrom" : 17,
-			"xTo" : 17,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 11,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
 			"xTo" : 16,
-			"yFrom" : 13,
-			"yTo" : 12
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 13,
-			"yTo" : 13
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 13,
+			"yFrom" : 11,
 			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 2,
-			"yTo" : 1
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "AttackArmy",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 10,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 11
 		},
 		{
 			"Type" : "Construct",
-			"constructType" : 3,
+			"constructType" : 2,
 			"x" : 18,
 			"y" : 11
 		},
 		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 13,
-			"yTo" : 11
-		},
-		{
 			"Type" : "MoveChar",
 			"xFrom" : 19,
-			"xTo" : 19,
+			"xTo" : 18,
 			"yFrom" : 13,
 			"yTo" : 14
 		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 13,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 19,
-			"yFrom" : 13,
-			"yTo" : 13
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 13,
-			"yTo" : 15
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 13,
-			"yTo" : 12
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 1,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 11,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 19,
-			"yFrom" : 12,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 13,
-			"yTo" : 12
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 20,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 18,
-			"yFrom" : 12,
-			"yTo" : 14
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 21,
-			"yFrom" : 10,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 17,
-			"xTo" : 15,
-			"yFrom" : 12,
-			"yTo" : 14
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 1,
-			"yTo" : 3
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "AttackCity",
-			"xFrom" : 17,
-			"xTo" : 18,
-			"yFrom" : 12,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 10,
-			"yTo" : 9
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 22,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 20,
-			"yFrom" : 9,
-			"yTo" : 9
-		},
-		{
-			"Type" : "AttackCity",
-			"xFrom" : 20,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 3,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 19,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 2,
-			"xTo" : 3,
-			"yFrom" : 3,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 20,
-			"xTo" : 19,
-			"yFrom" : 9,
-			"yTo" : 8
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 15,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 19,
-			"yFrom" : 8,
-			"yTo" : 7
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 17,
-			"yFrom" : 7,
-			"yTo" : 6
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 19,
-			"xTo" : 18,
-			"yFrom" : 7,
-			"yTo" : 8
-		},
-		{
-			"Type" : "MoveChar",
-			"xFrom" : 18,
-			"xTo" : 16,
-			"yFrom" : 8,
-			"yTo" : 6
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "AttackArmy",
-			"xFrom" : 17,
-			"xTo" : 18,
-			"yFrom" : 9,
-			"yTo" : 8
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 3,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 1,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 3,
-			"xTo" : 1,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 19,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 8,
-			"yTo" : 10
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 2,
-			"yTo" : 1
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 10,
-			"yTo" : 12
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 2,
-			"xTo" : 1,
-			"yFrom" : 1,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 12,
-			"yTo" : 10
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 2,
-			"yTo" : 1
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 75,
-			"xFrom" : 2,
-			"xTo" : 1,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 10
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 1,
-			"yTo" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 75,
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 10,
-			"yTo" : 11
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 1,
-			"xTo" : 2,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 37,
-			"xFrom" : 2,
-			"xTo" : 3,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 3,
-			"xTo" : 2,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 44,
-			"xFrom" : 2,
-			"xTo" : 1,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 2,
-			"xTo" : 1,
-			"yFrom" : 12,
-			"yTo" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 100,
-			"xFrom" : 2,
-			"xTo" : 3,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 1,
-			"xTo" : 3,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 2,
-			"xTo" : 2,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 3,
-			"xTo" : 2,
-			"yFrom" : 2,
-			"yTo" : 3
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 75,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 2,
-			"yTo" : 1
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 47,
-			"xFrom" : 2,
-			"xTo" : 3,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 18,
-			"xTo" : 17,
-			"yFrom" : 1,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 1,
-			"xTo" : 3,
-			"yFrom" : 11,
-			"yTo" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 37,
-			"xFrom" : 18,
-			"xTo" : 19,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "ArmyFusion",
-			"xFrom" : 19,
-			"xTo" : 17,
-			"yFrom" : 2,
-			"yTo" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 2,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "MakeSoldiers",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 11
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
-		{
-			"Type" : "Construct",
-			"constructType" : 1,
-			"x" : 2,
-			"y" : 2
-		},
-		{
-			"Type" : "Upgrade",
-			"x" : 18,
-			"y" : 2
-		},
-		{
-			"Type" : "Construct",
-			"constructType" : 3,
-			"x" : 2,
-			"y" : 11
-		},
-		{
-			"Type" : "LeaveCity",
-			"soldiers" : 50,
-			"xFrom" : 18,
-			"xTo" : 18,
-			"yFrom" : 11,
-			"yTo" : 12
-		},
-		{
-			"Type" : "EndOfTurn"
-		}
-	],
-	[
 		{
 			"Type" : "EndOfTurn"
 		}

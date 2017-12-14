@@ -26,8 +26,6 @@ int main(int argc,char* argv[])
         cout << "Hello world !" << endl;
     
     else if(mode == "record"){
-        cout << "record §§ " << endl; 
-        
         
         Monde *m = new Monde("MapTestEngine", 3);
         State state(*m);
@@ -49,32 +47,11 @@ int main(int argc,char* argv[])
         
         cout << "Mode record !" << endl;
         cout << "Nous enregistrons des actions pendant un certain nombre de tours, et on le met dans un fichier JSON !" << endl;
-        
+        cout << "Ici on joue 80 fois ! On enregistre le fichier dans le dossier res, dans un un fichier appelé replay.json !" << endl;
+               
         Json::Value listCommandSequence;
         
-       
-        /*
-        Json::Value tmp;
-        MoveCharCommand move(2,2,4,4);
-        move.serialize(tmp);
-        
-        listCommandSequence.append(tmp);
-        
-        tmp.clear();
-        AttackArmyCommand att(2,2,4,4);
-        att.serialize(tmp);
-        
-        listCommandSequence.append(tmp);
-         */ 
-        
-        //ai1->run(e, pile, true);
-        //listCommandSequence = e.getValueJson();
-        
-        
-        
         int i = 0;
-        
-        
         
         while(i < 80){
             
@@ -88,8 +65,7 @@ int main(int argc,char* argv[])
                 state.setIdPlayer(2);
                 ai2->run(e, pile, true);
                 listCommandSequence.append(*(e.getValueJson()));
-            }
-            
+            }            
             i++;
         }
         

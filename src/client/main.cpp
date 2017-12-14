@@ -498,13 +498,7 @@ int main(int argc, char* argv[]) {
         state.addPlayer(new Player("Joueur 1"));
         state.addPlayer(new Player("Joueur 2"));
 
-
-        //m->set(4,6,2,new Army(100, 2));
-
-
         Engine e(state);
-
-        //Client client(state);
 
         state.setIdPlayer(1);
 
@@ -521,9 +515,6 @@ int main(int argc, char* argv[]) {
         cout << "Bienvenue dans le mode avec Tread !" << endl;
         cout << "Pour faire défiler les epoques, appuyez sur n'importe quelle touche." << endl;
         cout << "En restant appuyé, les epoques défilent plus vite !" << endl;
-        //ai1 = new DeepAI(state,e); 
-
-
 
         stack<Action*> pile;
 
@@ -561,7 +552,6 @@ int main(int argc, char* argv[]) {
                 }
 
             }
-            //cout << e.getPlayer() << endl;
             window.clear();
             map1.initDrawer();
             map2.initDrawer();
@@ -573,6 +563,8 @@ int main(int argc, char* argv[]) {
             //usleep(2);
         }
         e.setPlayer(-1);
+        th.join();
+        
         delete m;
 
     }
@@ -599,11 +591,6 @@ int main(int argc, char* argv[]) {
 
         stack<Action*> pile;
 
-        //AI *ai1;
-        //ai1 = new HeuristicAI(state, e);
-
-        //AI *ai2;
-        //ai2 = new RandomAI(state, e);
         Json::Reader reader;
         Json::Value replay;   
         
