@@ -1,6 +1,7 @@
 #include <iostream>
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include <stack>
 #include <thread>
 #include "unistd.h"
@@ -648,7 +649,24 @@ int main(int argc, char* argv[]) {
         delete m;
         
     }
+    
+    else if(mode == "network"){
+        
+        cout << "Get"<< endl;
+        
+        sf::Http::Request request;
+        request.setMethod(sf::Http::Request::Get);
+        request.setUri("/version");
+        request.setHttpVersion(1,1);
+        request.setField("Content-Type", "application/x-www-form-urlencoded");
+        request.setBody("");
+        
+        sf::Http http("http://localhost/", 4040);
+        sf::Http::Response response = http.sendRequest(request);
+        cout << response.getBody() << endl;
+    }
 
 
+    
     return 0;
 }

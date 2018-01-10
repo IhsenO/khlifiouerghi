@@ -356,12 +356,13 @@ void menu(){
     cout << "   rollback: teste le rollback" << endl;
     cout << "   deep_ai: teste le jeu avec une IA avancé" << endl;
     cout << "   thread: teste le jeu avec des threads" << endl;
+    cout << "   network: Ajout d'un joueur à la liste" << endl;
 } 
 
 void menuServer(){
-    
     cout << "Usage:  ./bin/server <mode>" << endl;
     cout << "Modes disponibles: " << endl;
     cout << "   hello: affiche un simple message dans la console" << endl;
     cout << "   record: Enregistre une séquence de jeu" << endl;
+    cout << "   listen : Le serveur écoute" << endl;
 }
