@@ -25,12 +25,12 @@ namespace server{
                 }
             }
         }
-        else if(id>=0 && id < 2){
+        else if(id>=0 && id < game.getPlayersLimit()){
             if(game.player(id)){
                 //throw ServiceException(HttpStatus::NO_CONTENT,"Le Joueur demandé n'existe pas");
                 out["name"] = game.player(id)->name;
             }
-            else throw ServiceException(HttpStatus::NO_CONTENT,"Le Joueur demandé n'existe pas");
+            else throw ServiceException(HttpStatus::NOT_FOUND,"Le Joueur demandé n'existe pas");
         }
         return HttpStatus::OK;
     }
@@ -52,6 +52,7 @@ namespace server{
 
     HttpStatus PlayerService::put(Json::Value& out, const Json::Value& in) {
        
+        if(game.isFullOfPlayers()) throw ServiceException(HttpStatus::OUT_OF_RESSOURCES,"Plus de place");
         //std::cout << "Okay" << std::endl;
         std::string name = in["name"].asString();
         Player *newPlayer = new Player();
@@ -61,7 +62,7 @@ namespace server{
             out["id"] = add;
             return HttpStatus::CREATED;
         }
-        else return HttpStatus::OUT_OF_RESSOURCES;
+        else throw ServiceException(HttpStatus::OUT_OF_RESSOURCES,"Plus de place");
     }
 
     HttpStatus PlayerService::remove(int id) {

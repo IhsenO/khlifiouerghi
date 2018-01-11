@@ -9,11 +9,15 @@
 
 namespace server{
 
-    Game::Game() : players(2) {
+    Game::Game(int playersLimit) : players(playersLimit) {
         for(int i = 0; i < 2; i++)
             players[i] = NULL;
     }
 
+    int Game::getPlayersLimit() const {
+        return playersLimit;
+    }
+    
 //    const std::vector<Player>& Game::getPlayers() const {
 //        return this->players;
 //    }
@@ -24,7 +28,7 @@ namespace server{
     }
 
     int Game::addPlayer(Player *player) {
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < (int)players.size(); i++){
             if(players[i] == NULL){
                 players[i] = player;
                 return i;
@@ -39,8 +43,15 @@ namespace server{
     }
 
     bool Game::isFullOfPlayers() {
-        if(players[0] != NULL && players[1] != NULL) return true;
-        else return false;
+        //if(players[0] != NULL && players[1] != NULL) return true;
+        //else return false;
+        bool full = true;
+        for(int i = 0; i < (int)players.size(); i++){
+            if(players[i] == NULL){
+                return false;
+            }
+        }
+        return full;
     }
     
     

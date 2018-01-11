@@ -68,9 +68,9 @@ namespace server{
             if (!reader.parse(in,jsonIn)){
                 throw ServiceException(HttpStatus::BAD_REQUEST,"Données invalides: "+reader.getFormattedErrorMessages());
             }
-            cout << jsonIn.toStyledString() << endl;
+            //cout << jsonIn.toStyledString() << endl;
             Json::Value jsonOut;
-            cout << service->getPattern() << endl;
+            //cout << service->getPattern() << endl;
             HttpStatus status = service->put(jsonOut,jsonIn);
             out = jsonOut.toStyledString();
             return status;

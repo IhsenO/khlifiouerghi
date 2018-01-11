@@ -220,7 +220,7 @@ int main(int argc,char* argv[])
         VersionService *vs = new VersionService();
         servicesManager.registerService(vs);
         
-        Game game;
+        Game game(2);
         PlayerService *ps = new PlayerService(game);
         servicesManager.registerService(ps);
 
@@ -261,9 +261,11 @@ int main(int argc,char* argv[])
                 th.join();
             }
             else if(stop == 2){
-                cout << "La salle d'attente est remplie, appuiyez sur <entrée> pour demarrer une partie" << endl;                
+                cout << "La salle d'attente est remplie, appuyez sur <entrée> pour demarrer une partie" << endl;         
                 th.join();
+                cout << "Demarrage de la partie !!" << endl;       
             }
+            
             MHD_stop_daemon(d);
         }
         catch(exception& e) {

@@ -18,9 +18,10 @@ namespace server {
     // Attributes
   protected:
     std::vector<Player*> players;
+    int playersLimit;
     // Operations
   public:
-    Game ();
+    Game (int playersLimit);
     Player* player (int i);
     int addPlayer (Player* player);
     void removePlayer (int id);
@@ -28,6 +29,8 @@ namespace server {
     // Setters and Getters
     const std::vector<Player*>& getPlayers() const;
     void setPlayers(const std::vector<Player*>& players);
+    int getPlayersLimit() const;
+    void setPlayersLimit(int playersLimit);
   };
 
 };

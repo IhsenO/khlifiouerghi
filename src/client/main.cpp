@@ -655,7 +655,7 @@ int main(int argc, char* argv[]) {
         string nameIn;
         cout << "Connexion au Server ! Donnez votre nom :"<< endl;
         cin >> nameIn;
-        fflush(stdin);
+        //fflush(stdin);
         sf::Http::Request request;
         request.setMethod(sf::Http::Request::Put);
         request.setUri("/player");
@@ -666,14 +666,30 @@ int main(int argc, char* argv[]) {
         sf::Http http("http://localhost/", 4040);
         sf::Http::Response response = http.sendRequest(request);
 
-        cout << response.getBody() << endl;
+        
         if(response.getStatus() == 201){
-            cout << "Vous êtes dans la liste du serveur "+nameIn << endl;
+            cout << nameIn+" Bienvenue dans la liste du serveur " << endl;
+            cout << response.getBody() << endl;
         }
         else{
-            cout << "Impossible d'entrer ds la liste, Status "+response.getStatus();
+            cout << "Oups, on dirai que le serveur est rempli.." << endl;
+           
+            //throw runtime_error("Plus de place");
+            //cout << "Impossible d'entrer ds la liste, Status "+response.getStatus() << endl;;
         }
-        
+        string id = "-1";
+        Json::Reader reader;
+        Json::Value jsonResponse;
+        if(!reader.parse(response.getBody(),jsonResponse)){
+            //cout << "Pb.." << endl;
+        }
+        else{
+            if(jsonResponse["id"].asString().size() == 1){
+                id = jsonResponse["id"].asString();
+                //cout << id << endl;
+            }
+            
+        }
         
         cout << "Les joueurs présents sur ce serveur sont : \n" << endl;
         
@@ -697,19 +713,20 @@ int main(int argc, char* argv[]) {
         cin.ignore();
         cin.get();
         
-        sf::Http::Request request3;
-        request3.setMethod(sf::Http::Request::Delete);
-        request3.setUri("/player/0");
-        request3.setHttpVersion(1,1);
-        request3.setField("Content-Type", "application/x-www-form-urlencoded");
+        if(id.size() == 1){
+            sf::Http::Request request3;
+            request3.setMethod(sf::Http::Request::Delete);
+            request3.setUri("/player/"+id);
+            request3.setHttpVersion(1,1);
+            request3.setField("Content-Type", "application/x-www-form-urlencoded");
         
-        sf::Http::Response response3 = http.sendRequest(request3);
-        if(response3.getStatus() != 204){
-            cout << "Il y a un soucis, Status : "+response3.getStatus() << endl;
+            sf::Http::Response response3 = http.sendRequest(request3);
+            if(response3.getStatus() != 204){
+                cout << "Il y a un soucis, Status : "+response3.getStatus() << endl;
         } 
         cout << response3.getBody() << endl;
-        
-        cout << "Au revoir, voici les joueurs restants : " << endl;
+        }
+        cout << "Au revoir, voici les joueurs actuellement connectés : " << endl;
         
         sf::Http::Response response4 = http.sendRequest(request2);
         if(response4.getStatus() != 200){
