@@ -52,8 +52,11 @@ namespace server{
 
     HttpStatus PlayerService::put(Json::Value& out, const Json::Value& in) {
        
-        if(game.isFullOfPlayers()) throw ServiceException(HttpStatus::OUT_OF_RESSOURCES,"Plus de place");
-        //std::cout << "Okay" << std::endl;
+        if(game.isFullOfPlayers()){
+            throw ServiceException(HttpStatus::OUT_OF_RESSOURCES,"Plus de place");
+            //return HttpStatus::OUT_OF_RESSOURCES;
+        }
+            //std::cout << "Okay" << std::endl;
         std::string name = in["name"].asString();
         Player *newPlayer = new Player();
         newPlayer->name = name;
@@ -62,7 +65,10 @@ namespace server{
             out["id"] = add;
             return HttpStatus::CREATED;
         }
-        else throw ServiceException(HttpStatus::OUT_OF_RESSOURCES,"Plus de place");
+        else{
+            throw ServiceException(HttpStatus::OUT_OF_RESSOURCES,"Plus de place");
+            //return HttpStatus::OUT_OF_RESSOURCES;
+        }
     }
 
     HttpStatus PlayerService::remove(int id) {

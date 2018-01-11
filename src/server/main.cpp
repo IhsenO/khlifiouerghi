@@ -261,9 +261,9 @@ int main(int argc,char* argv[])
                 th.join();
             }
             else if(stop == 2){
-                cout << "La salle d'attente est remplie, appuyez sur <entrée> pour demarrer une partie" << endl;         
+                cout << "La salle d'attente est remplie, Demarrage de la partie appuyez, sur <entrée> pour quitter" << endl;         
                 th.join();
-                cout << "Demarrage de la partie !!" << endl;       
+                cout << "Au revoir !!" << endl;       
             }
             
             MHD_stop_daemon(d);

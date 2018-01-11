@@ -724,7 +724,7 @@ int main(int argc, char* argv[]) {
             if(response3.getStatus() != 204){
                 cout << "Il y a un soucis, Status : "+response3.getStatus() << endl;
         } 
-        cout << response3.getBody() << endl;
+        //cout << response3.getBody() << endl;
         }
         cout << "Au revoir, voici les joueurs actuellement connectés : " << endl;
         
