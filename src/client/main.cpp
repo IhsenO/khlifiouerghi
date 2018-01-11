@@ -5,6 +5,7 @@
 #include <stack>
 #include <thread>
 #include "unistd.h"
+#include <stdio.h>
 #include <fstream>
 
 void testSFML() {
@@ -651,19 +652,74 @@ int main(int argc, char* argv[]) {
     }
     
     else if(mode == "network"){
-        
-        cout << "Get"<< endl;
-        
+        string nameIn;
+        cout << "Connexion au Server ! Donnez votre nom :"<< endl;
+        cin >> nameIn;
+        fflush(stdin);
         sf::Http::Request request;
-        request.setMethod(sf::Http::Request::Get);
-        request.setUri("/version");
+        request.setMethod(sf::Http::Request::Put);
+        request.setUri("/player");
         request.setHttpVersion(1,1);
         request.setField("Content-Type", "application/x-www-form-urlencoded");
-        request.setBody("");
+        request.setBody("{\"name\":\""+nameIn+"\"}");
         
         sf::Http http("http://localhost/", 4040);
         sf::Http::Response response = http.sendRequest(request);
+
         cout << response.getBody() << endl;
+        if(response.getStatus() == 201){
+            cout << "Vous êtes dans la liste du serveur "+nameIn << endl;
+        }
+        else{
+            cout << "Impossible d'entrer ds la liste, Status "+response.getStatus();
+        }
+        
+        
+        cout << "Les joueurs présents sur ce serveur sont : \n" << endl;
+        
+        sf::Http::Request request2;
+        request2.setMethod(sf::Http::Request::Get);
+        request2.setUri("/player");
+        request2.setHttpVersion(1,1);
+        request2.setField("Content-Type", "application/x-www-form-urlencoded");
+        //request.setBody("{\"name\":\"Jean\"}");
+        
+        
+        //sf::Http http("http://localhost/", 4040);
+        sf::Http::Response response2 = http.sendRequest(request2);
+        if(response2.getStatus() != 200){
+            cout << "Il y a un soucis, Status : "+response2.getStatus() << endl;
+        } 
+        cout << response2.getBody() << endl;
+        
+        cout << "\n\nPour quitter, pressez <entrée> " << endl;
+        //(void) getc(stdin);
+        cin.ignore();
+        cin.get();
+        
+        sf::Http::Request request3;
+        request3.setMethod(sf::Http::Request::Delete);
+        request3.setUri("/player/0");
+        request3.setHttpVersion(1,1);
+        request3.setField("Content-Type", "application/x-www-form-urlencoded");
+        
+        sf::Http::Response response3 = http.sendRequest(request3);
+        if(response3.getStatus() != 204){
+            cout << "Il y a un soucis, Status : "+response3.getStatus() << endl;
+        } 
+        cout << response3.getBody() << endl;
+        
+        cout << "Au revoir, voici les joueurs restants : " << endl;
+        
+        sf::Http::Response response4 = http.sendRequest(request2);
+        if(response4.getStatus() != 200){
+            cout << "Il y a un soucis, Status : "+response4.getStatus() << endl;
+        } 
+        
+       
+        cout << response4.getBody() << endl;
+        
+        
     }
 
 

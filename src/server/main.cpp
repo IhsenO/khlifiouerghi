@@ -2,6 +2,8 @@
 #include <json/json.h>
 #include <fstream>
 
+#include <thread>
+
 #include "state.h"
 #include "Tests.hpp"
 #include "engine.h"
@@ -127,7 +129,19 @@ main_handler (void *cls,
     return ret;
 }
 
-
+void attenteJoueurs(int *stop){
+    /*
+    while(1){
+        if(game.isFullOfPlayers() || stopped){
+            return true;
+        }
+        usleep(1000);
+    }
+     */
+    (void) getc(stdin);
+    *stop = 1;
+ 
+}
 
 //FIN
 
@@ -199,14 +213,16 @@ int main(int argc,char* argv[])
     
     else if(mode == "listen"){
         
-        cout << "Listenning !!!!" << endl;
+        //cout << "Listenning !!!!" << endl;
         
         try {
         ServicesManager servicesManager;
         VersionService *vs = new VersionService();
         servicesManager.registerService(vs);
-
-        cout << vs->getPattern() << endl;
+        
+        Game game;
+        PlayerService *ps = new PlayerService(game);
+        servicesManager.registerService(ps);
 
         struct MHD_Daemon *d;
         if (argc != 2) {
@@ -224,8 +240,30 @@ int main(int argc,char* argv[])
             MHD_OPTION_END);
         if (d == NULL)
             return 1;
-            cout << "Pressez <entrée> pour arrêter le serveur" << endl;
-            (void) getc(stdin);
+            int stop = 0; 
+            //cout << "Pressez <entrée> pour arrêter le serveur" << endl;
+            thread th(attenteJoueurs ,&stop);
+            cout << "En attente de joueurs... Pressez <entrée> pour arrêter le serveur à tout moment" << endl;
+            while(1){
+                if(game.isFullOfPlayers()){
+                    stop = 2;
+                    break;
+                }
+                else if(stop == 1){
+                    break;
+                }
+                usleep(1000);
+            }
+            //th.join();
+            //(void) getc(stdin);
+            if(stop == 1){
+                cout << "Arret du serveur.. " << endl;
+                th.join();
+            }
+            else if(stop == 2){
+                cout << "La salle d'attente est remplie, appuiyez sur <entrée> pour demarrer une partie" << endl;                
+                th.join();
+            }
             MHD_stop_daemon(d);
         }
         catch(exception& e) {
