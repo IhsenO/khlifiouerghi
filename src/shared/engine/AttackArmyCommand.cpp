@@ -50,7 +50,7 @@ namespace engine {
     }
 
     bool AttackArmyCommand::solveFightArmy(state::Army* firstArmy, state::Army* secondArmy) {
-        srand(time(NULL));
+        //srand(time(NULL));
         float a = (float)firstArmy->getSoldiers();
         float b = (float)secondArmy->getSoldiers();
         //std:: cout << a << " b " << b << std::endl;

@@ -677,6 +677,8 @@ int main(int argc, char* argv[]) {
             //throw runtime_error("Plus de place");
             //cout << "Impossible d'entrer ds la liste, Status "+response.getStatus() << endl;;
         }
+        
+        
         string id = "-1";
         Json::Reader reader;
         Json::Value jsonResponse;
@@ -686,7 +688,7 @@ int main(int argc, char* argv[]) {
         else{
             if(jsonResponse["id"].asString().size() == 1){
                 id = jsonResponse["id"].asString();
-                //cout << id << endl;
+                
             }
             
         }
@@ -738,6 +740,176 @@ int main(int argc, char* argv[]) {
         
         
     }
+    else if(mode == "test"){
+        
+        string nameIn;
+        cout << "Connexion au Server ! Donnez votre nom :"<< endl;
+        cin >> nameIn;
+        //fflush(stdin);
+        sf::Http::Request request;
+        request.setMethod(sf::Http::Request::Put);
+        request.setUri("/player");
+        request.setHttpVersion(1,1);
+        request.setField("Content-Type", "application/x-www-form-urlencoded");
+        request.setBody("{\"name\":\""+nameIn+"\"}");
+        
+        sf::Http http("http://localhost/", 4040);
+        sf::Http::Response response = http.sendRequest(request);
+        
+        if(response.getStatus() == 201){
+            cout << nameIn+" Bienvenue dans la liste du serveur " << endl;
+            cout << response.getBody() << endl;
+        }
+        else{
+            cout << "Oups, on dirai que le serveur est rempli.." << endl;
+           
+            //throw runtime_error("Plus de place");
+            //cout << "Impossible d'entrer ds la liste, Status "+response.getStatus() << endl;;
+        }
+        
+        
+        int idPlayer = -1;
+        string id = "-1";
+        Json::Reader reader;
+        Json::Value jsonResponse;
+        if(!reader.parse(response.getBody(),jsonResponse)){
+            //cout << "Pb.." << endl;
+        }
+        else{
+            if(jsonResponse["id"].asString().size() == 1){
+                id = jsonResponse["id"].asString();
+                idPlayer = stoi(id) + 1;
+            }
+            
+        }
+        id = std::to_string(idPlayer);
+        
+        cout << "Les joueurs présents sur ce serveur sont : \n" << endl;
+        
+        sf::Http::Request request2;
+        request2.setMethod(sf::Http::Request::Get);
+        request2.setUri("/player");
+        request2.setHttpVersion(1,1);
+        request2.setField("Content-Type", "application/x-www-form-urlencoded");
+        //request.setBody("{\"name\":\"Jean\"}");
+        
+        
+        //sf::Http http("http://localhost/", 4040);
+        sf::Http::Response response2 = http.sendRequest(request2);
+        if(response2.getStatus() != 200){
+            cout << "Il y a un soucis, Status : "+response2.getStatus() << endl;
+        } 
+        cout << response2.getBody() << endl;
+        
+        
+        sf::Http::Request requestPlayer;
+        requestPlayer.setMethod(sf::Http::Request::Get);
+        requestPlayer.setUri("/game");
+        requestPlayer.setHttpVersion(1,1);
+        requestPlayer.setField("Content-Type", "application/x-www-form-urlencoded");
+        
+        //cout << "Mode Replay !!!" << endl;
+        Monde *m = new Monde("MapTestEngine", 3);
+        State state(*m);
+        state.addPlayer(new Player("Joueur 1"));
+        state.addPlayer(new Player("Joueur 2"));
+    
+        Engine e(state);
+
+        AI *ai1;
+        ai1 = new HeuristicAI(state, e);
+        
+        state.setIdPlayer(1);
+
+        MapLayer map1(*m->getLayer(0));
+        MapLayer map2(*m->getLayer(1));
+
+        CharactersLayer chars(*m->getLayer(2));
+
+        map1.initDrawer();
+        map2.initDrawer();
+        chars.initDrawer();
+
+        stack<Action*> pile;
+        
+        
+        sf::Http::Request requestGetCommands;
+        requestGetCommands.setMethod(sf::Http::Request::Get);
+        requestGetCommands.setUri("/commands/"+id);
+        requestGetCommands.setHttpVersion(1,1);
+        requestGetCommands.setField("Content-Type", "application/x-www-form-urlencoded");
+        
+        sf::Http::Request requestSendCommands;
+        requestSendCommands.setMethod(sf::Http::Request::Put);
+        requestSendCommands.setUri("/commands");
+        requestSendCommands.setHttpVersion(1,1);
+        requestSendCommands.setField("Content-Type", "application/x-www-form-urlencoded");
+        
+        
+        sf::RenderWindow window(sf::VideoMode(336, 224), nameIn);
+        window.setFramerateLimit(20);
+        while (window.isOpen()) {
+            sf::Event event;
+
+            sf::Http::Response responseGet = http.sendRequest(requestGetCommands);
+            
+            cout << responseGet.getStatus() << endl;
+            
+            if(responseGet.getStatus() == 200){
+                Json::Value tmp;
+                if(reader.parse(responseGet.getBody(), tmp)){
+                    e.runListCommandJson(tmp, pile);
+                    if(idPlayer == 1) state.setIdPlayer(2);
+                    else state.setIdPlayer(1);
+                }
+            } 
+            
+            
+            while (window.pollEvent(event)) {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+                else if (event.type == sf::Event::KeyPressed) {
+                    
+                    if (event.key.code == sf::Keyboard::Space){
+                    
+                        sf::Http::Response responsePlayer = http.sendRequest(requestPlayer);
+                        cout << responsePlayer.getStatus() << endl;
+                        Json::Value tmpPlayer;
+                        int playerTurn = -1;
+                        if(reader.parse(responsePlayer.getBody(),tmpPlayer))
+                            playerTurn = stoi(tmpPlayer["idPlayer"].asString());
+                    
+                        if(idPlayer == playerTurn){
+                            ai1->run(e, pile, true);
+                            Json::Value tmp = *(e.getValueJson());
+                    
+                            requestSendCommands.setBody(tmp.toStyledString());
+        
+                            sf::Http::Response responseSend = http.sendRequest(requestSendCommands);
+                     
+                        }
+                    }
+                    
+                }
+            }
+            window.clear();
+
+            map1.initDrawer();
+            map2.initDrawer();
+            chars.initDrawer();
+            window.draw(*map1.getDrawer());
+            window.draw(*map2.getDrawer());
+            window.draw(*chars.getDrawer());
+            window.display();
+
+
+        }
+
+        delete m;
+        
+    }
+        
+    
 
 
     

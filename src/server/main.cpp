@@ -220,10 +220,18 @@ int main(int argc,char* argv[])
         VersionService *vs = new VersionService();
         servicesManager.registerService(vs);
         
-        Game game(2);
+        Json::Value commands;
+        
+        Game game(2, commands);
         PlayerService *ps = new PlayerService(game);
         servicesManager.registerService(ps);
-
+        
+        GameService *gs =new GameService(game);
+        servicesManager.registerService(gs);
+        
+        CommandsService *cs = new CommandsService(game);
+        servicesManager.registerService(cs);
+        
         struct MHD_Daemon *d;
         if (argc != 2) {
             printf("%s PORT\n", argv[0]);

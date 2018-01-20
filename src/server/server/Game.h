@@ -3,6 +3,7 @@
 #define SERVER__GAME__H
 
 #include <vector>
+#include <json/json.h>
 
 namespace server {
   class Player;
@@ -19,18 +20,25 @@ namespace server {
   protected:
     std::vector<Player*> players;
     int playersLimit;
+    int idPlayer;
+    Json::Value currentCommands;
     // Operations
   public:
-    Game (int playersLimit);
+    Game (int playersLimit, Json::Value commands);
     Player* player (int i);
     int addPlayer (Player* player);
     void removePlayer (int id);
     bool isFullOfPlayers ();
+    void clearCommands ();
     // Setters and Getters
     const std::vector<Player*>& getPlayers() const;
     void setPlayers(const std::vector<Player*>& players);
     int getPlayersLimit() const;
     void setPlayersLimit(int playersLimit);
+    int getIdPlayer() const;
+    void setIdPlayer(int idPlayer);
+    const Json::Value& getCurrentCommands() const;
+    void setCurrentCommands(const Json::Value& currentCommands);
   };
 
 };

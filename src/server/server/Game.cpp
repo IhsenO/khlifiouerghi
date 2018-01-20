@@ -9,9 +9,10 @@
 
 namespace server{
 
-    Game::Game(int playersLimit) : players(playersLimit) {
+    Game::Game(int playersLimit, Json::Value commands) : players(playersLimit), currentCommands(commands) {
         for(int i = 0; i < 2; i++)
             players[i] = NULL;
+        this->idPlayer = 1;
     }
 
     int Game::getPlayersLimit() const {
@@ -53,6 +54,27 @@ namespace server{
         }
         return full;
     }
+
+    int Game::getIdPlayer() const {
+        return idPlayer;
+    }
+
+    void Game::setIdPlayer(int idPlayer) {
+        this->idPlayer = idPlayer;
+    }
+
+    const Json::Value& Game::getCurrentCommands() const {
+        return currentCommands;
+    }
+
+    void Game::setCurrentCommands(const Json::Value& currentCommands) {
+        this->currentCommands = currentCommands;
+    }
+
+    void Game::clearCommands() {
+        this->currentCommands.clear();
+    }
+
     
     
 }

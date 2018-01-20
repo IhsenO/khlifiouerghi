@@ -45,8 +45,7 @@ namespace server{
                 p->name = in["name"].asString();
             }
         }
-        
-        
+
         return HttpStatus::NO_CONTENT;
     }
 
