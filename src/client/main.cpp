@@ -650,7 +650,7 @@ int main(int argc, char* argv[]) {
         delete m;
         
     }
-    
+    /*
     else if(mode == "network"){
         string nameIn;
         cout << "Connexion au Server ! Donnez votre nom :"<< endl;
@@ -740,7 +740,8 @@ int main(int argc, char* argv[]) {
         
         
     }
-    else if(mode == "test"){
+     */
+    else if(mode == "network"){
         
         string nameIn;
         cout << "Connexion au Server ! Donnez votre nom :"<< endl;
