@@ -814,6 +814,7 @@ int main(int argc, char* argv[]) {
         state.addPlayer(new Player("Joueur 1"));
         state.addPlayer(new Player("Joueur 2"));
     
+        state.setIdPlayer(1);
         Engine e(state);
 
         AI *ai1;
@@ -853,15 +854,15 @@ int main(int argc, char* argv[]) {
 
             sf::Http::Response responseGet = http.sendRequest(requestGetCommands);
             
-            cout << responseGet.getStatus() << endl;
+            //cout << responseGet.getStatus() << endl;
             
             if(responseGet.getStatus() == 200){
-                Json::Value tmp;
-                if(reader.parse(responseGet.getBody(), tmp)){
-                    e.runListCommandJson(tmp, pile);
-                    if(idPlayer == 1) state.setIdPlayer(2);
-                    else state.setIdPlayer(1);
-                }
+            Json::Value tmp;
+            if(reader.parse(responseGet.getBody(), tmp)){
+                e.runListCommandJson(tmp, pile);
+                if(idPlayer == 1) state.setIdPlayer(1);
+                else state.setIdPlayer(2);
+            }
             } 
             
             
@@ -886,8 +887,13 @@ int main(int argc, char* argv[]) {
                             requestSendCommands.setBody(tmp.toStyledString());
         
                             sf::Http::Response responseSend = http.sendRequest(requestSendCommands);
+                            if(idPlayer == 1) state.setIdPlayer(2);
+                            else state.setIdPlayer(1);
                      
                         }
+                    }
+                    else if(event.key.code == sf::Keyboard::R){
+                        
                     }
                     
                 }
