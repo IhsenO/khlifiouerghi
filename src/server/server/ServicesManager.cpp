@@ -18,7 +18,7 @@ namespace server{
 
     
     AbstractService* ServicesManager::findService(const std::string& url) const {
-        cout << url << endl;
+        //cout << url << endl;
         for(auto& service : services){
             if(url.find(service->getPattern()) != string::npos ){
                 return service;    

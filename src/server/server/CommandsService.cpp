@@ -19,7 +19,7 @@ namespace server{
     HttpStatus CommandsService::get(Json::Value& out, int id) const {
         
         if(!this->game.getCurrentCommands().empty() && game.getIdPlayer() != id){
-            std::cout << game.getCurrentCommands() << std::endl;
+            //std::cout << game.getCurrentCommands() << std::endl;
             out = game.getCurrentCommands();
             game.clearCommands();
             if(game.getIdPlayer() == 1) game.setIdPlayer(2);
