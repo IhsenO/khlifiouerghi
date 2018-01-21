@@ -801,6 +801,11 @@ int main(int argc, char* argv[]) {
             cout << "Il y a un soucis, Status : "+response2.getStatus() << endl;
         } 
         cout << response2.getBody() << endl;
+        Json::Value list;
+        if(reader.parse(response2.getBody(), list)){
+            if(list.size() == 2) cout << "Salle pleine, lancement du jeu !" << endl;
+            else cout << "Salle non remplie, ajoutez un joueur !" << endl;
+        }
         
         
         sf::Http::Request requestPlayer;
@@ -847,7 +852,18 @@ int main(int argc, char* argv[]) {
         requestSendCommands.setHttpVersion(1,1);
         requestSendCommands.setField("Content-Type", "application/x-www-form-urlencoded");
         
-        
+        //if(idPlayer == 1) cout << "Vous pouvez commencer la partie si un autre joueur est connécté ! A votre tour de jouer, pressez <espace> pour jouer !" << endl;
+        while(1){
+            sf::Http::Response response2 = http.sendRequest(request2);
+            
+            Json::Value list;
+            if(reader.parse(response2.getBody(), list)){
+                if(list.size() == 2) break;
+            }
+            usleep(1000);
+        }
+        if(idPlayer == 1) cout << "Vous pouvez commencer la partie ! A votre tour de jouer, pressez <espace> pour jouer !" << endl;
+        else cout << "Au tour de l'adversaire" << endl; 
         sf::RenderWindow window(sf::VideoMode(336, 224), nameIn);
         window.setFramerateLimit(20);
         while (window.isOpen()) {
@@ -863,6 +879,7 @@ int main(int argc, char* argv[]) {
                 e.runListCommandJson(tmp, pile);
                 if(idPlayer == 1) state.setIdPlayer(1);
                 else state.setIdPlayer(2);
+                cout << "A votre tour de jouer ! Appuyez sur <espace> pour jouer !" << endl;
             }
             } 
             
@@ -890,6 +907,7 @@ int main(int argc, char* argv[]) {
                             sf::Http::Response responseSend = http.sendRequest(requestSendCommands);
                             if(idPlayer == 1) state.setIdPlayer(2);
                             else state.setIdPlayer(1);
+                            cout << "Tour de l'adversaire !" << endl;
                      
                         }
                     }
